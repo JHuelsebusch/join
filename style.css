@@ -1,104 +1,139 @@
+@font-face {
+    font-family: Inter;
+    src: url('./font/Inter-Regular.ttf');
+    font-family: Inter-Bold;
+    src: url('./font/Inter-Bold.ttf');
+}
+
+:root {
+    --bg-main: #f5f5f5;
+    --bg-white: #ffffff;
+    --bg-blue: #2a3647;
+    --bg-highlight: #091931;
+    --font-nav: 16px;
+    --font-nav-color: #cdcdcd;
+    --font-subheadline: 21px;
+    --font-subheadline-color: #000000;
+    --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+}
+
 body {
     margin: 0px;
-    background-color:rgb(246,247,248);
+    font-family: 'Inter', sans-serif;
 }
 
 
-/* Contact CSS Start*/
-background{
-    background-color: rgb (F5F5F5);
-}
+/* Navbar & Header */
 
-.cont_section{
-display: flex;
-}
-
-.cont_main_container_left{
-width: 453px;
-height: 935px;
-left: 232px;
-top: 89px;
-background: #ffffff;
-box-shadow: 0px 4px 4px rgb(0 0 0 / 0.25);
-}
-
-.cont_main_container_left_child{
-
+.sideMenu {
+    width: 232px;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-blue);
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px;
-    position: absolute;
-    width: 357px;
-    height: 1072px;
-    left: 48px;
-    top: 2px;
-    background:(#FFFFFF);
-    height: calc(100% - 80px)
+    color: var(--font-nav-color);
+    font-size: var(--font-nav);
+    justify-content: space-evenly;
+    z-index: 2;
 }
 
-.cont_main_container_right{
-    background-color:rgb(246,247,248);
-    height: 100%;
+.logo img {
+    height: 122px;
+    width: 100px;
+    /* margin-top: 66px; */
+}
+
+.menu {
     width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 15px;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 8px 53px 8px 53px;
+    text-decoration: none;
+    color: var(--font-nav-color);
+}
+
+.menu a:hover {
+    background-color: var(--bg-highlight);
+    cursor: pointer;
+}
+
+.menu img {
+    height: 22px;
+}
+
+.legal {
+    height: 289px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.legal a {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 8px 40px 8px 53px;
+    text-decoration: none;
+    color: var(--font-nav-color);
+}
+
+.legal a:hover {
+    background-color: var(--bg-highlight);
+    cursor: pointer;
+}
+
+.header {
     position: absolute;
-    justify-content: space-between;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    right: 0;
     top: 0;
-    bottom: 0;
-    height: 100%;
-    width: 50%;
-}
-.cont_main_container_right_titel{
+    left: 0;
+    right: 0;
+    height: 49px;
+    padding: 20px 36px 20px 348px;
+    background-color: var(--bg-white);
+    color: var(--font-subheadline-color);
+    font-size: var(--font-subheadline);
+    box-shadow: var(--box-shadow);
     display: flex;
-    margin-top: 130px;
-}
-.cont_main_container_right_titel h1{
-    font-family: 'inter';
-    font-size: normal;
-    font-weight: 700;
-    font-size: 61px;
-    margin-right: 20px;
-    margin-top: 0;
-    margin-bottom: 0.5rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.cont_main_container_right_titel h3 {
+.headerProfile {
     display: flex;
     align-items: center;
-    font-weight: 400;
-    font-size: 27px;
-    margin-left: 20px;
-    margin-top:0;
-    margin-bottom: 0.5rem;
-    font-family: 'inter';
-    line-height: 1.2;
+    gap: 34px;
 }
 
-
-.cont_separator{
-    border-left: 3px solid #29abe2;
-    margin-top: 7px;
-    margin-bottom: 10px
+.headerProfile img:hover {
+    cursor: pointer;
 }
-.cont_add_btn{
+
+.headerProfile div {
+    background: var(--bg-highlight);
+    border-radius: 559px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 18px 10px;
-    gap: 10px;
-    width: 193px;
-    height: 53px;
-    background: #2a3647;
-    border: 1px solid #2a3647;
-    border-radius: 10px;
-    color: white;
-    font-weight: 700;
-    font-size: 20px;
-    margin-left: 400px;
-    margin-bottom: 40px;
+    align-items: center;
+    height: 49px;
+    width: 49px;
+}
+
+.headerProfile div img {
+    border: 2px solid var(--bg-white);
+    border-radius: 559px;
+    height: 41px;
+    width: 41px;
 }
