@@ -17,9 +17,20 @@
     --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
 }
 
+
+/* Mobile ab max-width 850px */
+
 body {
     margin: 0px;
     font-family: 'Inter', sans-serif;
+}
+
+.dNone {
+    display: none;
+}
+
+.dOn {
+    display: flex;
 }
 
 
@@ -111,6 +122,10 @@ body {
     align-items: center;
 }
 
+.mobileLogo {
+    display: none;
+}
+
 .headerProfile {
     display: flex;
     align-items: center;
@@ -138,10 +153,94 @@ body {
     width: 41px;
 }
 
-/* Contact CSS Start*/
-background {
-    background-color: rgb (F5F5F5);
+.headerProfile div img:hover {
+    border: 3px solid darkviolet;
+    cursor: pointer;
 }
+
+.profileMenu {
+    background-color: var(--bg-blue);
+    color: var(--font-nav-color);
+    position: absolute;
+    top: 89px;
+    right: 36px;
+    border-radius: 10px 0px 10px 10px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profileMenu div {
+    padding: 18px;
+    cursor: pointer;
+}
+
+.mobileProfileMenu {
+    display: none;
+}
+
+
+/* Navbar & Header Responsive */
+
+@media(max-width:850px) {
+    .sideMenu {
+        display: none;
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        height: 80px;
+        justify-content: space-evenly;
+    }
+    .logo {
+        display: none;
+    }
+    .legal {
+        display: none;
+    }
+    .menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+    .menu a {
+        display: flex;
+        flex-direction: column;
+    }
+    .header {
+        height: 39px;
+        padding: 20px 25px;
+    }
+    .mobileLogo {
+        display: block;
+        height: 39px;
+    }
+    .mobileLogo img {
+        height: 39px;
+        object-fit: contain;
+    }
+    .subheadline {
+        display: none;
+    }
+    .headerProfile a {
+        display: none;
+    }
+    .headerProfile div {
+        height: 39px;
+        width: 39px;
+    }
+    .headerProfile div img {
+        height: 31px;
+        width: 31px;
+    }
+    .profileMenu {
+        top: 79px;
+        right: 20px;
+    }
+    .mobileProfileMenu {
+        display: block;
+    }
+}
+
+
+/* Contact CSS Start*/
 
 .cont_section {
     display: flex;
@@ -157,7 +256,6 @@ background {
 }
 
 .cont_main_container_left_child {
-
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -214,7 +312,6 @@ background {
     font-family: 'inter';
     line-height: 1.2;
 }
-
 
 .cont_separator {
     border-left: 3px solid #29abe2;

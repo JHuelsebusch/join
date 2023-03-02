@@ -1,3 +1,7 @@
+/**
+ * This function is used to generate side navbar and header
+ * @returns HTML code of navbar and header
+ */
 function getNavbarTemplate() {
     return `
         <div class="sideMenu">
@@ -16,10 +20,16 @@ function getNavbarTemplate() {
             </div>
         </div>
         <div class="header">
+            <div class="mobileLogo"><img src=./img/join-logo.svg></div>
             <div class="subheadline">Kanban Project Management Tool</div>
             <div class="headerProfile">
                 <a href="help.html"><img src="./img/icon-help-head.svg" alt=""></a>
-                <div><img src="./img/christina-wocintechchat-com-0Zx1bDv5BNY-unsplash 1.png" alt=""></div>
+                <div onclick="showProfileMenu()"><img src="./img/christina-wocintechchat-com-0Zx1bDv5BNY-unsplash 1.png" alt=""></div>
+            </div>
+            <div class="profileMenu dNone" id="profileMenu">
+                <div class="mobileProfileMenu">Help</div>
+                <div class="mobileProfileMenu">Legal notice</div>
+                <div>Log Out</div>
             </div>
         </div>`
 }
