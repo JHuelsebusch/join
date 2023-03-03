@@ -1,0 +1,108 @@
+.board {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 89px);
+    padding: 89px 60px 0px 292px;
+}
+
+.boardHead {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 82px 0px;
+}
+
+.sectionHeadline {
+    font-size: var(--font-sectionHeadline);
+    font-weight: 700;
+    line-height: 120%;
+}
+
+.boardHead div {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.searchForm {
+    position: relative;
+}
+
+.input {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 13px 21px;
+    gap: 10px;
+    width: 209px;
+    height: 25px;
+    background: var(--bg-white);
+    border: 1px solid #A8A8A8;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.searchIcon {
+    position: absolute;
+    right: 0px;
+    top: 11px;
+    height: 31px;
+    background-color: unset;
+    border: none;
+    border-left: 1px solid #d1d1d1;
+    cursor: pointer;
+}
+
+.searchIcon img {
+    padding: 0px 10px;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px !important;
+    padding: 18px 10px;
+    width: 117px;
+    height: 15px;
+    background: var(--bg-blue);
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 21px;
+    color: var(--text-white);
+    cursor: pointer;
+    transition: all ease-in-out 125ms;
+}
+
+.btn:hover {
+    background-color: var(--bg-highlight-light-blue);
+    box-shadow: var(--btn-shadow);
+    transition: all ease-in-out 125ms;
+}
+
+.boardTaskStatus {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.boardTaskStatus div {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.boardTaskStatus div span {
+    font-size: var(--font-subheadline);
+    font-weight: 700;
+    color: var(--text-blue);
+}
+
+.boardTaskStatus div img:hover {
+    cursor: pointer;
+    filter: invert(54%) sepia(85%) saturate(1114%) hue-rotate(165deg) brightness(96%) contrast(85%);
+}

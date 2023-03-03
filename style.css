@@ -10,11 +10,16 @@
     --bg-white: #ffffff;
     --bg-blue: #2a3647;
     --bg-highlight: #091931;
+    --bg-highlight-light-blue: #29ABE2;
+    --btn-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     --font-nav: 16px;
     --font-nav-color: #cdcdcd;
     --font-subheadline: 21px;
     --font-subheadline-color: #000000;
     --box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    --font-sectionHeadline: 61px;
+    --text-white: #ffffff;
+    --text-blue: #2A3647;
 }
 
 
@@ -23,6 +28,7 @@
 body {
     margin: 0px;
     font-family: 'Inter', sans-serif;
+    font-size: 16px;
 }
 
 .dNone {

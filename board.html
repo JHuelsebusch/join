@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Board</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/board.css">
     <script src="script.js"></script>
     <script src="./template/template.js"></script>
+    <script src="./js/board.js"></script>
     <link rel="shortcut icon" href="img/logo-white.svg" type="image/x-icon">
 </head>
 
@@ -17,6 +19,46 @@
     <nav id="navbar">
 
     </nav>
+    <section class="board">
+        <div class="boardHead">
+            <span class="sectionHeadline">Board</span>
+            <div>
+                <form class="searchForm" onsubmit=" ;return false">
+                    <input type="text" required class="input" placeholder="Find Task">
+                    <button class="searchIcon"><img src="./img/icon-search.svg" alt=""></button>
+                </form>
+                <div class="btn">
+                    <span>Add task</span>
+                    <img src="./img/icon-add-plus-white.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="boardTaskStatus">
+            <div>
+                <span>To do</span>
+                <img src="./img/plus-button.svg" alt="">
+            </div>
+            <div>
+                <span>In Progress</span>
+                <img src="./img/plus-button.svg" alt="">
+            </div>
+            <div>
+                <span>Awaiting Feedback</span>
+                <img src="./img/plus-button.svg" alt="">
+            </div>
+            <div>
+                <span>Done</span>
+                <img src="./img/plus-button.svg" alt="">
+            </div>
+        </div>
+        <div class="boardTask">
+            <div id="toDo"></div>
+            <div id="inProgress"></div>
+            <div id="awaitingFeedback"></div>
+            <div id="done"></div>
+        </div>
+    </section>
+
 </body>
 
 </html>
