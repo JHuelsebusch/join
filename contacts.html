@@ -11,6 +11,7 @@
     <script src="./template/template.js"></script>
     <link rel="shortcut icon" href="img/logo-white.svg" type="image/x-icon" />
     <script src="js/script.js"></script>
+    <script src="js/contacts.js"></script>
   </head>
 
   <body onload="init()">
@@ -34,16 +35,18 @@
           <h3>Better with a team</h3>
         </div>
 
+         <!--  push contact info  -->
+        <div class="cont_infos" id="con_infos"></div>
+
+
         <div class="cont_add">
-          <button class="cont_add_btn">
+          <button onclick="showAddedCont()" class="cont_add_btn">
             New contact&nbsp;<img
-              src="img/contact_icon.svg"
-              alt=""
-              srcset=""
-            />
-          </button>
+              src="img/contact_icon.svg"/></button>
         </div>
       </div>
     </section>
+
+
   </body>
 </html>
