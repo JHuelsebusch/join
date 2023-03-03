@@ -1,11 +1,12 @@
 let task = [{
-    titel: "'Call potential clients'",
+    titel: 'Call potential clients',
     description: 'Make the product presentation to prospective buyers',
     date: '',
     priority: 'urgent',
     assignedTo: 'David Eisenberg',
     department: 'Sales',
     taskStatus: 'To do',
+    subtasks: []
 }, {
     titel: 'Accounting invoices',
     description: 'Write open invoices for customer',
@@ -14,6 +15,7 @@ let task = [{
     assignedTo: 'Marcel Bauer',
     department: 'Backoffice',
     taskStatus: 'Awaiting Feedback',
+    subtasks: []
 }, {
     titel: 'Video Cut',
     description: 'Edit the new company video',
@@ -22,4 +24,5 @@ let task = [{
     assignedTo: 'HK',
     department: 'Media',
     taskStatus: 'In progress',
+    subtasks: []
 }];
