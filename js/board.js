@@ -15,6 +15,7 @@ function renderBoard() {
         }
         generateAssignedTo(task);
     }
+    generateOnDragTask(); // empty task layout for dragging
 }
 
 function generateEmptyBoard() {
@@ -23,6 +24,16 @@ function generateEmptyBoard() {
     document.getElementById('awaitingFeedback').innerHTML = '';
     document.getElementById('done').innerHTML = '';
 }
+function generateOnDragTask() {
+    document.getElementById('toDo').innerHTML += createOnDragTask('toDo');
+    document.getElementById('inProgress').innerHTML += createOnDragTask('inProgress');
+    document.getElementById('awaitingFeedback').innerHTML += createOnDragTask('awaitingFeedback');
+    document.getElementById('done').innerHTML += createOnDragTask('done');
+}
+function createOnDragTask(id) {
+    return `<div class="onDrag dNone" id="onDragTask${id}"></div>`
+}
+
 function generateProgressBar(task){
     let amountSubtasks = task['subtasks'].length;
     let checkedSubtasks = task['subtasks'].filter(function(element){return element.subtaskDone == "checked";});
@@ -53,8 +64,6 @@ function generateAssignedTo(task){
         let moreUsers=assignedTo.length-2
         document.getElementById(`taskAssignedTo${task['id']}`).innerHTML+=createAssignedToMoreUsers(moreUsers);
     }
-
-    
 }
 function createAssignedTo(name){
     return `<div class="green">${name}</div>`
@@ -92,6 +101,7 @@ function startDragging(id) {
     currentDraggedElement = id;
     document.getElementById(`task${id}`).classList.add('draggedTask');
     console.log(currentDraggedElement);
+    showDropCont();
 }
 function allowDrop(event) {
     event.preventDefault();
@@ -99,4 +109,21 @@ function allowDrop(event) {
 function moveTo(taskStatus) {
     tasks[currentDraggedElement]['taskStatus'] = taskStatus;
     renderBoard();
+}
+function showDropCont(){
+    let taskIds = ['toDo','inProgress','awaitingFeedback','done'];
+    // let newIds = taskIds.splice(n,1);
+    for (let i = 0; i < taskIds.length; i++) {
+        let id = taskIds[i];
+        document.getElementById(`onDragTask${id}`).classList.remove('dNone');
+}
+}
+function highlightDrop(n){
+    let taskIds = ['toDo','inProgress','awaitingFeedback','done'];
+    let newIds = taskIds.splice(n,1);
+    for (let i = 0; i < newIds.length; i++) {
+        let id = newIds[i];
+        document.getElementById(`onDragTask${id}`).classList.remove('dNone');
+    }
+    
 }
