@@ -1,9 +1,17 @@
 let currentDraggedElement;
 
+
+/**
+ * Startfunction at board
+ */
 function initBoard() {
     renderBoard();
 }
 
+
+/**
+ * This function renders all tasks on the board
+ */
 function renderBoard() {
     generateEmptyBoard();
     for (let i = 0; i < tasks.length; i++) {
@@ -18,22 +26,33 @@ function renderBoard() {
     generateOnDragTask(); // empty task layout for dragging
 }
 
+
+/**
+ * This function clear all tasks on the board
+ */
 function generateEmptyBoard() {
     document.getElementById('toDo').innerHTML = '';
     document.getElementById('inProgress').innerHTML = '';
     document.getElementById('awaitingFeedback').innerHTML = '';
     document.getElementById('done').innerHTML = '';
 }
+
+
+/**
+ * This function creates empty task container 
+ */
 function generateOnDragTask() {
     document.getElementById('toDo').innerHTML += createOnDragTask('toDo');
     document.getElementById('inProgress').innerHTML += createOnDragTask('inProgress');
     document.getElementById('awaitingFeedback').innerHTML += createOnDragTask('awaitingFeedback');
     document.getElementById('done').innerHTML += createOnDragTask('done');
 }
-function createOnDragTask(id) {
-    return `<div class="onDrag dNone" id="onDragTask${id}"></div>`
-}
 
+
+/**
+ * This function is used to calculate parameters of progress bar
+ * @param {array} task - This is the task that you want to show 
+ */
 function generateProgressBar(task){
     let amountSubtasks = task['subtasks'].length;
     let checkedSubtasks = task['subtasks'].filter(function(element){return element.subtaskDone == "checked";});
@@ -42,6 +61,12 @@ function generateProgressBar(task){
     document.getElementById(`taskSubtask${task['id']}`).innerHTML += createProgressBarOnTask(amountCheckedSubtasks, amountSubtasks, percentCheckedSubtasks)
     
 }
+
+
+/**
+ * This function is used to generate shown users on task
+ * @param {array} task - This is the task that you want to show 
+ */
 function generateAssignedTo(task){
     let assignedTo = task['assignedTo'];
     document.getElementById(`taskAssignedTo${task['id']}`).innerHTML=``;
@@ -65,51 +90,41 @@ function generateAssignedTo(task){
         document.getElementById(`taskAssignedTo${task['id']}`).innerHTML+=createAssignedToMoreUsers(moreUsers);
     }
 }
-function createAssignedTo(name){
-    return `<div class="green">${name}</div>`
-}
-function createAssignedToMoreUsers(moreUsers){
-    return `<div class="green">+${moreUsers}</div>`
-}
 
-function createTaskOnBoard(task) {
-    return `
-    <div draggable="true" ondragstart="startDragging(${task['id']})" class="task" id="task${task['id']}">
-        <div>
-            <div class="taskDepartment ${task['department']}">${task['department']}</div>
-        </div>
-        <div class="taskTitle">${task['title']}</div>
-        <div class="taskDescription">${task['description']}</div>
-        <div class="taskSubtask" id="taskSubtask${task['id']}"></div>
-        <div class="taskBottom">
-            <div class="taskAssignedTo" id="taskAssignedTo${task['id']}">
-                <div class="green">JH</div>
-            </div>
-            <div class="taskPriority"><img src="./img/prio-${task['priority']}.svg" alt=""></div>
-        </div>
-    </div>
-    `
-}
-function createProgressBarOnTask(amountCheckedSubtasks, amountSubtasks, percentCheckedSubtasks){
-    return `<div class="subtaskProgressBar">
-                <div class="innerProgressBar" style="width: ${percentCheckedSubtasks}%;"></div>
-            </div>
-            <span>${amountCheckedSubtasks}/${amountSubtasks} Done</span>
-    `
-}
+
+/**
+ * This function allowed the user to drag an element to other container
+ * @param {number} id - This is the id of current dragged task 
+ */
 function startDragging(id) {
     currentDraggedElement = id;
-    document.getElementById(`task${id}`).classList.add('draggedTask');
-    console.log(currentDraggedElement);
+    document.getElementById(`task${id}`).classList.add('draggedTask')
     showDropCont();
 }
+
+
+/**
+ * This function allowed the user to drop the dragged element in current space
+ *
+ * @param {event} event - This event allows user to drop element in current space
+ */
 function allowDrop(event) {
     event.preventDefault();
 }
+
+/**
+ * This function changes task status
+ * @param {string} taskStatus - This is the new task status
+ */
 function moveTo(taskStatus) {
     tasks[currentDraggedElement]['taskStatus'] = taskStatus;
     renderBoard();
 }
+
+
+/**
+ * This function shows empty task container, where you can drop task
+ */
 function showDropCont(){
     let draggedTaskStatus = tasks[currentDraggedElement]['taskStatus'];
     let taskIds = ['toDo','inProgress','awaitingFeedback','done'];
@@ -118,11 +133,16 @@ function showDropCont(){
     for (let i = 0; i < taskIds.length; i++) {
         let id = taskIds[i];
         document.getElementById(`onDragTask${id}`).classList.remove('dNone');
+    }
 }
-}
+
+
+/**
+ * This function shows only one empty task container
+ * @param {number} n - This is the position, where container should be shown
+ */
 function highlightDrop(n){
     let taskIds = ['toDo','inProgress','awaitingFeedback','done'];
-
     if(tasks[currentDraggedElement]['taskStatus'] == taskIds[n]){
     } else {
         taskIds.splice(n,1);
