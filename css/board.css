@@ -213,6 +213,11 @@
     margin-right: -8px;
 }
 
+.draggedTask {
+    transform: rotate(2.5deg);
+    transition: all ease-in-out 125ms;
+}
+
 .green {
     background-color: green;
 }

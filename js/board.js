@@ -42,7 +42,16 @@ function generateAssignedTo(task){
             name = name.join('');
             document.getElementById(`taskAssignedTo${task['id']}`).innerHTML+=createAssignedTo(name);
         }
-        
+    } else {
+        for (let n = 0; n < 2; n++) {
+            let name = assignedTo[n];
+            name = name.toLowerCase().split(' ');
+            name = name.map(word => word.charAt(0).toUpperCase());
+            name = name.join('');
+            document.getElementById(`taskAssignedTo${task['id']}`).innerHTML+=createAssignedTo(name);
+        }
+        let moreUsers=assignedTo.length-2
+        document.getElementById(`taskAssignedTo${task['id']}`).innerHTML+=createAssignedToMoreUsers(moreUsers);
     }
 
     
@@ -50,10 +59,13 @@ function generateAssignedTo(task){
 function createAssignedTo(name){
     return `<div class="green">${name}</div>`
 }
+function createAssignedToMoreUsers(moreUsers){
+    return `<div class="green">+${moreUsers}</div>`
+}
 
 function createTaskOnBoard(task) {
     return `
-    <div draggable="true" ondragstart="startDragging(${task['id']})" class="task">
+    <div draggable="true" ondragstart="startDragging(${task['id']})" class="task" id="task${task['id']}">
         <div>
             <div class="taskDepartment ${task['department']}">${task['department']}</div>
         </div>
@@ -78,6 +90,7 @@ function createProgressBarOnTask(amountCheckedSubtasks, amountSubtasks, percentC
 }
 function startDragging(id) {
     currentDraggedElement = id;
+    document.getElementById(`task${id}`).classList.add('draggedTask');
     console.log(currentDraggedElement);
 }
 function allowDrop(event) {
