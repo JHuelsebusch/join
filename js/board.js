@@ -111,8 +111,10 @@ function moveTo(taskStatus) {
     renderBoard();
 }
 function showDropCont(){
+    let draggedTaskStatus = tasks[currentDraggedElement]['taskStatus'];
     let taskIds = ['toDo','inProgress','awaitingFeedback','done'];
-    // let newIds = taskIds.splice(n,1);
+    let taskIdPos = taskIds.indexOf(draggedTaskStatus);
+    taskIds.splice(taskIdPos,1);
     for (let i = 0; i < taskIds.length; i++) {
         let id = taskIds[i];
         document.getElementById(`onDragTask${id}`).classList.remove('dNone');
@@ -120,10 +122,13 @@ function showDropCont(){
 }
 function highlightDrop(n){
     let taskIds = ['toDo','inProgress','awaitingFeedback','done'];
-    let newIds = taskIds.splice(n,1);
-    for (let i = 0; i < newIds.length; i++) {
-        let id = newIds[i];
-        document.getElementById(`onDragTask${id}`).classList.remove('dNone');
+
+    if(tasks[currentDraggedElement]['taskStatus'] == taskIds[n]){
+    } else {
+        taskIds.splice(n,1);
+        for (let i = 0; i < taskIds.length; i++) {
+            let id = taskIds[i];
+            document.getElementById(`onDragTask${id}`).classList.add('dNone');
+        }
     }
-    
 }
