@@ -193,6 +193,7 @@ body {
 }
 
 .cont_main_container_right_titel h1 {
+    font-family: Inter-Bold;
     display: flex;
     font-weight: 700;
     font-size: 61px;
@@ -202,6 +203,7 @@ body {
 }
 
 .cont_main_container_right_titel h3 {
+    font-family: 'Inter', sans-serif;
     display: flex;
     align-items: center;
     color: #2A3647;
@@ -243,6 +245,7 @@ body {
     margin-left: 400px;
     margin-bottom: 40px;
 }
+
 
 /*---RESPONSIVE */
 
