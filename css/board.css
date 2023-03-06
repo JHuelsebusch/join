@@ -142,6 +142,10 @@
     color: var(--text-white);
 }
 
+.taskDepartment::first-letter {
+    text-transform: uppercase;
+}
+
 .taskTitle {
     font-weight: 700;
     font-size: 16px;
@@ -163,6 +167,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
 }
 
 .subtaskProgressBar {
@@ -208,4 +213,20 @@
 
 .sales {
     background-color: #FC71FF;
+}
+
+.design {
+    background-color: #FF7A00;
+}
+
+.backoffice {
+    background-color: #1FD7C1;
+}
+
+.media {
+    background-color: #FFC701;
+}
+
+.marketing {
+    background-color: #0038FF;
 }

@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="./css/board.css">
     <script src="script.js"></script>
     <script src="./template/template.js"></script>
+    <script src="./js/tasks.js"></script>
     <script src="./js/board.js"></script>
+
     <link rel="shortcut icon" href="img/logo-white.svg" type="image/x-icon">
 </head>
 
@@ -52,30 +54,10 @@
             </div>
         </div>
         <div class="boardTask">
-            <div class="taskToDo" id="toDo">
-                <div class="task">
-                    <div>
-                        <div class="taskDepartment sales">Sales</div>
-                    </div>
-                    <div class="taskTitle">Call</div>
-                    <div class="taskDescription"> Make the product</div>
-                    <div class="taskSubtask">
-                        <div class="subtaskProgressBar">
-                            <div class="innerProgressBar" style="width: 50%;"></div>
-                        </div>
-                        <span>1/2 Done</span>
-                    </div>
-                    <div class="taskBottom">
-                        <div class="taskAssignedTo">
-                            <div class="green">JH</div>
-                        </div>
-                        <div class="taskPriority"><img src="./img/prio-medium.svg" alt=""></div>
-                    </div>
-                </div>
-            </div>
-            <div class="taskInProgress" id="inProgress"></div>
-            <div class="taskAwaitingFeedback" id="awaitingFeedback"></div>
-            <div class="taskDone" id="done"></div>
+            <div class="taskToDo" id="toDo" ondrop="moveTo('toDo')" ondragover="allowDrop(event)"></div>
+            <div class="taskInProgress" id="inProgress" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)"></div>
+            <div class="taskAwaitingFeedback" id="awaitingFeedback" ondrop="moveTo('awaitingFeedback')" ondragover="allowDrop(event)"></div>
+            <div class="taskDone" id="done" ondrop="moveTo('done')" ondragover="allowDrop(event)"></div>
         </div>
     </section>
 
