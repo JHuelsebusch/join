@@ -346,6 +346,27 @@ body {
     isolation: isolate;
     gap: 12px;
 }
+.contAddRightClose{
+    position: absolute;
+    cursor: pointer;
+    top: 25px;
+    right: 25px;
+}
+.contAddEdit{
+    display: flex;
+}
+
+.contAddEditIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    background: #d1d1d1;
+    margin-right: 30px;
+    border: 2px solid white;
+}
 
 /*---RESPONSIVE */
 @media(max-width:1660px) {

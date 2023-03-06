@@ -31,15 +31,18 @@ function addContactHTML() {
                 </div>
 
                 <div class="contAddRight">
-                    <div> <img src="/img/contact_close.svg" alt=""></div>
-                    <form onsubmit="addContact()">
-                        <input required id = "inputName" type= "text" placeholder="Name Surname"></input>
-                        <input required id = "inputMail" type= "email" placeholder="EMail"></input>
-                        <input required id = "inputPhone" type= "tel" placeholder="Phone"></input>
+                    <div class= "contAddRightClose"> <img src="/img/contact_close.svg" alt=""></div>
+                    <div class="contAddEdit">
+                        <div class="contAddEditIcon"> <img src="/img/contacts_icon1.svg" alt=""></div>
+                        <form onsubmit="addContact()">
+                            <input required id = "inputName" type= "text" placeholder="Name Surname"></input>
+                            <input required id = "inputMail" type= "email" placeholder="EMail"></input>
+                            <input required id = "inputPhone" type= "tel" placeholder="Phone"></input>
 
-                        <button>Cancel</button>
-                        <button>Create contact</button>
-                    </form>
+                            <button>Cancel</button>
+                            <button>Create contact</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
