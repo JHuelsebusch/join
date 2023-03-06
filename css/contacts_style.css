@@ -336,8 +336,14 @@ body {
 }
 
 /*---RESPONSIVE */
+@media(max-width:1660px) {
+    .cont_main_container_right_titel{
+        margin-left: 17px;
+    }
 
-@media(max-width:1680px) {
+}
+
+@media(max-width:1593px) {
 
     .cont_main_container_left{
         z-index: 0;
@@ -345,7 +351,10 @@ body {
 
     }
     .cont_main_container_right{
-
+        z-index: 0;
+        margin-left: 800px;
+        box-shadow: 6px 0px 6px hsla(300,15%,50%,0.1) inset;
 
     }
+    
 }
