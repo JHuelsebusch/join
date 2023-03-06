@@ -1,5 +1,9 @@
 let currentDraggedElement;
 
+function initBoard() {
+    renderBoard();
+}
+
 function renderBoard() {
     generateEmptyBoard();
     for (let i = 0; i < tasks.length; i++) {
@@ -9,7 +13,7 @@ function renderBoard() {
         if(task['subtasks'].length>0){
             generateProgressBar(task);
         }
-
+        generateAssignedTo(task);
     }
 }
 
@@ -27,6 +31,25 @@ function generateProgressBar(task){
     document.getElementById(`taskSubtask${task['id']}`).innerHTML += createProgressBarOnTask(amountCheckedSubtasks, amountSubtasks, percentCheckedSubtasks)
     
 }
+function generateAssignedTo(task){
+    let assignedTo = task['assignedTo'];
+    document.getElementById(`taskAssignedTo${task['id']}`).innerHTML=``;
+    if(assignedTo.length<4){
+        for (let n = 0; n < assignedTo.length; n++) {
+            let name = assignedTo[n];
+            name = name.toLowerCase().split(' ');
+            name = name.map(word => word.charAt(0).toUpperCase());
+            name = name.join('');
+            document.getElementById(`taskAssignedTo${task['id']}`).innerHTML+=createAssignedTo(name);
+        }
+        
+    }
+
+    
+}
+function createAssignedTo(name){
+    return `<div class="green">${name}</div>`
+}
 
 function createTaskOnBoard(task) {
     return `
@@ -38,7 +61,7 @@ function createTaskOnBoard(task) {
         <div class="taskDescription">${task['description']}</div>
         <div class="taskSubtask" id="taskSubtask${task['id']}"></div>
         <div class="taskBottom">
-            <div class="taskAssignedTo">
+            <div class="taskAssignedTo" id="taskAssignedTo${task['id']}">
                 <div class="green">JH</div>
             </div>
             <div class="taskPriority"><img src="./img/prio-${task['priority']}.svg" alt=""></div>
