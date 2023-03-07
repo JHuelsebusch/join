@@ -153,6 +153,11 @@ function highlightDrop(n){
     }
 }
 
+
+/**
+ * Ths function is used to show big task
+ * @param {number} id - This is the Id of task you want to show
+ */
 function showBigTask(id){
     let task = tasks[id];
     document.getElementById('bigTaskBg').classList.remove('dNone');
@@ -160,6 +165,11 @@ function showBigTask(id){
     generateBigTaskAssignedTo(task);
 }
 
+
+/**
+ * This function is used to generate "assigned to"-section on big task 
+ * @param {array} task - This is the task you want to show
+ */
 function generateBigTaskAssignedTo(task){
     let assignedTo = task['assignedTo'];
     for (let n = 0; n < assignedTo.length; n++) {
@@ -169,4 +179,21 @@ function generateBigTaskAssignedTo(task){
         initials = initials.join('');
         document.getElementById(`bigTaskAssignedTo${task['id']}`).innerHTML+=createBigTaskAssignedTo(name, initials);
     }
+}
+
+
+/**
+ * This function is used to close big task
+ */
+function closeBigTask(){
+    document.getElementById('bigTaskBg').classList.add('dNone');
+}
+
+
+/**
+ * This function is used to cancel closing big task on clicking at task
+ * @param {event} event 
+ */
+function doNotCloseBigTask(event){
+    event.stopPropagation();
 }

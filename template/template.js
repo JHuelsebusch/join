@@ -98,7 +98,7 @@ function createAssignedTo(initials) {
 
 
 /**
- * This function to used to create amount of more users
+ * This function is used to create amount of more users
  * @param {number} moreUsers - This is the amount you want to show
  * @returns HTML code
  */
@@ -106,9 +106,16 @@ function createAssignedToMoreUsers(moreUsers) {
     return `<div class="green">+${moreUsers}</div>`
 }
 
+
+
+/**
+ * This function is used to create big task
+ * @param {array} task - This is the task you want to show
+ * @returns HTML code
+ */
 function createBigTask(task) {
     return `
-    <div class="bigTaskCancel"><img src="./img/icons-cancel.svg"></div>
+    <div class="bigTaskCancel"><img src="./img/icons-cancel.svg" onclick="closeBigTask()"></div>
     <div class="bigTaskEdit"><img src="./img/pencil-white.svg"></div>
     <div>
         <div class="bigTaskDepartment ${task['department']}">${task['department']}</div>
@@ -125,7 +132,7 @@ function createBigTask(task) {
             <img src="./img/prio-white-${task['priority']}.svg">
         </div>
     </div>
-    <div class="bigTaskSubtask" id="bigTaskSubtask${task['id']}"></div>
+    <div class="bigTaskSubtask dNone" id="bigTaskSubtask${task['id']}"></div>
     <div class="bigTaskBottom">
         <div class="bigTaskSubtitle">Assigned To:</div>
         <div class="bigTaskAssignedTo" id="bigTaskAssignedTo${task['id']}">
@@ -134,12 +141,18 @@ function createBigTask(task) {
 `
 }
 
+
+/**
+ * This function is used to create one assigned user
+ * @param {string} name - This is the name of user
+ * @param {*} initials - These are the initials of user
+ * @returns HTML code
+ */
 function createBigTaskAssignedTo(name, initials) {
     return `
     <div>
         <div class="bigTaskInitials green">${initials}</div>
         <div>${name}</div>
     </div>
-    
     `
 }

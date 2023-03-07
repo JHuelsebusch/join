@@ -60,8 +60,8 @@
             <div class="taskDone" id="done" ondrop="moveTo('done')" ondragover="allowDrop(event); highlightDrop(3)" ondragleave="showDropCont()"></div>
         </div>
     </section>
-    <section class="bigTaskBg dNone" id="bigTaskBg">
-        <div class="bigTask" id="bigTask">
+    <section class="bigTaskBg dNone" id="bigTaskBg" onclick="closeBigTask()">
+        <div class="bigTask" id="bigTask" onclick="doNotCloseBigTask(event)">
 
         </div>
     </section>

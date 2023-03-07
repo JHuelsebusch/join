@@ -392,6 +392,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+}
+
+.bigTaskEdit:hover {
+    background-color: var(--bg-highlight-light-blue);
 }
 
 
