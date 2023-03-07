@@ -152,3 +152,22 @@ function highlightDrop(n){
         }
     }
 }
+
+function showBigTask(id){
+    let task = tasks[id];
+    document.getElementById('bigTaskBg').classList.remove('dNone');
+    document.getElementById('bigTask').innerHTML = createBigTask(task);
+    generateBigTaskAssignedTo(task);
+}
+
+function generateBigTaskAssignedTo(task){
+    let assignedTo = task['assignedTo'];
+    // document.getElementById(`bigTaskAssignedTo${task['id']}`).innerHTML=``;
+    for (let n = 0; n < assignedTo.length; n++) {
+        let name = assignedTo[n];
+        initials = name.toLowerCase().split(' ');
+        initials = initials.map(word => word.charAt(0).toUpperCase());
+        initials = initials.join('');
+        document.getElementById(`bigTaskAssignedTo${task['id']}`).innerHTML+=createBigTaskAssignedTo(name, initials);
+    }
+}

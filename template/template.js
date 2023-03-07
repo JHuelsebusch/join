@@ -42,7 +42,7 @@ function getNavbarTemplate() {
  */
 function createTaskOnBoard(task) {
     return `
-    <div draggable="true" ondragstart="startDragging(${task['id']})" class="task" id="task${task['id']}">
+    <div draggable="true" ondragstart="startDragging(${task['id']})" onclick="showBigTask(${task['id']})" class="task" id="task${task['id']}">
         <div>
             <div class="taskDepartment ${task['department']}">${task['department']}</div>
         </div>
@@ -103,4 +103,40 @@ function createAssignedTo(initials) {
  */
 function createAssignedToMoreUsers(moreUsers) {
     return `<div class="green">+${moreUsers}</div>`
+}
+
+function createBigTask(task) {
+    return `
+    <div>
+        <div class="bigTaskDepartment ${task['department']}">${task['department']}</div>
+    </div>
+    <div class="bigTaskTitle">${task['title']}</div>
+    <div class="bigTaskDescription">${task['description']}</div>
+    <div class="bigTaskDate">
+        <div class="bigTaskSubtitle">Due date:</div><div>${task['date']}</div>
+    </div>
+    <div class="bigTaskPriority">
+        <div class="bigTaskSubtitle">Priority:</div>
+        <div class="bigTaskPriorityChild ${task['priority']}">
+            <span>${task['priority']}</span>
+            <img src="./img/prio-white-${task['priority']}.svg">
+        </div>
+    </div>
+    <div class="bigTaskSubtask" id="bigTaskSubtask${task['id']}"></div>
+    <div class="bigTaskBottom">
+        <div class="bigTaskSubtitle">Assigned To:</div>
+        <div class="bigTaskAssignedTo" id="bigTaskAssignedTo${task['id']}">
+        </div>
+    </div>
+`
+}
+
+function createBigTaskAssignedTo(name, initials) {
+    return `
+    <div>
+        <div class="bigTaskInitials green">${initials}</div>
+        <div>${name}</div>
+    </div>
+    
+    `
 }

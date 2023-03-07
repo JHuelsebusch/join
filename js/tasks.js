@@ -4,7 +4,7 @@ let tasks = [{
     description: 'Make the product presentation to prospective buyers',
     date: '',
     priority: 'urgent',
-    assignedTo: ['David Eisenberg', 'Janis Hülsebusch', 'Arzum', 'Elvin'],
+    assignedTo: ['David Eisenberg', 'Benedikt Ziegler', 'Marcel Bauer', 'Stefanie Farber'],
     department: 'sales',
     taskStatus: 'toDo',
     subtasks: [{
