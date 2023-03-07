@@ -164,6 +164,7 @@ body {
     padding-left: 50px;
     padding-right: 50px;
     flex-direction: column;
+    overflow-y: scroll;
 
 }
 
@@ -479,6 +480,8 @@ body {
     cursor: pointer;
 	background: #29abe2;
 }
+
+
 
 /*---RESPONSIVE */
 @media(max-width:1660px) {
