@@ -65,25 +65,28 @@
           Sign up
         </button>
       </div>
-      <!-- For Sign-Up -->
+      <div id="signup-container" class="signup-container">
+        <!-- SignUp Seite -->
+        <div id="signup-Box" class="signup-Box ">
+            <h1>Sign up</h1>
+            <div class="dummy"></div>
+            <form onsubmit="trySignup(); return false;" class="form-style">
+                <div class="formular-inputdesign"><input required type="text" minlength="5" pattern="^(\w\w+)\s(\w+)$"
+                        id="signup-name" placeholder="Name Surname" type="text"><img src="img/icon-user.svg"></div>
+                <div class="formular-inputdesign"><input required type="email" id="signup-email" placeholder="Email"
+                        type="text"><img src="img/email_input.svg"></div>
+                <div class="formular-inputdesign"><input required type="password" minlength="5" id="signup-password"
+                        placeholder="Password" type="text"><img src="img/password_input.svg"></div>
+                <div class="login-buttons"><button class="signup-user">Sign up</button></div>
+            </form>
+            <img id="backfromsignup" onclick="showLoginForm2();" class="backbutton" src="">
+        </div>
     </div>
-    <!-- MAIN -->
+    </div>
 
-    <!-- Forgot Password Container -->
-  <div id="forgotpassword-container" class="forgotpassword-container ">
-  <div id="forgotpassword-Box" class="forgotpassword-Box">
-    <h1>Forgot my password</h1>
-    <p>Enter your email address and we'll send you a link to reset your password.</p>
-    <form id="forgotpassword-form" class="forgotpassword-form" method="POST">
-      <div class="form-group">
-        <label for="email">Email address</label>
-        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Send email</button>
-    </form>
-    <a href="#" class="forgotpassword-close">&times;</a>
-  </div>
+
+    
 
   
-</body>
+  </body>
 </html>
