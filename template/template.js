@@ -1,3 +1,4 @@
+d
 /**
  * This function is used to generate side navbar and header
  * @returns HTML code of navbar and header
@@ -107,6 +108,8 @@ function createAssignedToMoreUsers(moreUsers) {
 
 function createBigTask(task) {
     return `
+    <div class="bigTaskCancel"><img src="./img/icons-cancel.svg"></div>
+    <div class="bigTaskEdit"><img src="./img/pencil-white.svg"></div>
     <div>
         <div class="bigTaskDepartment ${task['department']}">${task['department']}</div>
     </div>

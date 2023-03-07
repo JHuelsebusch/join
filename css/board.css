@@ -265,6 +265,7 @@
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
+    position: relative;
 }
 
 .bigTaskDepartment {
@@ -361,6 +362,36 @@
     border: 1px solid #ffffff;
     color: var(--text-white);
     font-size: 16px;
+}
+
+.bigTaskCancel {
+    position: absolute;
+    top: 30px;
+    right: 41px;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.bigTaskCancel:hover {
+    transform: rotate(180deg);
+    transition: all ease-in-out 125ms;
+}
+
+.bigTaskEdit {
+    position: absolute;
+    bottom: 30px;
+    right: 41px;
+    height: 57px;
+    width: 57px;
+    background-color: var(--bg-blue);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
