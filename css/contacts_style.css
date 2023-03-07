@@ -285,7 +285,7 @@ body {
 
 }
 /* Animation  */
-.animation {
+.animationSlideIn {
     animation: fadeIn 1s ease 0s 1 normal forwards;
 }
 
@@ -303,9 +303,32 @@ body {
 	}
 
 	100% {
+		transform: translateX(1);
+	}
+}
+
+.animationSlideOut {
+    animation: fadeOut 1s ease 0s 1 reverse forwards;
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+
+	0% {
+		transform: translateX(100%);
+	}
+
+	100% {
 		transform: translateX(0);
 	}
 }
+
 
 .contAddContainer {
     display: flex;
