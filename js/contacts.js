@@ -1,20 +1,35 @@
-let contacts = [];
+let JSONcontacts = [];
+
+// Open Popup
 
 function open_popup() {
-  document.getElementById("cont_popup_id").classList.remove(`d-none`);
+  
+  
+  document.getElementById("cont_popup_id").innerHTML= "";
   loadOverlay();
 }
 
+// Close Popup
+
 function closePopup() {
-  document.getElementById("cont_popup_id").classList.add(`d-none`);
+  document.getElementById("animationId").classList.add("animationSlideOut");
+  document.getElementById("animationId").classList.remove("animationSlideIn");
+  setTimeout(
+  timeOut,1050);
+}
+
+function timeOut() {
+  document.getElementById("cont_popup_id").classList.add(`d-none`)
 }
 function stopClosing(event) {
     event.stopPropagation();
 }
 
+// Load
+
 function loadOverlay() {
   let element = document.getElementById("cont_popup_id");
-  element.classList.remove("d-none");
+  element.classList.remove(`d-none`);
   element.innerHTML = "";
   element.innerHTML = addContactHTML();
 }
@@ -24,7 +39,7 @@ function loadOverlay() {
 function addContactHTML() {
   return /*html*/ `
     <div id="contAddBg" class= "contAddBg" onclick="closePopup()">
-        <div onclick= "stopClosing(event)" class="animation">
+        <div id="animationId" onclick= "stopClosing(event)" class="animationSlideIn">
             <div class="contAddContainer">
                 <div class="contAddContainerLeft">
                     <img src="/img/contacts_Logo.svg" alt="">
@@ -39,7 +54,7 @@ function addContactHTML() {
                         <div class="contAddEditIcon"> <img src="/img/Vector.svg" alt=""></div>
 
                         <form onsubmit="addContact()" class="contAddForm">
-                            <div><input required id = "inputName" type= "text" placeholder="Name Surname" class="contInputEdit"><img class="contFormImg" src="./img/contact_icon_min.svg"></div>
+                            <div><input pattern="^(&#92w&#92w+)&#92s(&#92w+)$" required id = "inputName" type= "text" placeholder="Name Surname" class="contInputEdit"><img class="contFormImg" src="./img/contact_icon_min.svg"></div>
                             <div><input required id = "inputMail" type= "email" placeholder="EMail"class="contInputEdit"><img class="contFormImg" src="./img/contact_input_mail_mini.svg"></div>
                             <div><input required id = "inputPhone" type= "tel" placeholder="Phone"class="contInputEdit"><img class="contFormImg" src="./img/contact_inputIcon_phone.svg"></div>
                             <div style= display:flex;>
@@ -55,4 +70,47 @@ function addContactHTML() {
 `;
 }
 
-function addContact() {}
+// Fkt Add Contact - def array structure
+
+function addContact() {
+  let name = greatLetter(document.getElementById("inputName").value);
+  let surname = greatLetterSurname(name.slice(name.indexOf(" ") + 1, name.length));
+  let mail = document.getElementById(`inputMail`);
+  let phone = document.getElementById(`inputPhone`);
+  let randomColor = color ;
+
+  let data = {
+    name: name,
+    surname: surname,
+    email: mail,
+    phone: phone,
+    pic: randomColor,
+    password: "0000"
+  }
+// push
+ JSONcontacts.push(data);
+ console.log(JSONcontacts);
+// delay
+  name.value =``;
+  mail.value =``;
+  phone.value =``;
+
+}
+
+// Fkt first letter of name great
+function greatLetter (name) {
+	let surname = name.slice(name.indexOf(" ") + 1, name.length);
+	let greatName =
+		name.charAt(0).toUpperCase() +
+		name.slice(1, name.indexOf(" ")) +
+		" " +
+		surname.charAt(0).toUpperCase() +
+		surname.slice(1, surname.length);
+	return greatName;
+}
+
+// FKT first letter of surname great
+function greatLetterSurname(surname) {
+	let greateSurname = surname.charAt(0).toUpperCase() + surname.slice(1, surname.length);
+	return greateSurname;
+}

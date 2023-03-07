@@ -164,6 +164,7 @@ body {
     padding-left: 50px;
     padding-right: 50px;
     flex-direction: column;
+    overflow-y: scroll;
 
 }
 
@@ -285,7 +286,7 @@ body {
 
 }
 /* Animation  */
-.animation {
+.animationSlideIn {
     animation: fadeIn 1s ease 0s 1 normal forwards;
 }
 
@@ -303,9 +304,32 @@ body {
 	}
 
 	100% {
+		transform: translateX(1);
+	}
+}
+
+.animationSlideOut {
+    animation: fadeOut 1s ease 0s 1 reverse forwards;
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+
+	0% {
+		transform: translateX(100%);
+	}
+
+	100% {
 		transform: translateX(0);
 	}
 }
+
 
 .contAddContainer {
     display: flex;
@@ -456,6 +480,8 @@ body {
     cursor: pointer;
 	background: #29abe2;
 }
+
+
 
 /*---RESPONSIVE */
 @media(max-width:1660px) {
