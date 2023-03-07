@@ -1,4 +1,4 @@
-d
+
 /**
  * This function is used to generate side navbar and header
  * @returns HTML code of navbar and header
