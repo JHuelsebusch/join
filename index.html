@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+
+    <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,51 +8,49 @@
     <link rel="stylesheet" href="css/login.css" />
     <script src="script.js"></script>
     <script src="js/login.js"></script>
+    <script src="js/mini_backend.js"></script>
   </head>
   <body id="body">
     <!-- Only visible in LogIn-Formular -->
-    <img id="animatedlogo" class="logo" src="img/join-logo.svg" />
-
+    <div id="login-background" class="login-background">
+      <div class="logo-container"><img id="animatedlogo" class="logo" src="img/join-logo.svg" />
+      </div>
     <!-- MAIN -->
-    <div id="center-container" class="center-container sbc1">
-      <div class="login-container2 sbc1">
-        <div id="login-Box" class="login-Box sbc4">
+    <div id="center-container" class="center-container ">
+      <div class="login-container2 ">
+        <div id="login-Box" class="login-Box ">
           <h1>Log in</h1>
-          <div class="dummy sbc1"></div>
-          <form class="form-style sbc1">
-            <div class="formular-inputdesign sbc2">
+          <div class="dummy "></div>
+          <form class="form-style ">
+            <div class="formular-inputdesign ">
               <input
                 required
                 type="email"
                 id="login-email"
                 placeholder="Email"
-                type="text"
-                
               />
               <img src="img/email_input.svg" />
             </div>
-            <div class="formular-inputdesign adj sbc3">
+            <div class="formular-inputdesign ">
               <input
                 required
                 type="password"
                 minlength="5"
                 id="login-password"
                 placeholder="Password"
-                type="text"
-                
               />
               <img src="img/password_input.svg" />
             </div>
-            <div class="login-rememberOrforgotPw sbc4">
-              <div class="login-cbx sbc2">
+            <div class="login-rememberOrforgotPw ">
+              <div class="login-cbx ">
                 <input type="checkbox" />
                 <span>Remember me</span>
               </div>
-              <div class="login-forgotpw sbc3">
+              <div class="login-forgotpw ">
                 <a onclick="showForgotPasswordForm();">Forgot my password</a>
               </div>
             </div>
-            <div class="login-buttons sbc2">
+            <div class="login-buttons ">
               <button type="onsubmit" class="login-user">Log in</button>
               <button type="button" class="login-guest">Guest Log in</button>
             </div>
@@ -60,7 +59,7 @@
       </div>
 
       <!-- For Sign-Up -->
-      <div id="login-notajoinuser" class="login-notajoinuser sbc4 ">
+      <div id="login-notajoinuser" class="login-notajoinuser ">
         <span>Not a Join user?</span>
         <button onclick="showSignUpForm();" class="login-signupbtn">
           Sign up
@@ -71,53 +70,20 @@
     <!-- MAIN -->
 
     <!-- Forgot Password Container -->
-<div id="forgotpassword-container" class="forgotpassword-container d-none">
-    <div id="forgotpassword-Box" class="forgotpassword-Box">
-        <h1>I forgot my password</h1>
-        <div class="dummy"></div>
-        <span>Don't worry! We will send you an email with the instruction to reset your password.</span>
-        <form  class="form-style">
-            <div class="formular-inputdesign">
-                <input name="email" required type="email" id="forgotpassword-email" placeholder="Email" type="text">
-                <img src="img/email_input.svg">
-            </div>
-            <div class="login-buttons">
-                <button class="forgotpassword-send">Send me the email</button>
-            </div>
-        </form>
-        <img id="backfromforgotten" onclick="showLoginForm();" class="backbutton" src="img/arrow-left-line.svg">
-    </div>
-</div>
-<!-- Forgot Password Container -->
+  <div id="forgotpassword-container" class="forgotpassword-container ">
+  <div id="forgotpassword-Box" class="forgotpassword-Box">
+    <h1>Forgot my password</h1>
+    <p>Enter your email address and we'll send you a link to reset your password.</p>
+    <form id="forgotpassword-form" class="forgotpassword-form" method="POST">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Send email</button>
+    </form>
+    <a href="#" class="forgotpassword-close">&times;</a>
+  </div>
 
-<!-- Sign Up Container -->
-<div id="signup-container" class="signup-container d-none">
-    <div id="signup-Box" class="signup-Box">
-        <h1>Sign up</h1>
-        <div class="dummy"></div>
-        <form class="form-style">
-            <div class="formular-inputdesign">
-                <input required type="text" minlength="5" pattern="^(\w\w+)\s(\w+)$" id="signup-name" placeholder="Name Surname" type="text">
-                <img src="img/icon-user.svg">
-            </div>
-            <div class="formular-inputdesign">
-                <input required type="email" id="signup-email" placeholder="Email" type="text">
-                <img src="img/email_input.svg">
-            </div>
-            <div class="formular-inputdesign">
-                <input required type="password" minlength="5" id="signup-password" placeholder="Password" type="text">
-                <img src="img/password_input.svg">
-            </div>
-            <div class="login-buttons">
-                <button class="signup-user">Sign up</button>
-            </div>
-        </form>
-        <img id="backfromsignup" onclick="showLoginForm();" class="backbutton" src="img/arrow-left-line.svg">
-    </div>
-</div>
-<!-- Sign Up Container -->
-
-<!-- Wrong PW or Email animations -->
-<div id="alert-box" class="d-none"></div>
-<button id="alert-info"><img src="img/alert.svg"><span id="alert-text">Wrong Password!</span></button>
-<!-- Wrong PW or Email animations -->
+  
+</body>
+</html>
