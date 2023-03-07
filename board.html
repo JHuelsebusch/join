@@ -54,10 +54,10 @@
             </div>
         </div>
         <div class="boardTask">
-            <div class="taskToDo" id="toDo" ondrop="moveTo('toDo')" ondragover="allowDrop(event)"></div>
-            <div class="taskInProgress" id="inProgress" ondrop="moveTo('inProgress')" ondragover="allowDrop(event)"></div>
-            <div class="taskAwaitingFeedback" id="awaitingFeedback" ondrop="moveTo('awaitingFeedback')" ondragover="allowDrop(event)"></div>
-            <div class="taskDone" id="done" ondrop="moveTo('done')" ondragover="allowDrop(event)"></div>
+            <div class="taskToDo" id="toDo" ondrop="moveTo('toDo')" ondragover="allowDrop(event); highlightDrop(0)" ondragleave="showDropCont()"></div>
+            <div class="taskInProgress" id="inProgress" ondrop="moveTo('inProgress')" ondragover="allowDrop(event); highlightDrop(1)" ondragleave="showDropCont()"></div>
+            <div class="taskAwaitingFeedback" id="awaitingFeedback" ondrop="moveTo('awaitingFeedback')" ondragover="allowDrop(event); highlightDrop(2)" ondragleave="showDropCont()"></div>
+            <div class="taskDone" id="done" ondrop="moveTo('done')" ondragover="allowDrop(event); highlightDrop(3)" ondragleave="showDropCont()"></div>
         </div>
     </section>
 
