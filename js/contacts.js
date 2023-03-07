@@ -8,6 +8,9 @@ function open_popup() {
 function closePopup() {
   document.getElementById("cont_popup_id").classList.add(`d-none`);
 }
+function stopClosing(event) {
+    event.stopPropagation();
+}
 
 function loadOverlay() {
   let element = document.getElementById("cont_popup_id");
@@ -16,12 +19,12 @@ function loadOverlay() {
   element.innerHTML = addContactHTML();
 }
 
-// Template
+// Template HTML
 
 function addContactHTML() {
   return /*html*/ `
     <div id="contAddBg" class= "contAddBg" onclick="closePopup()">
-        <div class="animation">
+        <div onclick= "stopClosing(event)" class="animation">
             <div class="contAddContainer">
                 <div class="contAddContainerLeft">
                     <img src="/img/contacts_Logo.svg" alt="">
@@ -31,17 +34,18 @@ function addContactHTML() {
                 </div>
 
                 <div class="contAddRight">
-                    <div class= "contAddRightClose"> <img src="/img/contact_close.svg" alt=""></div>
+                    <div onclick="closePopup()" class= "contAddRightClose"> <img src="/img/contact_close.svg" alt=""></div>
                     <div class="contAddEdit">
                         <div class="contAddEditIcon"> <img src="/img/Vector.svg" alt=""></div>
 
                         <form onsubmit="addContact()" class="contAddForm">
-                            <div><input required id = "inputName" type= "text" placeholder="Name Surname" class="contInputEdit"><img class="contForm" src="./img/contact_icon_min.svg"></div>
-                            <div><input required id = "inputMail" type= "email" placeholder="EMail"class="contInputEdit"></input></div>
-                            <div><input required id = "inputPhone" type= "tel" placeholder="Phone"class="contInputEdit"></input></div>
-
-                            <button>Cancel</button>
-                            <button>Create contact</button>
+                            <div><input required id = "inputName" type= "text" placeholder="Name Surname" class="contInputEdit"><img class="contFormImg" src="./img/contact_icon_min.svg"></div>
+                            <div><input required id = "inputMail" type= "email" placeholder="EMail"class="contInputEdit"><img class="contFormImg" src="./img/contact_input_mail_mini.svg"></div>
+                            <div><input required id = "inputPhone" type= "tel" placeholder="Phone"class="contInputEdit"><img class="contFormImg" src="./img/contact_inputIcon_phone.svg"></div>
+                            <div style= display:flex;>
+                              <button onclick="closePopup()" onmouseover="changeColor()" class="contCancelBtn" type="reset">Cancel <img  id="clear-x" src="./img/contacts_closeIcon_mini.svg" alt=""></button>
+                              <button class="contCreateBtn">Create contact <img src="./img/contacts_submitIcon_mini.svg"></button>
+                            </div>
                         </form>
                     </div>
                 </div>

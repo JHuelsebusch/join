@@ -284,9 +284,27 @@ body {
 
 
 }
-
+/* Animation  */
 .animation {
     animation: fadeIn 1s ease 0s 1 normal forwards;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+
+	0% {
+		transform: translateX(100%);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
 }
 
 .contAddContainer {
@@ -301,7 +319,7 @@ body {
     align-items: flex-start;
     padding: 66px 46px;
     max-width: 463px;
-    height: 594px;
+    
     isolation: isolate;
     background: #2a3647;
     color: white;
@@ -368,21 +386,76 @@ body {
     border: 2px solid white;
 }
 .contAddEditIcon{
-    width: 62px;
+    width: 115px;
+    vertical-align: middle;
 }
 .contAddForm{
     display: flex;
     flex-direction: column;
 }
 .contInputEdit{
+    cursor: pointer;
     padding: 13px 21px;
     width: 422px;
-    height: 40px;
+    height: 30px;
     background: #ffffff;
     border: 1px solid #d1d1d1;
     border-radius: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 26px;
     outline: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 21px;
+    line-height: 120%;
+    font-style: normal;
+    color: #D1D1D1;
+}
+.contFormImg{
+    margin-left: -39px;
+    
+}
+
+.contCancelBtn{
+    display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 18px 10px;
+	gap: 10px;
+	height: 61px;
+	background: white;
+	border-radius: 10px;
+	color: #2a3647;
+	border: 1px solid #2a3647;
+	font-size: 21px;
+	color: #2a3647;
+	margin-right: 40px;
+}
+.contCancelBtn:hover{
+    cursor: pointer;
+    color: #29abe2;
+	background: #ffffff;
+	border-color: #29abe2;
+	-webkit-box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.2);
+}
+.contCreateBtn{
+    display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	color: white;
+    padding: 18px 10px;
+	height: 61px;
+	background: #2a3647;
+	border-radius: 10px;
+	font-size: 21px;
+    font-weight: 700;
+    gap: 10px;
+    border: none;
+}
+.contCreateBtn:hover {
+    cursor: pointer;
+	background: #29abe2;
 }
 
 /*---RESPONSIVE */
