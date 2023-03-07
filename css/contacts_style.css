@@ -367,6 +367,23 @@ body {
     margin-right: 30px;
     border: 2px solid white;
 }
+.contAddEditIcon{
+    width: 62px;
+}
+.contAddForm{
+    display: flex;
+    flex-direction: column;
+}
+.contInputEdit{
+    padding: 13px 21px;
+    width: 422px;
+    height: 40px;
+    background: #ffffff;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    outline: none;
+}
 
 /*---RESPONSIVE */
 @media(max-width:1660px) {
