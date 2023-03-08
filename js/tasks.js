@@ -4,7 +4,27 @@ let tasks = [{
     description: 'Make the product presentation to prospective buyers',
     date: '',
     priority: 'urgent',
-    assignedTo: ['David Eisenberg', 'Benedikt Ziegler', 'Marcel Bauer', 'Stefanie Farber'],
+    assignedTo: [{
+        id: '0',
+        name: 'David Eisenberg',
+        email: 'david@eisenberg.de',
+        phone: '0170 123456',
+    }, {
+        id: '1',
+        name: 'Benedikt Ziegler',
+        email: 'benedikt@ziegler.de',
+        phone: '0170 133476',
+    }, {
+        id: '2',
+        name: 'Stefanie Farber',
+        email: 'stefanie@farber.de',
+        phone: '0170 163486',
+    }, {
+        id: '3',
+        name: 'Marcel Bauer',
+        email: 'marcel@bauer.de',
+        phone: '0170 1694861',
+    }],
     department: 'sales',
     taskStatus: 'toDo',
     subtasks: [{
@@ -22,7 +42,12 @@ let tasks = [{
     description: 'Write open invoices for customer',
     date: '',
     priority: 'medium',
-    assignedTo: ['Marcel Bauer'],
+    assignedTo: [{
+        id: '0',
+        name: 'David Eisenberg',
+        email: 'david@eisenberg.de',
+        phone: '0170 123456'
+    }],
     department: 'backoffice',
     taskStatus: 'awaitingFeedback',
     subtasks: [],
@@ -33,7 +58,12 @@ let tasks = [{
     description: 'Edit the new company video',
     date: '',
     priority: 'low',
-    assignedTo: ['Helen Knauf'],
+    assignedTo: [{
+        id: '0',
+        name: 'David Eisenberg',
+        email: 'david@eisenberg.de',
+        phone: '0170 123456'
+    }],
     department: 'media',
     taskStatus: 'inProgress',
     subtasks: [],
@@ -44,7 +74,12 @@ let tasks = [{
     description: 'Develop an ad campaign for brand positioning',
     date: '',
     priority: 'low',
-    assignedTo: ['David Eisenberg'],
+    assignedTo: [{
+        id: '0',
+        name: 'David Eisenberg',
+        email: 'david@eisenberg.de',
+        phone: '0170 123456',
+    }],
     department: 'marketing',
     taskStatus: 'done',
     subtasks: [{

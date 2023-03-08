@@ -1,4 +1,3 @@
-
 /**
  * This function is used to generate side navbar and header
  * @returns HTML code of navbar and header
@@ -90,10 +89,11 @@ function createOnDragTask(id) {
 /**
  * This function creates initials on task
  * @param {string} initials - These are the initials you want to show
+ * @param {string} colorId - This is the color you want to show
  * @returns HTML code
  */
-function createAssignedTo(initials) {
-    return `<div class="green">${initials}</div>`
+function createAssignedTo(initials, colorId) {
+    return `<div class="profileColor-${colorId}">${initials}</div>`
 }
 
 
@@ -103,7 +103,7 @@ function createAssignedTo(initials) {
  * @returns HTML code
  */
 function createAssignedToMoreUsers(moreUsers) {
-    return `<div class="green">+${moreUsers}</div>`
+    return `<div class="profileColorMoreUsers">+${moreUsers}</div>`
 }
 
 
@@ -145,14 +145,56 @@ function createBigTask(task) {
 /**
  * This function is used to create one assigned user
  * @param {string} name - This is the name of user
- * @param {*} initials - These are the initials of user
+ * @param {string} initials - These are the initials of user
+ * @param {string} colorId - This is the color you want to show
  * @returns HTML code
  */
-function createBigTaskAssignedTo(name, initials) {
+function createBigTaskAssignedTo(name, initials, colorId) {
     return `
     <div>
-        <div class="bigTaskInitials green">${initials}</div>
+        <div class="bigTaskInitials profileColor-${colorId}">${initials}</div>
         <div>${name}</div>
     </div>
     `
+}
+
+function createEditTask(task) {
+    return `
+    <div class="bigTaskCancel"><img src="./img/icons-cancel.svg" onclick="closeBigTask()"></div>
+    <div class="bigTaskEdit"><img src="./img/pencil-white.svg"></div>
+    <form>
+        <label>
+            Title
+            <input type="text" id="taskTitleEdit" value="${task['title']}">
+        </label>
+        <label>
+            Description
+            <textarea id="taskDescriptionEdit">${task['title']}</textarea>
+        </label>
+        <label>
+            Due date
+            <input type="date" id="taskDateEdit" value="${task['date']}">
+    </form>
+    // <div>
+    //     <div class="bigTaskDepartment ${task['department']}">${task['department']}</div>
+    // </div>
+    // <div class="bigTaskTitle"></div>
+    // <div class="bigTaskDescription">${task['description']}</div>
+    // <div class="bigTaskDate">
+    //     <div class="bigTaskSubtitle">Due date:</div><div>${task['date']}</div>
+    // </div>
+    // <div class="bigTaskPriority">
+    //     <div class="bigTaskSubtitle">Priority:</div>
+    //     <div class="bigTaskPriorityChild ${task['priority']}">
+    //         <span>${task['priority']}</span>
+    //         <img src="./img/prio-white-${task['priority']}.svg">
+    //     </div>
+    // </div>
+    // <div class="bigTaskSubtask dNone" id="bigTaskSubtask${task['id']}"></div>
+    // <div class="bigTaskBottom">
+    //     <div class="bigTaskSubtitle">Assigned To:</div>
+    //     <div class="bigTaskAssignedTo" id="bigTaskAssignedTo${task['id']}">
+    //     </div>
+    // </div>
+`
 }
