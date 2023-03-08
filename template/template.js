@@ -165,6 +165,12 @@ function createBigTaskAssignedTo(name, initials, colorId) {
     `
 }
 
+
+/**
+ * This function is used to create task editor
+ * @param {array} task - This is the task you want to edit
+ * @returns HTML code
+ */
 function createTaskEdit(task) {
     return `
     <div class="bigTaskCancel"><img src="./img/icons-cancel.svg" onclick="closeBigTask()"></div>
@@ -197,6 +203,12 @@ function createTaskEdit(task) {
 `
 }
 
+
+/**
+ * This function is used to create priority on editor
+ * @param {string} taskId - This is the Id of task you want to edit
+ * @returns HTML code
+ */
 function createTaskEditPrio(taskId) {
     return `
         <div class="editPrio" id="urgentEditPrio" onclick="changePrio('urgent', ${taskId})">
