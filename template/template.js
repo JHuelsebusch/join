@@ -198,6 +198,11 @@ function createTaskEdit(task) {
         </label>
         <label>
             Assigned To
+            <div class="taskEditContacts"> 
+                <span>Select contacts to assign</span>
+                <img src="./img/icon-arrow-down.svg">
+            </div>
+            <div class="taskEditInitials" id="taskEditInitials"></div>
         </label>
     </form>
 `
@@ -225,4 +230,15 @@ function createTaskEditPrio(taskId) {
         </div>
     
     `
+}
+
+
+/**
+ * This function creates initials on task editor
+ * @param {string} initials - These are the initials you want to show
+ * @param {string} colorId - This is the color you want to show
+ * @returns HTML code
+ */
+function createTaskEditAssignedTo(initials, colorId) {
+    return `<div class="profileColor-${colorId}">${initials}</div>`
 }

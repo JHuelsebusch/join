@@ -342,8 +342,8 @@
 }
 
 .bigTaskInitials {
-    width: 35px;
-    height: 35px;
+    width: 45px;
+    height: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -493,6 +493,34 @@
 
 .bigTaskEditSubmit:hover {
     background-color: var(--bg-highlight-light-blue);
+}
+
+.taskEditContacts {
+    width: 380px;
+    height: 15px;
+    padding: 18px 21px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.taskEditInitials {
+    display: flex;
+    gap: 8px;
+    margin: 12px 0px;
+}
+
+.taskEditInitials div {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 58px;
+    border: 1px solid #ffffff;
+    color: var(--text-white);
 }
 
 
