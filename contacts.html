@@ -14,21 +14,17 @@
     <script src="js/contacts.js"></script>
   </head>
 
-  <body onload="init()">
+  <body onload="init(),loadContactList()">
     <nav id="navbar"></nav>
     <section class="cont_section">
       <!--  LEFT  -->
-      <div class="contMainContainerLeft">
-        <div>
-          <ul>
-            <li>Lisa</li>
-            <li>Anton</li>
-            <li>Paul</li>
-          </ul>
-        </div>
+      <div id="contactsList" class="contMainContainerLeft">
+        
       </div>
       <!--  RIGHT  -->
       <div class="cont_main_container_right">
+
+        
         <div class="cont_main_container_right_titel">
           <h1>Contacts</h1>
           <div class="cont_separator"></div>

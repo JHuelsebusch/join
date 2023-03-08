@@ -151,7 +151,7 @@ body {
 
 }
 
-.cont_main_container_left {
+.contMainContainerLeft {
     display: flex;
     position: fixed;
     min-width: 453px;
@@ -165,6 +165,7 @@ body {
     padding-right: 50px;
     flex-direction: column;
     overflow-y: scroll;
+    z-index: 8;
 
 }
 
@@ -481,6 +482,79 @@ body {
 	background: #29abe2;
 }
 
+/*--- Letter List */
+
+
+.contactListContainer{
+display:  flex;
+
+}
+.dflex{
+    display: flex;
+}
+.contactListContainer h4{
+    font-family: 'Inter', sans-serif;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+.sepLine{
+    width: 323px;
+    height: 0px;
+    border-radius: 3px;
+    border-bottom: 1px solid #d1d1d1;
+}
+
+.colmn{
+    flex-direction: column;
+}
+.contactContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+.contactInitial{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 100%;
+    color: #ffffff;
+    margin-right: 30px;
+    border: 1px solid #ffffff;
+
+}
+
+.contactNameMail{
+    transform: translate(20%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.contName{
+    font-family: 'Inter', sans-serif;
+    font-size: 21px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 100%;
+    max-width: 200px;
+    word-wrap: break-word;
+}
+.contMail{
+    font-size: 16px;
+    max-width: 200px;
+    margin-top: 10px;
+    color: #007cee;
+    font-weight: 400;
+    line-height: 120%;
+    word-wrap: break-word;
+     /*---ZEILENUMBRUCH */
+
+}
 
 
 /*---RESPONSIVE */
@@ -491,7 +565,7 @@ body {
 
 }
 
-@media(max-width:1593px) {
+@media(max-width:1570px) {
 
     .cont_main_container_left {
         z-index: 0;

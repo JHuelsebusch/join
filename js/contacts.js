@@ -112,4 +112,30 @@ function greatLetterSurname(surname) {
 	return greateSurname;
 }
 
+
+// Load Contacts list
+
+function loadContactList() {
+  let contactList= document.getElementById(`contactsList`);
+  contactList.innerHTML= ``;
+   for (let index = 0; index < contacts.length; index++) {
+    const element = contacts[index];
+    contactList.innerHTML +=/*html*/`
+
+    <div class= "contactListContainer colmn" id="contactListContainer">
+      <div>
+        <h4>BUCHSTABE</h4>
+        <div class="sepLine"></div>
+      </div>
+      <div class="contactContainer">
+      <div class="contactInitial profileColor-${element["id"]}">GG</div>
+      <div class="contactNameMail">
+        <div class="contName">${element["surname"]} ${element["name"]}</div>
+        <div class="contMail">${element["email"]}</div>
+      </div>
+    </div>`;
+   }
+
+  
+}
 // FKT random color
