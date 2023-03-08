@@ -1,89 +1,56 @@
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>LogIn Join</title>
-    <link rel="stylesheet" type='text/css' media='screen' href="style.css">
-    <link rel="stylesheet" href="css/login.css" />
-    <script src="script.js"></script>
-    <script src="js/login.js"></script>
-    <script src="js/mini_backend.js"></script>
-  </head>
-  <body id="body">
-    <!-- Only visible in LogIn-Formular -->
-    <div id="login-background" class="login-background">
-      <div class="logo-container"><img id="animatedlogo" class="logo" src="img/join-logo.svg" />
-      </div>
-    <!-- MAIN -->
-    <div id="center-container" class="center-container ">
-      <div class="login-container2 ">
-        <div id="login-Box" class="login-Box ">
-          <h1>Log in</h1>
-          <div class="dummy "></div>
-          <form class="form-style ">
-            <div class="formular-inputdesign ">
-              <input
-                required
-                type="email"
-                id="login-email"
-                placeholder="Email"
-              />
-              <img src="img/email_input.svg" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/login.js"></script> 
+    <script src="js/mini_backend.js"> setURL('https://gruppe-06i.developerakademie.net/smallest_backend_ever');</script>
+    <title>JOIN | Log in</title>
+</head>
+<body onload="init()">
+    <section>
+        <header>
+            <div class="headerLeft">
+                <img src="img/join-logo.svg" alt="logo">
             </div>
-            <div class="formular-inputdesign ">
-              <input
-                required
-                type="password"
-                minlength="5"
-                id="login-password"
-                placeholder="Password"
-              />
-              <img src="img/password_input.svg" />
+            <div class="headerRight">
+                <p>Not a Join user?</p>
+                <a href="createaccount.html"><button class="signUpButton button">Sign up</button></a>
             </div>
-            <div class="login-rememberOrforgotPw ">
-              <div class="login-cbx ">
-                <input type="checkbox" />
-                <span>Remember me</span>
-              </div>
-              <div class="login-forgotpw ">
-                <a onclick="showForgotPasswordForm();">Forgot my password</a>
-              </div>
+        </header>
+        <div class="Background">  
+            <div class="loginFrame">
+                    <p class="loginHeader">Log in</p>
+                <img class="separator" src="img/seperate-vector.svg" alt="separator">
+                <form class="login" onsubmit="login(); return false;">
+                <div class="loginInput">
+                    <div class="input">
+                        <input  type="email" placeholder="enter Email" id="email" required >
+                        <img src="img/email_input.svg" alt="">
+                    </div>
+                    <div class="input">
+                        <input required type="password" placeholder="enter Password" id="password" required>
+                        <img src="img/password_input.svg" alt="">
+                    </div>
+                </div>
+                <div class="rememberMe">
+                    <div class="checkbox">
+                        <input type="checkbox">
+                        <p>Remember me</p>
+                    </div>
+                    <a href="sendmail.html" class="forgot">Forgot my Password</a>
+                </div>
+                <div class="btn">
+                    <button class="loginButton button">Log in</button>
+                    <button class="guestLoginButton borderButton">Guest Log in</button>
+                </div>
+                </form>
             </div>
-            <div class="login-buttons ">
-              <button type="onsubmit" class="login-user">Log in</button>
-              <button type="button" class="login-guest">Guest Log in</button>
-            </div>
-          </form>
         </div>
-      </div>
-
-      <!-- For Sign-Up -->
-      <div id="login-notajoinuser" class="login-notajoinuser ">
-        <span>Not a Join user?</span>
-        <button onclick="showSignUpForm();" class="login-signupbtn">
-          Sign up
-        </button>
-      </div>
-      <!-- For Sign-Up -->
-    </div>
-    <!-- MAIN -->
-
-    <!-- Forgot Password Container -->
-  <div id="forgotpassword-container" class="forgotpassword-container ">
-  <div id="forgotpassword-Box" class="forgotpassword-Box">
-    <h1>Forgot my password</h1>
-    <p>Enter your email address and we'll send you a link to reset your password.</p>
-    <form id="forgotpassword-form" class="forgotpassword-form" method="POST">
-      <div class="form-group">
-        <label for="email">Email address</label>
-        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
-      </div>
-      <button type="submit" class="btn btn-primary">Send email</button>
-    </form>
-    <a href="#" class="forgotpassword-close">&times;</a>
-  </div>
-
-  
+        <div class="msgBox" id="msgBox"></div>
+    </section>
 </body>
 </html>

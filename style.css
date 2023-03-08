@@ -348,23 +348,23 @@ body {
 /* Profile Colors */
 
 .profileColor-0 {
-    background-color: #AF1616;
-}
-
-.profileColor-1 {
     background-color: #9327FF;
 }
 
-.profileColor-2 {
+.profileColor-1 {
     background-color: #FFA800;
 }
 
-.profileColor-3 {
+.profileColor-2 {
     background-color: #0223CF;
 }
 
-.profileColor-4 {
+.profileColor-3 {
     background-color: #CB02CF;
+}
+
+.profileColor-4 {
+    background-color: #AF1616;
 }
 
 .profileColor-5 {
@@ -385,4 +385,8 @@ body {
 
 .profileColor-9 {
     background-color: #32DAFF;
+}
+
+.profileColorMoreUsers {
+    background-color: var(--bg-blue);
 }

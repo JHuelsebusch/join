@@ -31,3 +31,10 @@ function generateColorId(contactId) {
     let colorId = contactId.slice(-1);
     return colorId;
 }
+
+function generateInitials(name) {
+    initials = name.toLowerCase().split(' ');
+    initials = initials.map(word => word.charAt(0).toUpperCase());
+    initials = initials.join('');
+    return initials;
+}

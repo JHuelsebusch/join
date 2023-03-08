@@ -72,19 +72,17 @@ function generateAssignedTo(task){
     document.getElementById(`taskAssignedTo${task['id']}`).innerHTML=``;
     if(assignedTo.length<4){
         for (let n = 0; n < assignedTo.length; n++) {
-            let name = assignedTo[n];
-            name = name.toLowerCase().split(' ');
-            name = name.map(word => word.charAt(0).toUpperCase());
-            name = name.join('');
-            document.getElementById(`taskAssignedTo${task['id']}`).innerHTML+=createAssignedTo(name);
+            let name = assignedTo[n]['name'];
+            let initials = generateInitials(name);
+            let colorId = generateColorId(assignedTo[n]['id'])
+            document.getElementById(`taskAssignedTo${task['id']}`).innerHTML+=createAssignedTo(initials, colorId);
         }
     } else {
         for (let n = 0; n < 2; n++) {
-            let name = assignedTo[n];
-            name = name.toLowerCase().split(' ');
-            name = name.map(word => word.charAt(0).toUpperCase());
-            name = name.join('');
-            document.getElementById(`taskAssignedTo${task['id']}`).innerHTML+=createAssignedTo(name);
+            let name = assignedTo[n]['name'];
+            let initials = generateInitials(name);
+            let colorId = generateColorId(assignedTo[n]['id'])
+            document.getElementById(`taskAssignedTo${task['id']}`).innerHTML+=createAssignedTo(initials, colorId);
         }
         let moreUsers=assignedTo.length-2
         document.getElementById(`taskAssignedTo${task['id']}`).innerHTML+=createAssignedToMoreUsers(moreUsers);
@@ -173,11 +171,10 @@ function showBigTask(id){
 function generateBigTaskAssignedTo(task){
     let assignedTo = task['assignedTo'];
     for (let n = 0; n < assignedTo.length; n++) {
-        let name = assignedTo[n];
-        initials = name.toLowerCase().split(' ');
-        initials = initials.map(word => word.charAt(0).toUpperCase());
-        initials = initials.join('');
-        document.getElementById(`bigTaskAssignedTo${task['id']}`).innerHTML+=createBigTaskAssignedTo(name, initials);
+        let name = assignedTo[n]['name'];
+        let initials = generateInitials(name);
+        let colorId = generateColorId(assignedTo[n]['id'])
+        document.getElementById(`bigTaskAssignedTo${task['id']}`).innerHTML+=createBigTaskAssignedTo(name, initials, colorId);
     }
 }
 
