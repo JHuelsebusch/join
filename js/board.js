@@ -214,7 +214,7 @@ function showTaskEdit(id){
     let task = tasks[id];
     document.getElementById('bigTask').innerHTML = createTaskEdit(task);
     generateTaskEditPrio(task, id);
-    
+    generateTaskEditAssignedTo(task);
 }
 
 
@@ -242,6 +242,16 @@ function changePrio(newPrio, taskId){
     generateTaskEditPrio(task, taskId);
 }
 
+
+function generateTaskEditAssignedTo(task){
+    let assignedTo = task['assignedTo'];
+    for (let n = 0; n < assignedTo.length; n++) {
+        let name = assignedTo[n]['name'];
+        let initials = generateInitials(name);
+        let colorId = generateColorId(assignedTo[n]['id'])
+        document.getElementById(`taskEditInitials`).innerHTML+=createTaskEditAssignedTo(initials, colorId);
+    }
+}
 
 /**
  * This function is used to save task changes
