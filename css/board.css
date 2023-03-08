@@ -296,6 +296,7 @@
 .bigTaskDate {
     display: flex;
     flex-direction: row;
+    gap: 25px;
 }
 
 .bigTaskPriority {

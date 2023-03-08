@@ -122,8 +122,7 @@ function createBigTask(task) {
     </div>
     <div class="bigTaskTitle">${task['title']}</div>
     <div class="bigTaskDescription">${task['description']}</div>
-    <div class="bigTaskDate">
-        <div class="bigTaskSubtitle">Due date:</div><div>${task['date']}</div>
+    <div class="bigTaskDate" id="bigTaskDate">
     </div>
     <div class="bigTaskPriority">
         <div class="bigTaskSubtitle">Priority:</div>
@@ -141,6 +140,14 @@ function createBigTask(task) {
 `
 }
 
+/**
+ * This function is used to create date on big task
+ * @param {string} date - This is the date in german format you want to show 
+ * @returns HTML code
+ */
+function createBigTaskDate(date) {
+    return `<div class="bigTaskSubtitle">Due date:</div><div>${date}</div>`
+}
 
 /**
  * This function is used to create one assigned user
@@ -158,10 +165,16 @@ function createBigTaskAssignedTo(name, initials, colorId) {
     `
 }
 
+
+/**
+ * This function is used to create task editor
+ * @param {array} task - This is the task you want to edit
+ * @returns HTML code
+ */
 function createTaskEdit(task) {
     return `
     <div class="bigTaskCancel"><img src="./img/icons-cancel.svg" onclick="closeBigTask()"></div>
-    <form>
+    <form onsubmit="saveTaskEdit(${task['id']}); return false;">
         <button class="bigTaskEditSubmit">
             <span>Ok</span>
             <img src="./img/icon-edit-ok.svg">
@@ -190,6 +203,12 @@ function createTaskEdit(task) {
 `
 }
 
+
+/**
+ * This function is used to create priority on editor
+ * @param {string} taskId - This is the Id of task you want to edit
+ * @returns HTML code
+ */
 function createTaskEditPrio(taskId) {
     return `
         <div class="editPrio" id="urgentEditPrio" onclick="changePrio('urgent', ${taskId})">

@@ -160,9 +160,19 @@ function showBigTask(id){
     let task = tasks[id];
     document.getElementById('bigTaskBg').classList.remove('dNone');
     document.getElementById('bigTask').innerHTML = createBigTask(task);
+    generateBigTaskDate(task['date']);
     generateBigTaskAssignedTo(task);
 }
 
+
+/**
+ * This function is used to change date format from english to german
+ * @param {string} date - This is the date in english format you want to show 
+ */
+function generateBigTaskDate(date){
+    germanDate = date.split('-').reverse().join('.');
+    document.getElementById('bigTaskDate').innerHTML = createBigTaskDate(germanDate);
+}
 
 /**
  * This function is used to generate "assigned to"-section on big task 
@@ -195,20 +205,58 @@ function doNotCloseBigTask(event){
     event.stopPropagation();
 }
 
+
+/**
+ * This function is used to show task editor
+ * @param {string} id - This is the id of task you want to edit
+ */
 function showTaskEdit(id){
     let task = tasks[id];
     document.getElementById('bigTask').innerHTML = createTaskEdit(task);
     generateTaskEditPrio(task, id);
     
 }
+
+
+/**
+ * This function is used to generate priority section on editor
+ * @param {array} task - This is the task you want to edit 
+ * @param {string} id - This is the id of task you want to edit
+ */
 function generateTaskEditPrio(task, id){
     document.getElementById('taskEditPriority').innerHTML = createTaskEditPrio(id);
     document.getElementById(`${task['priority']}EditPrio`).classList.add(`editPrioActive`);
     document.getElementById(`${task['priority']}EditPrio`).classList.add(`${task['priority']}`);
     document.getElementById(`${task['priority']}EditPrioImg`).src = `./img/prio-white-${task['priority']}.svg`;
 }
+
+
+/**
+ * This function is used to change task priority 
+ * @param {*} newPrio - This is the new priority
+ * @param {*} taskId - This is the id of task you want to change priority
+ */
 function changePrio(newPrio, taskId){
     let task = tasks[taskId];
     task['priority']=newPrio;
     generateTaskEditPrio(task, taskId);
+}
+
+
+/**
+ * This function is used to save task changes
+ * @param {string} taskId - This is the id of task you edited
+ */
+function saveTaskEdit(taskId){
+    let task = tasks[taskId];
+    let newTitle = document.getElementById('taskTitleEdit').value;
+    let newDescription = document.getElementById('taskDescriptionEdit').value;
+    let newDate = document.getElementById('taskDateEdit').value;
+    task['title'] = newTitle;
+    task['description'] = newDescription;
+    task['date'] = newDate;
+
+
+    renderBoard();
+    closeBigTask();
 }

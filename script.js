@@ -4,12 +4,16 @@
 function init() {
     generateNavbar();
 }
+
+
 /**
  * This function is used to generate side navbar and header
  */
 function generateNavbar() {
     document.getElementById('navbar').innerHTML = getNavbarTemplate();
 }
+
+
 /**
  * This function is used to show menu after click on own profile picture
  */
@@ -22,6 +26,7 @@ function showProfileMenu() {
     }
 }
 
+
 /**
  * This function generates last charakter.
  * @param {string} contactId - This is the Id of contact you want to show
@@ -32,6 +37,12 @@ function generateColorId(contactId) {
     return colorId;
 }
 
+
+/**
+ * This function is used to generate initials of name
+ * @param {string} name - This is the name
+ * @returns string of initials
+ */
 function generateInitials(name) {
     initials = name.toLowerCase().split(' ');
     initials = initials.map(word => word.charAt(0).toUpperCase());
