@@ -89,10 +89,11 @@ function createOnDragTask(id) {
 /**
  * This function creates initials on task
  * @param {string} initials - These are the initials you want to show
+ * @param {string} colorId - This is the color you want to show
  * @returns HTML code
  */
-function createAssignedTo(initials) {
-    return `<div class="green">${initials}</div>`
+function createAssignedTo(initials, colorId) {
+    return `<div class="profileColor-${colorId}">${initials}</div>`
 }
 
 
@@ -102,7 +103,7 @@ function createAssignedTo(initials) {
  * @returns HTML code
  */
 function createAssignedToMoreUsers(moreUsers) {
-    return `<div class="green">+${moreUsers}</div>`
+    return `<div class="profileColorMoreUsers">+${moreUsers}</div>`
 }
 
 
@@ -144,13 +145,14 @@ function createBigTask(task) {
 /**
  * This function is used to create one assigned user
  * @param {string} name - This is the name of user
- * @param {*} initials - These are the initials of user
+ * @param {string} initials - These are the initials of user
+ * @param {string} colorId - This is the color you want to show
  * @returns HTML code
  */
-function createBigTaskAssignedTo(name, initials) {
+function createBigTaskAssignedTo(name, initials, colorId) {
     return `
     <div>
-        <div class="bigTaskInitials green">${initials}</div>
+        <div class="bigTaskInitials profileColor-${colorId}">${initials}</div>
         <div>${name}</div>
     </div>
     `
