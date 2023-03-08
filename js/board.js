@@ -174,9 +174,7 @@ function generateBigTaskAssignedTo(task){
     let assignedTo = task['assignedTo'];
     for (let n = 0; n < assignedTo.length; n++) {
         let name = assignedTo[n];
-        initials = name.toLowerCase().split(' ');
-        initials = initials.map(word => word.charAt(0).toUpperCase());
-        initials = initials.join('');
+        initials = generateInitials(name);
         document.getElementById(`bigTaskAssignedTo${task['id']}`).innerHTML+=createBigTaskAssignedTo(name, initials);
     }
 }
