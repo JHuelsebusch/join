@@ -1,4 +1,4 @@
-let JSONcontacts = [];
+let contacts = [];
 
 // Open Popup
 
@@ -77,23 +77,24 @@ function addContact() {
   let surname = greatLetterSurname(name.slice(name.indexOf(" ") + 1, name.length));
   let mail = document.getElementById(`inputMail`);
   let phone = document.getElementById(`inputPhone`);
-  let randomColor = color ;
+  let id = id;
 
   let data = {
+    id: id,
     name: name,
     surname: surname,
     email: mail,
     phone: phone,
-    pic: randomColor,
-    password: "0000"
+    color: color,
+    
   }
 // push
- JSONcontacts.push(data);
- console.log(JSONcontacts);
+ contacts.push(data);
+ console.log(contacts);
 // delay
-  name.value =``;
-  mail.value =``;
-  phone.value =``;
+  document.getElementById("inputName").value =``;
+  document.getElementById(`inputMail`).value =``;
+  pdocument.getElementById(`inputPhone`).value =``;
 
 }
 
@@ -114,3 +115,5 @@ function greatLetterSurname(surname) {
 	let greateSurname = surname.charAt(0).toUpperCase() + surname.slice(1, surname.length);
 	return greateSurname;
 }
+
+// FKT random color
