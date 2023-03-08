@@ -1,22 +1,40 @@
 /**
- * Sets the backend URL.
- * @param {string} url - The URL of the backend server.
- * @returns {void}
+ * Configuration options for the application.
+ * @typedef {Object} Config
+ * @property {string} backendUrl - The URL of the backend server.
  */
-function setURL(url) {
-    backendUrl = url;
-}
-
 
 /**
- * The URL of the backend server.
- * @type {string}
+ * The configuration options for the application.
+ * @type {Config}
  */
-let backendUrl = '';
+const config = {
+    backendUrl: 'https://gruppe-06i.developerakademie.net/smallest_backend_ever',
+};
 
-// Set the backend URL
-setURL('https://gruppe-06i.developerakademie.net/smallest_backend_ever');
+/**
+ * An array of user profiles retrieved from the backend server.
+ * @type {Object[]}
+ */
+const userProfile = [];
 
+/**
+ * The email input field.
+ * @type {HTMLInputElement}
+ */
+const email = document.getElementById('email');
+
+/**
+ * The password input field.
+ * @type {HTMLInputElement}
+ */
+const password = document.getElementById('password');
+
+/**
+ * The message box element.
+ * @type {HTMLElement}
+ */
+const msgBox = document.getElementById("msgBox");
 
 /**
  * Initializes the user profile array from the backend server.
@@ -24,17 +42,17 @@ setURL('https://gruppe-06i.developerakademie.net/smallest_backend_ever');
  * @returns {Promise<void>}
  */
 async function init() {
-    const response = await fetch(`${backendUrl}/userProfile`);
+    try {
+        const response = await fetch(`${config.backendUrl}/userProfile`);
 
-    if (response.ok) {
-        /**
-         * The user profile data in JSON format.
-         * @type {Object[]}
-         */
-        const userProfileJson = await response.json();
-        userProfile.push(...userProfileJson);
-    } else {
-        console.error(`Failed to fetch user profile data from server: ${response.status}`);
+        if (response.ok) {
+            const userProfileJson = await response.json();
+            userProfile.push(...userProfileJson);
+        } else {
+            throw new Error(`Failed to fetch user profile data from server: ${response.status}`);
+        }
+    } catch (error) {
+        console.error(error);
     }
 }
 
@@ -43,34 +61,29 @@ async function init() {
  * @returns {void}
  */
 function login() {
-    let email = document.getElementById('email');
-    let password = document.getElementById('password');
-    let user = userProfile.find(u => u.email == email.value && u.password == password.value);
+    const user = userProfile.find(u => u.email === email.value && u.password === password.value);
 
     console.log(user);
 
     if (user) {
-        console.log('user gefunden');
+        console.log('User found');
     }
 }
 
 /**
- * The user profile array.
- * @type {Object[]}
+ * The URL parameters for the current page.
+ * @type {URLSearchParams}
  */
-const userProfile = [];
-
 const urlParams = new URLSearchParams(window.location.search);
-const msg = urlParams.get('msg');
 
 /**
- * The message box element.
- * @type {HTMLElement}
+ * The message parameter from the URL parameters.
+ * @type {?string}
  */
-let msgBox = document.getElementById("msgBox");
+const msg = urlParams.get('msg');
 
 if (msg) {
     msgBox.innerHTML = msg;
 } else {
-    document.getElementById("msgBox").classList.add("dnone");
+    msgBox.classList.add("dnone");
 }
