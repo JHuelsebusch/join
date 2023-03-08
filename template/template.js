@@ -116,7 +116,7 @@ function createAssignedToMoreUsers(moreUsers) {
 function createBigTask(task) {
     return `
     <div class="bigTaskCancel"><img src="./img/icons-cancel.svg" onclick="closeBigTask()"></div>
-    <div class="bigTaskEdit"><img src="./img/pencil-white.svg"></div>
+    <div class="bigTaskEdit" onclick="showTaskEdit(${task['id']})"><img src="./img/pencil-white.svg"></div>
     <div>
         <div class="bigTaskDepartment ${task['department']}">${task['department']}</div>
     </div>
@@ -158,43 +158,52 @@ function createBigTaskAssignedTo(name, initials, colorId) {
     `
 }
 
-function createEditTask(task) {
+function createTaskEdit(task) {
     return `
     <div class="bigTaskCancel"><img src="./img/icons-cancel.svg" onclick="closeBigTask()"></div>
-    <div class="bigTaskEdit"><img src="./img/pencil-white.svg"></div>
     <form>
+        <button class="bigTaskEditSubmit">
+            <span>Ok</span>
+            <img src="./img/icon-edit-ok.svg">
+        </button>
         <label>
             Title
-            <input type="text" id="taskTitleEdit" value="${task['title']}">
+            <input type="text" required id="taskTitleEdit" value="${task['title']}">
         </label>
         <label>
             Description
-            <textarea id="taskDescriptionEdit">${task['title']}</textarea>
+            <textarea required id="taskDescriptionEdit">${task['description']}</textarea>
         </label>
         <label>
             Due date
-            <input type="date" id="taskDateEdit" value="${task['date']}">
+            <input type="date" required id="taskDateEdit" value="${task['date']}">
+        </label>
+        <label>
+            Prio
+            <div class="taskEditPriority" id="taskEditPriority">
+            </div>
+        </label>
+        <label>
+            Assigned To
+        </label>
     </form>
-    // <div>
-    //     <div class="bigTaskDepartment ${task['department']}">${task['department']}</div>
-    // </div>
-    // <div class="bigTaskTitle"></div>
-    // <div class="bigTaskDescription">${task['description']}</div>
-    // <div class="bigTaskDate">
-    //     <div class="bigTaskSubtitle">Due date:</div><div>${task['date']}</div>
-    // </div>
-    // <div class="bigTaskPriority">
-    //     <div class="bigTaskSubtitle">Priority:</div>
-    //     <div class="bigTaskPriorityChild ${task['priority']}">
-    //         <span>${task['priority']}</span>
-    //         <img src="./img/prio-white-${task['priority']}.svg">
-    //     </div>
-    // </div>
-    // <div class="bigTaskSubtask dNone" id="bigTaskSubtask${task['id']}"></div>
-    // <div class="bigTaskBottom">
-    //     <div class="bigTaskSubtitle">Assigned To:</div>
-    //     <div class="bigTaskAssignedTo" id="bigTaskAssignedTo${task['id']}">
-    //     </div>
-    // </div>
 `
+}
+
+function createTaskEditPrio(taskId) {
+    return `
+        <div class="editPrio" id="urgentEditPrio" onclick="changePrio('urgent', ${taskId})">
+            <span>urgent</span>
+            <img src="./img/prio-urgent.svg" id="urgentEditPrioImg">
+        </div>
+        <div class="editPrio" id="mediumEditPrio"  onclick="changePrio('medium', ${taskId})">
+            <span>medium</span>
+            <img src="./img/prio-medium.svg" id="mediumEditPrioImg">
+        </div>
+        <div class="editPrio" id="lowEditPrio" onclick="changePrio('low', ${taskId})">
+            <span>low</span> 
+            <img src="./img/prio-low.svg" id="lowEditPrioImg">
+        </div>
+    
+    `
 }

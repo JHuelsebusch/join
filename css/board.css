@@ -321,18 +321,6 @@
     text-transform: uppercase;
 }
 
-.urgent {
-    background-color: #FF3D00;
-}
-
-.medium {
-    background-color: #FFA800;
-}
-
-.low {
-    background-color: #7AE229;
-}
-
 .bigTaskBottom {
     display: flex;
     flex-direction: column;
@@ -400,6 +388,113 @@
 }
 
 
+/* Edit Bis Task */
+
+.bigTask form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0px 50px;
+}
+
+.bigTask form label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bigTask form label input,
+.bigTask form label textarea {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 380px;
+    border: 1px solid #D1D1D1;
+    border-radius: 10px;
+    background: var(--bg-white);
+}
+
+#taskTitleEdit {
+    align-items: center;
+    padding: 13px 21px;
+    height: 25px;
+}
+
+#taskDescriptionEdit {
+    align-items: flex-start;
+    padding: 18px 21px;
+    height: 83px;
+}
+
+#taskDateEdit {
+    align-items: center;
+    padding: 18px 21px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.taskEditPriority {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.editPrio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 116px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.editPrio:hover {
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.editPrio span::first-letter {
+    text-transform: uppercase;
+}
+
+.editPrioActive {
+    color: var(--text-white) !important;
+}
+
+.bigTaskEditSubmit {
+    color: var(--text-white);
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 120%;
+    background-color: var(--bg-blue);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    position: absolute;
+    bottom: 30px;
+    right: 41px;
+    width: 83px;
+    height: 61px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: unset;
+}
+
+.bigTaskEditSubmit:hover {
+    background-color: var(--bg-highlight-light-blue);
+}
+
+
 /* Departments */
 
 .sales {
@@ -420,4 +515,19 @@
 
 .marketing {
     background-color: #0038FF;
+}
+
+
+/* Prio */
+
+.urgent {
+    background-color: #FF3D00;
+}
+
+.medium {
+    background-color: #FFA800;
+}
+
+.low {
+    background-color: #7AE229;
 }

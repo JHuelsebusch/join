@@ -194,3 +194,21 @@ function closeBigTask(){
 function doNotCloseBigTask(event){
     event.stopPropagation();
 }
+
+function showTaskEdit(id){
+    let task = tasks[id];
+    document.getElementById('bigTask').innerHTML = createTaskEdit(task);
+    generateTaskEditPrio(task, id);
+    
+}
+function generateTaskEditPrio(task, id){
+    document.getElementById('taskEditPriority').innerHTML = createTaskEditPrio(id);
+    document.getElementById(`${task['priority']}EditPrio`).classList.add(`editPrioActive`);
+    document.getElementById(`${task['priority']}EditPrio`).classList.add(`${task['priority']}`);
+    document.getElementById(`${task['priority']}EditPrioImg`).src = `./img/prio-white-${task['priority']}.svg`;
+}
+function changePrio(newPrio, taskId){
+    let task = tasks[taskId];
+    task['priority']=newPrio;
+    generateTaskEditPrio(task, taskId);
+}
