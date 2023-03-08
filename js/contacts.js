@@ -1,5 +1,3 @@
-let contacts = [];
-
 // Open Popup
 
 function open_popup() {
@@ -85,8 +83,6 @@ function addContact() {
     surname: surname,
     email: mail,
     phone: phone,
-    color: color,
-    
   }
 // push
  contacts.push(data);
