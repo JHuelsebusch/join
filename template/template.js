@@ -1,4 +1,3 @@
-
 /**
  * This function is used to generate side navbar and header
  * @returns HTML code of navbar and header
@@ -155,4 +154,45 @@ function createBigTaskAssignedTo(name, initials) {
         <div>${name}</div>
     </div>
     `
+}
+
+function createEditTask(task) {
+    return `
+    <div class="bigTaskCancel"><img src="./img/icons-cancel.svg" onclick="closeBigTask()"></div>
+    <div class="bigTaskEdit"><img src="./img/pencil-white.svg"></div>
+    <form>
+        <label>
+            Title
+            <input type="text" id="taskTitleEdit" value="${task['title']}">
+        </label>
+        <label>
+            Description
+            <textarea id="taskDescriptionEdit">${task['title']}</textarea>
+        </label>
+        <label>
+            Due date
+            <input type="date" id="taskDateEdit" value="${task['date']}">
+    </form>
+    // <div>
+    //     <div class="bigTaskDepartment ${task['department']}">${task['department']}</div>
+    // </div>
+    // <div class="bigTaskTitle"></div>
+    // <div class="bigTaskDescription">${task['description']}</div>
+    // <div class="bigTaskDate">
+    //     <div class="bigTaskSubtitle">Due date:</div><div>${task['date']}</div>
+    // </div>
+    // <div class="bigTaskPriority">
+    //     <div class="bigTaskSubtitle">Priority:</div>
+    //     <div class="bigTaskPriorityChild ${task['priority']}">
+    //         <span>${task['priority']}</span>
+    //         <img src="./img/prio-white-${task['priority']}.svg">
+    //     </div>
+    // </div>
+    // <div class="bigTaskSubtask dNone" id="bigTaskSubtask${task['id']}"></div>
+    // <div class="bigTaskBottom">
+    //     <div class="bigTaskSubtitle">Assigned To:</div>
+    //     <div class="bigTaskAssignedTo" id="bigTaskAssignedTo${task['id']}">
+    //     </div>
+    // </div>
+`
 }
