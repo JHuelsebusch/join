@@ -127,7 +127,7 @@ function loadContactList() {
         <h4>BUCHSTABE</h4>
         <div class="sepLine"></div>
       </div>
-      <div class="contactContainer">
+      <div class="contactContainer" onclick="loadContactDetail(contacts)">
       <div class="contactInitial profileColor-${element["id"]}">GG</div>
       <div class="contactNameMail">
         <div class="contName">${element["surname"]} ${element["name"]}</div>
@@ -138,4 +138,30 @@ function loadContactList() {
 
   
 }
-// FKT random color
+
+// Fkt load detail
+function loadContactDetail(contacts) {
+let contactDetail = document.getElementById("contDisplay");
+contactDetail.innerHTML = "";
+contactDetail.innerHTML += contactDetailHTML(contacts);
+}
+
+// Template HTML
+
+// \b- eine führende Wortgrenze
+//
+
+function contactDetailHTML(contacts) {
+  let index = 0;
+  let contact = contacts[index];
+  
+  return  /*html*/`
+
+    <div class= "dflex">
+
+    <div>${contact["surname"]} ${contact["name"]}</div>
+    <div> Contact Information IMG Edit Contact</div>
+    <div>Email${contact["email"]}<br> Phone ${contact["phone"]}</div>
+    </div>
+  `
+}
