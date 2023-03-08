@@ -2,7 +2,7 @@ let tasks = [{
     id: '0',
     title: 'Call potential clients',
     description: 'Make the product presentation to prospective buyers',
-    date: '',
+    date: '2023-08-03',
     priority: 'urgent',
     assignedTo: [{
         id: '0',
@@ -40,7 +40,7 @@ let tasks = [{
     id: '1',
     title: 'Accounting invoices',
     description: 'Write open invoices for customer',
-    date: '',
+    date: '2023-03-01',
     priority: 'medium',
     assignedTo: [{
         id: '0',
@@ -56,7 +56,7 @@ let tasks = [{
     id: '2',
     title: 'Video Cut',
     description: 'Edit the new company video',
-    date: '',
+    date: '2023-03-01',
     priority: 'low',
     assignedTo: [{
         id: '0',
@@ -72,7 +72,7 @@ let tasks = [{
     id: '3',
     title: 'Social media strategy',
     description: 'Develop an ad campaign for brand positioning',
-    date: '',
+    date: '2023-03-01',
     priority: 'low',
     assignedTo: [{
         id: '0',

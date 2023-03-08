@@ -160,9 +160,14 @@ function showBigTask(id){
     let task = tasks[id];
     document.getElementById('bigTaskBg').classList.remove('dNone');
     document.getElementById('bigTask').innerHTML = createBigTask(task);
+    generateBigTaskDate(task['date']);
     generateBigTaskAssignedTo(task);
 }
 
+function generateBigTaskDate(date){
+    date = date.split('-').reverse().join('.');
+    document.getElementById('bigTaskDate').innerHTML = createBigTaskDate(date);
+}
 
 /**
  * This function is used to generate "assigned to"-section on big task 
@@ -211,4 +216,17 @@ function changePrio(newPrio, taskId){
     let task = tasks[taskId];
     task['priority']=newPrio;
     generateTaskEditPrio(task, taskId);
+}
+function saveTaskEdit(taskId){
+    let task = tasks[taskId];
+    let newTitle = document.getElementById('taskTitleEdit').value;
+    let newDescription = document.getElementById('taskDescriptionEdit').value;
+    let newDate = document.getElementById('taskDateEdit').value;
+    task['title'] = newTitle;
+    task['description'] = newDescription;
+    task['date'] = newDate;
+
+
+    renderBoard();
+    closeBigTask();
 }
