@@ -164,6 +164,7 @@ body {
     padding-left: 50px;
     padding-right: 50px;
     flex-direction: column;
+    overflow-y: scroll;
 
 }
 
@@ -284,10 +285,51 @@ body {
 
 
 }
-
-.animation {
+/* Animation  */
+.animationSlideIn {
     animation: fadeIn 1s ease 0s 1 normal forwards;
 }
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+
+	0% {
+		transform: translateX(100%);
+	}
+
+	100% {
+		transform: translateX(1);
+	}
+}
+
+.animationSlideOut {
+    animation: fadeOut 1s ease 0s 1 reverse forwards;
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+
+	0% {
+		transform: translateX(100%);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
 
 .contAddContainer {
     display: flex;
@@ -301,7 +343,7 @@ body {
     align-items: flex-start;
     padding: 66px 46px;
     max-width: 463px;
-    height: 594px;
+    
     isolation: isolate;
     background: #2a3647;
     color: white;
@@ -346,6 +388,100 @@ body {
     isolation: isolate;
     gap: 12px;
 }
+.contAddRightClose{
+    position: absolute;
+    cursor: pointer;
+    top: 25px;
+    right: 25px;
+}
+.contAddEdit{
+    display: flex;
+}
+
+.contAddEditIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    background: #d1d1d1;
+    margin-right: 30px;
+    border: 2px solid white;
+}
+.contAddEditIcon{
+    width: 115px;
+    vertical-align: middle;
+}
+.contAddForm{
+    display: flex;
+    flex-direction: column;
+}
+.contInputEdit{
+    cursor: pointer;
+    padding: 13px 21px;
+    width: 422px;
+    height: 30px;
+    background: #ffffff;
+    border: 1px solid #d1d1d1;
+    border-radius: 10px;
+    margin-bottom: 26px;
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 21px;
+    line-height: 120%;
+    font-style: normal;
+}
+.contFormImg{
+    margin-left: -39px;
+    
+}
+
+.contCancelBtn{
+    display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 18px 10px;
+	gap: 10px;
+	height: 61px;
+	background: white;
+	border-radius: 10px;
+	color: #2a3647;
+	border: 1px solid #2a3647;
+	font-size: 21px;
+	color: #2a3647;
+	margin-right: 40px;
+}
+.contCancelBtn:hover{
+    cursor: pointer;
+    color: #29abe2;
+	background: #ffffff;
+	border-color: #29abe2;
+	-webkit-box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.2);
+}
+.contCreateBtn{
+    display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	color: white;
+    padding: 18px 10px;
+	height: 61px;
+	background: #2a3647;
+	border-radius: 10px;
+	font-size: 21px;
+    font-weight: 700;
+    gap: 10px;
+    border: none;
+}
+.contCreateBtn:hover {
+    cursor: pointer;
+	background: #29abe2;
+}
+
+
 
 /*---RESPONSIVE */
 @media(max-width:1660px) {

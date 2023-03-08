@@ -130,6 +130,7 @@
     flex-direction: column;
     align-items: center;
     gap: 35px;
+    cursor: pointer;
 }
 
 .task {
@@ -233,6 +234,169 @@
 
 .green {
     background-color: green;
+}
+
+
+/* Big Task */
+
+.bigTaskBg {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 15;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bigTask {
+    background-color: var(--bg-white);
+    box-shadow: var(--box-shadow);
+    border-radius: 30px;
+    width: 523px;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 120%;
+    position: relative;
+}
+
+.bigTaskDepartment {
+    width: fit-content;
+    padding: 4px 36.5px;
+    border-radius: 8px;
+    color: var(--text-white);
+    font-weight: 400;
+    font-size: 27px;
+    line-height: 120%;
+}
+
+.bigTaskDepartment::first-letter {
+    text-transform: uppercase;
+}
+
+.bigTaskTitle {
+    color: var(--text-blue);
+    font-weight: 700;
+    font-size: 61px;
+    line-height: 120%;
+}
+
+.bigTaskSubtitle {
+    font-weight: 700;
+}
+
+.bigTaskDate {
+    display: flex;
+    flex-direction: row;
+}
+
+.bigTaskPriority {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+}
+
+.bigTaskPriorityChild {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 18px;
+    gap: 10px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    color: var(--text-white);
+}
+
+.bigTaskPriorityChild span::first-letter {
+    text-transform: uppercase;
+}
+
+.urgent {
+    background-color: #FF3D00;
+}
+
+.medium {
+    background-color: #FFA800;
+}
+
+.low {
+    background-color: #7AE229;
+}
+
+.bigTaskBottom {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.bigTaskAssignedTo {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.bigTaskAssignedTo div {
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    align-items: center;
+}
+
+.bigTaskInitials {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 58px;
+    border: 1px solid #ffffff;
+    color: var(--text-white);
+    font-size: 16px;
+}
+
+.bigTaskCancel {
+    position: absolute;
+    top: 30px;
+    right: 41px;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.bigTaskCancel:hover {
+    transform: rotate(180deg);
+    transition: all ease-in-out 125ms;
+}
+
+.bigTaskEdit {
+    position: absolute;
+    bottom: 30px;
+    right: 41px;
+    height: 57px;
+    width: 57px;
+    background-color: var(--bg-blue);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.bigTaskEdit:hover {
+    background-color: var(--bg-highlight-light-blue);
 }
 
 
