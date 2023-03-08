@@ -140,7 +140,11 @@ function createBigTask(task) {
 `
 }
 
-
+/**
+ * This function is used to create date on big task
+ * @param {string} date - This is the date in german format you want to show 
+ * @returns HTML code
+ */
 function createBigTaskDate(date) {
     return `<div class="bigTaskSubtitle">Due date:</div><div>${date}</div>`
 }

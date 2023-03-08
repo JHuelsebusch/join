@@ -164,9 +164,14 @@ function showBigTask(id){
     generateBigTaskAssignedTo(task);
 }
 
+
+/**
+ * This function is used to change date format from english to german
+ * @param {string} date - This is the date in english format you want to show 
+ */
 function generateBigTaskDate(date){
-    date = date.split('-').reverse().join('.');
-    document.getElementById('bigTaskDate').innerHTML = createBigTaskDate(date);
+    germanDate = date.split('-').reverse().join('.');
+    document.getElementById('bigTaskDate').innerHTML = createBigTaskDate(germanDate);
 }
 
 /**
