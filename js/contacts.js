@@ -157,11 +157,11 @@ function contactDetailHTML(contacts) {
   
   return  /*html*/`
 
-    <div class= "dflex">
+    <div class= "contDetailBg animationSlideIn">
 
-    <div>${contact["surname"]} ${contact["name"]}</div>
+    <div>${contact["surname"]} ${contact["name"]}</div><br>
     <div> Contact Information IMG Edit Contact</div>
-    <div>Email${contact["email"]}<br> Phone ${contact["phone"]}</div>
+    <div><br>Email${contact["email"]}<br> Phone ${contact["phone"]}</div>
     </div>
   `
 }
