@@ -343,3 +343,46 @@ body {
     margin-left: 400px;
     margin-bottom: 40px;
 }
+
+
+/* Profile Colors */
+
+.profileColor-0 {
+    background-color: #AF1616;
+}
+
+.profileColor-1 {
+    background-color: #9327FF;
+}
+
+.profileColor-2 {
+    background-color: #FFA800;
+}
+
+.profileColor-3 {
+    background-color: #0223CF;
+}
+
+.profileColor-4 {
+    background-color: #CB02CF;
+}
+
+.profileColor-5 {
+    background-color: #02CF2F;
+}
+
+.profileColor-6 {
+    background-color: #0190E0;
+}
+
+.profileColor-7 {
+    background-color: #FF5C00;
+}
+
+.profileColor-8 {
+    background-color: #4E963D;
+}
+
+.profileColor-9 {
+    background-color: #32DAFF;
+}
