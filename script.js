@@ -1,7 +1,8 @@
 /**
  * Startfunction
  */
-function init() {
+async function init() {
+    
     generateNavbar();
 }
 

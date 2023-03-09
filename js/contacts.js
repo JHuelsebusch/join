@@ -1,5 +1,7 @@
 // Open Popup
 
+let contacts = [];
+
 function open_popup() {
   document.getElementById("cont_popup_id").innerHTML = "";
   loadOverlay();
@@ -92,9 +94,9 @@ function addContact() {
   pdocument.getElementById(`inputPhone`).value = ``;
 }
 /**
- * 
+ *
  * @param {string} name - This is
- * @returns 
+ * @returns
  */
 // Fkt first letter of name great
 function greatLetter(name) {
@@ -130,7 +132,7 @@ function loadContactList() {
         <div class="sepLine"></div>
       </div>
       <div class="contactContainer" onclick="loadContactDetail(contacts)">
-      <div class="contactInitial profileColor-${element["id"]}">GG</div>
+      <div class="contactInitial profileColor-${element[`id`]}">GG</div>
       <div class="contactNameMail">
         <div class="contName">${element["surname"]} ${element["name"]}</div>
         <div class="contMail">${element["email"]}</div>
@@ -138,10 +140,14 @@ function loadContactList() {
     </div>`;
   }
 }
-
+async function initContacts() {
+  await downloadFromServer();
+    contacts = JSON.parse(backend.getItem('contacts')) || [];
+    tasks = JSON.parse(backend.getItem('tasks')) || [];
+}
 
 /**
- * 
+ *
  * @param {string} contacts -
  */
 // Fkt load detail
@@ -174,7 +180,7 @@ function contactDetailHTML(contacts) {
       <div class="contDatailMidRight"><img src="./img/contact_icon_pen.svg"><p>Edit&nbspContact</p></div>
     </div>
 
-    <div class= "contDetailBotto"><br><b>Email </b><span class="contMail">${contact["email"]}</span><br><b> Phone </b><span></span> ${contact["phone"]}</span></div>
+    <div class= "contDetailBottom"><br><b>Email </b><span class="contMail">${contact["email"]}</span><br><b> Phone </b><span></span> ${contact["phone"]}</span></div>
     </div>
   `;
 }

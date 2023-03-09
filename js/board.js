@@ -251,10 +251,6 @@ function changePrio(newPrio, taskId){
 }
 
 
-/**
- * This function is used to show initials of assigned contacts on task editor
- * @param {array} task - This is the task you want to edit
- */
 function generateTaskEditAssignedTo(task){
     let assignedTo = task['assignedTo'];
     for (let n = 0; n < assignedTo.length; n++) {
