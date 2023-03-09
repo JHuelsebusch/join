@@ -1,9 +1,7 @@
 // Open Popup
 
 function open_popup() {
-  
-  
-  document.getElementById("cont_popup_id").innerHTML= "";
+  document.getElementById("cont_popup_id").innerHTML = "";
   loadOverlay();
 }
 
@@ -12,15 +10,14 @@ function open_popup() {
 function closePopup() {
   document.getElementById("animationId").classList.add("animationSlideOut");
   document.getElementById("animationId").classList.remove("animationSlideIn");
-  setTimeout(
-  timeOut,1050);
+  setTimeout(timeOut, 1050);
 }
 
 function timeOut() {
-  document.getElementById("cont_popup_id").classList.add(`d-none`)
+  document.getElementById("cont_popup_id").classList.add(`d-none`);
 }
 function stopClosing(event) {
-    event.stopPropagation();
+  event.stopPropagation();
 }
 
 // Load
@@ -72,7 +69,9 @@ function addContactHTML() {
 
 function addContact() {
   let name = greatLetter(document.getElementById("inputName").value);
-  let surname = greatLetterSurname(name.slice(name.indexOf(" ") + 1, name.length));
+  let surname = greatLetterSurname(
+    name.slice(name.indexOf(" ") + 1, name.length)
+  );
   let mail = document.getElementById(`inputMail`);
   let phone = document.getElementById(`inputPhone`);
   let id = id;
@@ -83,44 +82,47 @@ function addContact() {
     surname: surname,
     email: mail,
     phone: phone,
-  }
-// push
- contacts.push(data);
- console.log(contacts);
-// delay
-  document.getElementById("inputName").value =``;
-  document.getElementById(`inputMail`).value =``;
-  pdocument.getElementById(`inputPhone`).value =``;
-
+  };
+  // push
+  contacts.push(data);
+  console.log(contacts);
+  // delay
+  document.getElementById("inputName").value = ``;
+  document.getElementById(`inputMail`).value = ``;
+  pdocument.getElementById(`inputPhone`).value = ``;
 }
-
+/**
+ * 
+ * @param {string} name - This is
+ * @returns 
+ */
 // Fkt first letter of name great
-function greatLetter (name) {
-	let surname = name.slice(name.indexOf(" ") + 1, name.length);
-	let greatName =
-		name.charAt(0).toUpperCase() +
-		name.slice(1, name.indexOf(" ")) +
-		" " +
-		surname.charAt(0).toUpperCase() +
-		surname.slice(1, surname.length);
-	return greatName;
+function greatLetter(name) {
+  let surname = name.slice(name.indexOf(" ") + 1, name.length);
+  let greatName =
+    name.charAt(0).toUpperCase() +
+    name.slice(1, name.indexOf(" ")) +
+    " " +
+    surname.charAt(0).toUpperCase() +
+    surname.slice(1, surname.length);
+  return greatName;
 }
 
 // FKT first letter of surname great
 function greatLetterSurname(surname) {
-	let greateSurname = surname.charAt(0).toUpperCase() + surname.slice(1, surname.length);
-	return greateSurname;
+  let greateSurname =
+    surname.charAt(0).toUpperCase() + surname.slice(1, surname.length);
+  return greateSurname;
 }
-
 
 // Load Contacts list
 
 function loadContactList() {
-  let contactList= document.getElementById(`contactsList`);
-  contactList.innerHTML= ``;
-   for (let index = 0; index < contacts.length; index++) {
+  let contactList = document.getElementById(`contactsList`);
+  contactList.innerHTML = ``;
+  for (let index = 0; index < contacts.length; index++) {
     const element = contacts[index];
-    contactList.innerHTML +=/*html*/`
+    contactList.innerHTML += /*html*/ `
 
     <div class= "contactListContainer colmn" id="contactListContainer">
       <div>
@@ -134,16 +136,19 @@ function loadContactList() {
         <div class="contMail">${element["email"]}</div>
       </div>
     </div>`;
-   }
-
-  
+  }
 }
 
+
+/**
+ * 
+ * @param {string} contacts -
+ */
 // Fkt load detail
 function loadContactDetail(contacts) {
-let contactDetail = document.getElementById("contDisplay");
-contactDetail.innerHTML = "";
-contactDetail.innerHTML += contactDetailHTML(contacts);
+  let contactDetail = document.getElementById("contDisplay");
+  contactDetail.innerHTML = "";
+  contactDetail.innerHTML += contactDetailHTML(contacts);
 }
 
 // Template HTML
@@ -154,14 +159,22 @@ contactDetail.innerHTML += contactDetailHTML(contacts);
 function contactDetailHTML(contacts) {
   let index = 0;
   let contact = contacts[index];
-  
-  return  /*html*/`
+
+  return /*html*/ `
 
     <div class= "contDetailBg animationSlideIn">
 
-    <div>${contact["surname"]} ${contact["name"]}</div><br>
-    <div> Contact Information IMG Edit Contact</div>
-    <div><br>Email${contact["email"]}<br> Phone ${contact["phone"]}</div>
+      <div class="contDetailTop">
+        <div class="contDetailLetter profileColor-${contact["id"]}"><p>DE</p></div>
+        <div class="contName"><h2>${contact["surname"]}&nbsp${contact["name"]}</h2><br><a href ="add_task.html">+ Add Task</a></div>
+      </div>
+
+    <div class="contDatailMid"> 
+      <div class="contDatailMidLeft"><p>Contact&nbspInformation</p></div>
+      <div class="contDatailMidRight"><img src="./img/contact_icon_pen.svg"><p>Edit&nbspContact</p></div>
     </div>
-  `
+
+    <div class= "contDetailBotto"><br><b>Email </b><span class="contMail">${contact["email"]}</span><br><b> Phone </b><span></span> ${contact["phone"]}</span></div>
+    </div>
+  `;
 }
