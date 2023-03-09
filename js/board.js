@@ -254,7 +254,10 @@ function changePrio(newPrio, taskId){
     saveTask();
 }
 
-
+/**
+ * This function is used to show assigned contacts on task editor
+ * @param {array} task - This is the task you want to edit
+ */
 function generateTaskEditAssignedTo(task){
     let assignedTo = task['assignedTo'];
     for (let n = 0; n < assignedTo.length; n++) {
@@ -265,6 +268,10 @@ function generateTaskEditAssignedTo(task){
     }
 }
 
+
+/**
+ * This function is used to open dropdown menu on task editor
+ */
 function openTaskContacts() {
     let TCClasslist = document.getElementById('taskContactsDropdown').classList;
     if (TCClasslist.contains('dNone')) {
