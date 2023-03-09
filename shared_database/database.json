@@ -9,7 +9,7 @@
             "name": "Guest Login",
             "email": "guest@example.com",
             "password": "password123"
-        },
+        }
     ],
     "contacts": [
         {
