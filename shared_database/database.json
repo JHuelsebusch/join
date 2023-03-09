@@ -11,11 +11,33 @@
         }
     ],
     "contacts": [{
+            "id": "0",
+            "name": "David Eisenberg",
+            "email": "david@eisenberg.de",
+            "phone": "0170 123456"
+        }, {
+            "id": "1",
+            "name": "Benedikt Ziegler",
+            "email": "benedikt@ziegler.de",
+            "phone": "0170 133476"
+        }, {
+            "id": "2",
+            "name": "Stefanie Farber",
+            "email": "stefanie@farber.de",
+            "phone": "0170 163486"
+        }, {
+            "id": "3",
+            "name": "Marcel Bauer",
+            "email": "marcel@bauer.de",
+            "phone": "0170 1694861"
+        }, {
+            "id": "4",
             "name": "Alice Brown",
             "email": "alice.brown@example.com",
             "phone": "555-1234"
         },
         {
+            "id": "5",
             "name": "Bob Green",
             "email": "bob.green@example.com",
             "phone": "555-5678"
