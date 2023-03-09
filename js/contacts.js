@@ -174,7 +174,7 @@ function contactDetailHTML(contacts) {
       <div class="contDatailMidRight"><img src="./img/contact_icon_pen.svg"><p>Edit&nbspContact</p></div>
     </div>
 
-    <div class= "contDetailBotto"><br><b>Email </b><span class="contMail">${contact["email"]}</span><br><b> Phone </b><span></span> ${contact["phone"]}</span></div>
+    <div class= "contDetailBottom"><br><b>Email </b><span class="contMail">${contact["email"]}</span><br><b> Phone </b><span></span> ${contact["phone"]}</span></div>
     </div>
   `;
 }
