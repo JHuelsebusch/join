@@ -142,7 +142,7 @@ function loadContactList() {
 
 /**
  * 
- * @param {string} contacts 
+ * @param {string} contacts -
  */
 // Fkt load detail
 function loadContactDetail(contacts) {
@@ -164,9 +164,17 @@ function contactDetailHTML(contacts) {
 
     <div class= "contDetailBg animationSlideIn">
 
-    <div class="contName">${contact["surname"]} ${contact["name"]}</div><br>
-    <div> Contact Information IMG Edit Contact</div>
-    <div><br><b>Email </b><span class="contMail">${contact["email"]}</span><br><b> Phone </b><span></span> ${contact["phone"]}</span></div>
+      <div class="contDetailTop">
+        <div class="contDetailLetter profileColor-${contact["id"]}"><p>DE</p></div>
+        <div class="contName"><h2>${contact["surname"]}&nbsp${contact["name"]}</h2><br><a href ="add_task.html">+ Add Task</a></div>
+      </div>
+
+    <div class="contDatailMid"> 
+      <div class="contDatailMidLeft"><p>Contact&nbspInformation</p></div>
+      <div class="contDatailMidRight"><img src="./img/contact_icon_pen.svg"><p>Edit&nbspContact</p></div>
+    </div>
+
+    <div class= "contDetailBotto"><br><b>Email </b><span class="contMail">${contact["email"]}</span><br><b> Phone </b><span></span> ${contact["phone"]}</span></div>
     </div>
   `;
 }
