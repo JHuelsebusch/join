@@ -1,5 +1,4 @@
 let currentDraggedElement;
-// let tasks = [];
 
 /**
  * Startfunction at board
@@ -11,11 +10,14 @@ async function initBoard() {
 
     renderBoard();
 }
-// async function pushData() {
-//     // await backend.setItem('users', JSON.stringify(users));
-//     await backend.setItem('contacts', JSON.stringify(contacts));
-//     await backend.setItem('tasks', JSON.stringify(tasks));
-// }
+
+/**
+ * This function is used to save tasks on backend
+ */
+async function saveTask() {
+    await backend.setItem('tasks', JSON.stringify(tasks));
+    console.log("Task saved");
+}
 
 /**
  * This function renders all tasks on the board
@@ -124,6 +126,7 @@ function allowDrop(event) {
  */
 function moveTo(taskStatus) {
     tasks[currentDraggedElement]['taskStatus'] = taskStatus;
+    saveTask();
     renderBoard();
 }
 
@@ -248,6 +251,7 @@ function changePrio(newPrio, taskId){
     let task = tasks[taskId];
     task['priority']=newPrio;
     generateTaskEditPrio(task, taskId);
+    saveTask();
 }
 
 
@@ -274,7 +278,7 @@ function saveTaskEdit(taskId){
     task['description'] = newDescription;
     task['date'] = newDate;
 
-
+    saveTask();
     renderBoard();
     closeBigTask();
 }
