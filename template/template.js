@@ -198,9 +198,10 @@ function createTaskEdit(task) {
         </label>
         <label>
             Assigned To
-            <div class="taskEditContacts"> 
+            <div class="taskEditContacts" id="taskEditContacts" onclick="openTaskContacts()"> 
                 <span>Select contacts to assign</span>
                 <img src="./img/icon-arrow-down.svg">
+                <div class="taskContactsDropdown dNone" id="taskContactsDropdown"></div>
             </div>
             <div class="taskEditInitials" id="taskEditInitials"></div>
         </label>

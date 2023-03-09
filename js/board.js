@@ -265,6 +265,17 @@ function generateTaskEditAssignedTo(task){
     }
 }
 
+function openTaskContacts() {
+    let TCClasslist = document.getElementById('taskContactsDropdown').classList;
+    if (TCClasslist.contains('dNone')) {
+        TCClasslist.remove('dNone');
+        document.getElementById('taskEditContacts').classList.add('taskDropdown');
+    } else {
+        TCClasslist.add('dNone');
+        document.getElementById('taskEditContacts').classList.remove('taskDropdown');
+    }
+}
+
 /**
  * This function is used to save task changes
  * @param {string} taskId - This is the id of task you edited
