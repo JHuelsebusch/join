@@ -1,3 +1,10 @@
+@font-face {
+    font-family: Inter;
+    src: url('./font/Inter-Regular.ttf');
+    font-family: Inter-Bold;
+    src: url('./font/Inter-Bold.ttf');
+  }
+
 *{
     margin: 0;
     font-family: 'Inter';
