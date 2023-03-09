@@ -1,0 +1,36 @@
+{
+    "userProfiles": [
+        {
+            "name": "Elvin Rook",
+            "email": "elvin.rook@gmail.com",
+            "password": "nils12345"
+        },
+        {
+            "name": "Guest Login",
+            "email": "guest@example.com",
+            "password": "password123"
+        }
+    ],
+    "contacts": [
+        {
+            "name": "Alice Brown",
+            "email": "alice.brown@example.com",
+            "phone": "555-1234"
+        },
+        {
+            "name": "Bob Green",
+            "email": "bob.green@example.com",
+            "phone": "555-5678"
+        }
+    ],
+    "tasks": [
+        {
+            "name": "Finish report",
+            "dueDate": "2023-03-15"
+        },
+        {
+            "name": "Buy groceries",
+            "dueDate": "2023-03-12"
+        }
+    ]
+}
