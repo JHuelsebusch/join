@@ -5,9 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/index.css" />
+    <script src="js/mini_backend.js"></script>
+    <script src="js/login.js"></script>
+
     <title>JOIN | Log in</title>
   </head>
-  <body onload="initUserProfiles()">
+  <body onload="init()">
     <section>
       <header>
         <div class="headerLeft">
@@ -22,7 +25,7 @@
         <div class="loginFrame">
           <p class="loginHeader">Log in</p>
           <img class="separator" src="img/seperate-vector.svg" alt="separator" />
-          <form class="login" onsubmit="login(); return false;">
+          <form class="login" onsubmit="logIn(); return false;">
             <div class="loginInput">
               <div class="input">
                 <input type="email" placeholder="enter Email" id="email" required />
@@ -50,10 +53,6 @@
       <div class="msgBox" id="msgBox"></div>
     </section>
 
-    <script src="js/mini_backend.js"></script>
-    <script src="js/login.js"></script>
-    <script>
-      setURL('https://gruppe-06i.developerakademie.net/smallest_backend_ever');
-    </script>
+    
   </body>
 </html>

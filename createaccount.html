@@ -10,7 +10,7 @@
     <script src="js/createaccount.js"></script>
     <title>JOIN | Sign up</title>
 </head>
-<body>
+<body onload="init()">
     <section>
         <header>
             <div class="headerLeft">
@@ -23,7 +23,7 @@
                 <div class="signUpContent">
                     <p class="signUpHeader">Sign up</p>
                     <img class="separator" src="img/seperate-vector.svg" alt="separator">
-                    <form class="login" onsubmit="createNewUserProfile(); return false;">
+                    <form class="login" onsubmit="addUser(); return false;">
                         <div class="loginInput">
                             <div class="input">
                                 <label for="inputName">Name</label>
