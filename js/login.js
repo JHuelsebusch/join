@@ -41,9 +41,9 @@ const msgBox = document.getElementById("msgBox");
  * @async
  * @returns {Promise<void>}
  */
-async function init() {
+async function initUserProfiles() {
     try {
-        const response = await fetch(`${config.backendUrl}/userProfile`);
+        const response = await fetch(`https://cors-anywhere.herokuapp.com/${config.backendUrl}/userProfile`);
 
         if (response.ok) {
             const userProfileJson = await response.json();
@@ -53,22 +53,37 @@ async function init() {
         }
     } catch (error) {
         console.error(error);
+        console.log('Error parsing JSON data');
     }
 }
+
+
 
 /**
  * Logs in a user if the provided email address and password match a user profile in the user profile array.
  * @returns {void}
  */
 function login() {
-    const user = userProfile.find(u => u.email === email.value && u.password === password.value);
+    const userEmail = email.value.trim();
+    const userPassword = password.value.trim();
 
-    console.log(user);
+    console.log('userEmail:', userEmail);
+    console.log('userPassword:', userPassword);
+
+    const user = userProfile.find(u => u.email === userEmail && u.password === userPassword);
+
+    console.log('user:', user);
 
     if (user) {
         console.log('User found');
+        window.location.href = "summary.html";
+    } else {
+        console.log('User not found');
     }
 }
+
+
+
 
 /**
  * The URL parameters for the current page.

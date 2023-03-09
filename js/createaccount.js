@@ -1,106 +1,94 @@
 /**
- * An array of user profiles.
- * @type {Object[]}
+ * Configuration options for the application.
+ * @typedef {Object} Config
+ * @property {string} backendUrl - The URL of the backend server.
  */
-const userProfile = [];
 
 /**
- * The URL of the backend server.
- * @type {string}
+ * The configuration options for the application.
+ * @type {Config}
  */
-const backendUrl = 'https://gruppe-06i.developerakademie.net/smallest_backend_ever';
+const config = {
+    backendUrl: 'https://gruppe-06i.developerakademie.net/smallest_backend_ever',
+};
 
 /**
- * Initializes the user profile array from the backend server.
+ * The message box element.
+ * @type {HTMLElement}
+ */
+const msgBox = document.getElementById("msgBox");
+
+/**
+ * Sends a POST request to the server to create a new user profile.
+ * @param {Object} data - The user profile data.
  * @async
  * @returns {Promise<void>}
  */
-async function init() {
-    await downloadFromServer();
-    const savedUserProfile = JSON.parse(backend.getItem('userProfile'));
-    if (Array.isArray(savedUserProfile)) {
-        userProfile.push(...savedUserProfile);
+async function createNewUserProfile() {
+    try {
+        // Get the values of the input fields
+        const name = document.getElementById('inputName').value;
+        const email = document.getElementById('inputEmail').value;
+        const password = document.getElementById('inputPassword').value;
+
+        // Create an object with the user profile data
+        const data = {
+            name,
+            email,
+            password
+        };
+
+        // Send a POST request to the server to create the user profile
+        const response = await fetch(`https://cors-anywhere.herokuapp.com/${config.backendUrl}/userProfile`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        // Check if the response was successful
+        if (response.ok) {
+            const msg = await response.text();
+            msgBox.innerHTML = msg;
+        } else {
+            throw new Error(`Failed to create user profile: ${response.status}`);
+        }
+    } catch (error) {
+        console.error(error);
     }
 }
 
 /**
- * Creates a new user profile and saves it to the backend server.
- * @returns {void}
+ * The form element.
+ * @type {HTMLFormElement}
  */
-function createNewUserProfile() {
-    const nameInput = document.getElementById('nameInput');
-    const emailInput = document.getElementById('emailInput');
-    const passwordInput = document.getElementById('passwordInput');
-
-    /**
-     * The new user profile.
-     * @type {Object}
-     * @property {string} name - The user's name.
-     * @property {string} email - The user's email address.
-     * @property {string} password - The user's password.
-     */
-    const newUserProfile = {
-        name: nameInput.value,
-        email: emailInput.value,
-        password: passwordInput.value,
-    };
-
-    if (!isValidEmail(newUserProfile.email)) {
-        alert('Please enter a valid email address.');
-        return;
-    }
-
-    if (!isStrongPassword(newUserProfile.password)) {
-        alert('Please enter a password that meets the complexity requirements.');
-        return;
-    }
-
-    userProfile.push(newUserProfile);
-    saveUserProfileToBackend();
-    redirectToLoginPage();
-}
+const form = document.querySelector('form');
 
 /**
- * Saves the user profile array to the backend server.
- * @async
- * @returns {Promise<void>}
+ * Attach an event listener to the form's submit event to create a new user profile.
  */
-async function saveUserProfileToBackend() {
-    const response = await fetch(`${backendUrl}/userProfile`, {
-        method: 'PUT',
-        body: JSON.stringify(userProfile),
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    });
+form.addEventListener('submit', e => {
+    e.preventDefault(); // Prevent the default form submission behavior
 
-    if (!response.ok) {
-        console.error(`Failed to save user profile data to server: ${response.status}`);
-    }
-}
+    createNewUserProfile(); // Call the createNewUserProfile function to create the user profile
+});
 
 /**
- * Redirects the user to the login page.
- * @returns {void}
+ * The URL parameters for the current page.
+ * @type {URLSearchParams}
  */
-function redirectToLoginPage() {
-    window.location.href = 'index.html?msg=Du hast dich erfolgreich registriert!';
-}
+const urlParams = new URLSearchParams(window.location.search);
 
 /**
- * Checks if an email address is valid.
- * @param {string} email - The email address to validate.
- * @returns {boolean} Whether the email address is valid.
+ * The message parameter from the URL parameters.
+ * @type {?string}
  */
-function isValidEmail(email) {
-    // TODO: Implement email validation
-}
+const msg = urlParams.get('msg');
 
-/**
- * Checks if a password is strong enough.
- * @param {string} password - The password to check.
- * @returns {boolean} Whether the password is strong enough.
- */
-function isStrongPassword(password) {
-    // TODO: Implement password strength check
+// Show the message box if a message is provided in the URL parameters
+if (msg) {
+    msgBox.innerHTML = msg;
+} else {
+    msgBox.classList.add("dnone");
 }
