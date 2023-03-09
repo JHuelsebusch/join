@@ -1,13 +1,21 @@
 let currentDraggedElement;
-
+// let tasks = [];
 
 /**
  * Startfunction at board
  */
-function initBoard() {
+async function initBoard() {
+    await downloadFromServer();
+    tasks = JSON.parse(backend.getItem('tasks')) || [];
+    contacts = JSON.parse(backend.getItem('contacts')) || [];
+
     renderBoard();
 }
-
+// async function pushData() {
+//     // await backend.setItem('users', JSON.stringify(users));
+//     await backend.setItem('contacts', JSON.stringify(contacts));
+//     await backend.setItem('tasks', JSON.stringify(tasks));
+// }
 
 /**
  * This function renders all tasks on the board
