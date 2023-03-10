@@ -175,13 +175,13 @@ function contactDetailHTML(contacts) {
     <div class= "contDetailBg animationSlideIn">
 
       <div class="contDetailTop">
-        <div class="contDetailLetter profileColor-${contact["id"]}"><p>DE</p></div>
+        <div class="contDetailLetter profileColor-${contact[`id`]}"><p>DE</p></div>
         <div class="contName"><h2>${contact["surname"]}&nbsp${contact["name"]}</h2><br><a href ="add_task.html">+ Add Task</a></div>
       </div>
 
     <div class="contDatailMid"> 
       <div class="contDatailMidLeft"><p>Contact&nbspInformation</p></div>
-      <div class="contDatailMidRight"><img src="./img/contact_icon_pen.svg"><p>Edit&nbspContact</p></div>
+      <div class="contDatailMidRight"><img src="/img/contacts_icon_pen.svg"><p>Edit&nbspContact</p></div>
     </div>
 
     <div class= "contDetailBottom"><br><b>Email </b><span class="contMail">${contact["email"]}</span><br><b> Phone </b><span></span> ${contact["phone"]}</span></div>
