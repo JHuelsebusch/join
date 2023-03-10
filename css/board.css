@@ -529,11 +529,25 @@
     border-top: unset;
     border-radius: 0 0 10px 10px;
     display: flex;
+    flex-direction: column;
+    /* gap: 26px; */
 }
 
 .taskContactsDropdown::-webkit-scrollbar {
     display: none;
     /* Chrome */
+}
+
+.taskContactsDropdown label {
+    padding: 18px 21px;
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.taskContactsDropdown label input {
+    width: unset !important;
 }
 
 .taskEditInitials {

@@ -1,4 +1,6 @@
 let currentDraggedElement;
+let tasks = [];
+let contacts = [];
 
 /**
  * Startfunction at board
@@ -272,15 +274,17 @@ function generateTaskEditAssignedTo(task){
 /**
  * This function is used to open dropdown menu on task editor
  */
-function openTaskContacts() {
+function openTaskContacts(taskId) {
     let TCClasslist = document.getElementById('taskContactsDropdown').classList;
     if (TCClasslist.contains('dNone')) {
         TCClasslist.remove('dNone');
         document.getElementById('taskEditContacts').classList.add('taskDropdown');
+        showTaskEditContacts(taskId);
     } else {
         TCClasslist.add('dNone');
         document.getElementById('taskEditContacts').classList.remove('taskDropdown');
     }
+
 }
 
 /**
@@ -299,4 +303,34 @@ function saveTaskEdit(taskId){
     saveTask();
     renderBoard();
     closeBigTask();
+}
+
+function showTaskEditContacts(taskId) {
+    for (let c = 0; c < contacts.length; c++) {
+        let contact = contacts[c];
+        let name = generateFullName(contact);
+        let assigned = checkAssigned(taskId, name);
+        document.getElementById('taskContactsDropdown').innerHTML += createTaskContactsDropdown(name, assigned);
+    }
+    
+}
+
+function generateFullName(contact) {
+    let name = [];
+    name.push(contact['surname']);
+    name.push(contact['name']);
+    name = name.join(' ');
+    return name;
+}
+function checkAssigned(taskId, name){
+    let assignedTo = tasks[taskId]['assignedTo'];
+    for (let index = 0; index < assignedTo.length; index++) {
+        const assignedContact = assignedTo[index]['name'];
+        if(assignedContact.includes(name) == true) {
+            return 'checked';
+        }
+    }
+}
+function stopCloseContacts(event){
+    event.stopPropagation();
 }

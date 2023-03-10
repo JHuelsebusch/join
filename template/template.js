@@ -198,10 +198,10 @@ function createTaskEdit(task) {
         </label>
         <label>
             Assigned To
-            <div class="taskEditContacts" id="taskEditContacts" onclick="openTaskContacts()"> 
+            <div class="taskEditContacts" id="taskEditContacts" onclick="openTaskContacts(${task['id']})"> 
                 <span>Select contacts to assign</span>
                 <img src="./img/icon-arrow-down.svg">
-                <div class="taskContactsDropdown dNone" id="taskContactsDropdown"></div>
+                <div class="taskContactsDropdown dNone" id="taskContactsDropdown" onclick="stopCloseContacts(event)"></div>
             </div>
             <div class="taskEditInitials" id="taskEditInitials"></div>
         </label>
@@ -242,4 +242,12 @@ function createTaskEditPrio(taskId) {
  */
 function createTaskEditAssignedTo(initials, colorId) {
     return `<div class="profileColor-${colorId}">${initials}</div>`
+}
+
+function createTaskContactsDropdown(name, assigned) {
+    return `
+        <label>
+            ${name}
+            <input type="checkbox" ${assigned}>
+        </label>`
 }
