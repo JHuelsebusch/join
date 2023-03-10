@@ -1,5 +1,4 @@
 let currentDraggedElement;
-// let tasks = [];
 
 /**
  * Startfunction at board
@@ -11,11 +10,14 @@ async function initBoard() {
 
     renderBoard();
 }
-// async function pushData() {
-//     // await backend.setItem('users', JSON.stringify(users));
-//     await backend.setItem('contacts', JSON.stringify(contacts));
-//     await backend.setItem('tasks', JSON.stringify(tasks));
-// }
+
+/**
+ * This function is used to save tasks on backend
+ */
+async function saveTask() {
+    await backend.setItem('tasks', JSON.stringify(tasks));
+    console.log("Task saved");
+}
 
 /**
  * This function renders all tasks on the board
@@ -124,6 +126,7 @@ function allowDrop(event) {
  */
 function moveTo(taskStatus) {
     tasks[currentDraggedElement]['taskStatus'] = taskStatus;
+    saveTask();
     renderBoard();
 }
 
@@ -248,9 +251,13 @@ function changePrio(newPrio, taskId){
     let task = tasks[taskId];
     task['priority']=newPrio;
     generateTaskEditPrio(task, taskId);
+    saveTask();
 }
 
-
+/**
+ * This function is used to show assigned contacts on task editor
+ * @param {array} task - This is the task you want to edit
+ */
 function generateTaskEditAssignedTo(task){
     let assignedTo = task['assignedTo'];
     for (let n = 0; n < assignedTo.length; n++) {
@@ -258,6 +265,21 @@ function generateTaskEditAssignedTo(task){
         let initials = generateInitials(name);
         let colorId = generateColorId(assignedTo[n]['id'])
         document.getElementById(`taskEditInitials`).innerHTML+=createTaskEditAssignedTo(initials, colorId);
+    }
+}
+
+
+/**
+ * This function is used to open dropdown menu on task editor
+ */
+function openTaskContacts() {
+    let TCClasslist = document.getElementById('taskContactsDropdown').classList;
+    if (TCClasslist.contains('dNone')) {
+        TCClasslist.remove('dNone');
+        document.getElementById('taskEditContacts').classList.add('taskDropdown');
+    } else {
+        TCClasslist.add('dNone');
+        document.getElementById('taskEditContacts').classList.remove('taskDropdown');
     }
 }
 
@@ -274,7 +296,7 @@ function saveTaskEdit(taskId){
     task['description'] = newDescription;
     task['date'] = newDate;
 
-
+    saveTask();
     renderBoard();
     closeBigTask();
 }
