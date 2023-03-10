@@ -306,6 +306,7 @@ function saveTaskEdit(taskId){
 }
 
 function showTaskEditContacts(taskId) {
+    document.getElementById('taskContactsDropdown').innerHTML =``;
     for (let c = 0; c < contacts.length; c++) {
         let contact = contacts[c];
         let name = generateFullName(contact);
