@@ -487,6 +487,7 @@ body {
 
 .contactListContainer{
 display:  flex;
+align-items: center;
 
 }
 .dflex{
@@ -494,9 +495,13 @@ display:  flex;
 }
 .contactListContainer h4{
     font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 120%;
     margin-left: 10px;
     margin-bottom: 20px;
     margin-top: 40px;
+    font-size: 21px;
+    color: #000000;
 }
 .sepLine{
     width: 323px;
@@ -614,31 +619,71 @@ display:  flex;
     display: flex;
 }
 
-.contDatailMid{
+.contDetailMid{
     display: flex;
     font-size: 21px;
     align-items: center;
     color:black;
 }
-.contDatailMidLeft{
+.contDetailMidLeft{
     margin-right: 50px;
 }
-.contDatailMidRight{
+.contDetailMidRight{
     display: flex;
     justify-content: space-between;
+    margin: 10px;
+    cursor: pointer;
+    padding: 14px;
 }
-.contDatailMidRight img {
+
+.contDetailMidRight :hover{
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(241, 241, 241, 1) 100%);
+	border-radius: 10px;
+}
+
+.contDetailMidRight img {
     height: 30px;
-    margin-right: 10px
+    margin-right: 12px;
+    bottom: 10px;
+
+
 }
-.contDatailMidRight p {
+.contDetailMidRight p {
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 400;
-    font-size: 1px;
-    line-height: 120%
+    font-size: 19px;
+    line-height: 120%;
+    margin-top: 7px;
+    margin-bottom: 1rem
 }
+.contDetailBottom {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
 
+}
+.contDetailBottom div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+
+
+}
+.contMail{
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    max-width: 200px;
+    margin-top: 10px;
+    color: #007cee;
+    font-weight: 400;
+    
+    /*word-wrap: break-word;
+     /*---ZEILENUMBRUCH */
+}
+.contDetailBottom p {
+    margin: 3px;
+}
 
 
 /*---RESPONSIVE */

@@ -1,49 +1,48 @@
 let contacts = [];
 
 async function initContacts() {
-    await downloadFromServer();
-    contacts = JSON.parse(backend.getItem('contacts')) || [];
-    tasks = JSON.parse(backend.getItem('tasks')) || [];
+  await downloadFromServer();
+  contacts = JSON.parse(backend.getItem("contacts")) || [];
+  tasks = JSON.parse(backend.getItem("tasks")) || [];
 
-    loadContactList();
+  loadContactList();
 }
-
 
 // Open Popup
 function open_popup() {
-    document.getElementById("cont_popup_id").innerHTML = "";
-    loadOverlay();
+  document.getElementById("cont_popup_id").innerHTML = "";
+  loadOverlay();
 }
 
 // Close Popup
 
 function closePopup() {
-    document.getElementById("animationId").classList.add("animationSlideOut");
-    document.getElementById("animationId").classList.remove("animationSlideIn");
-    setTimeout(timeOut, 1050);
+  document.getElementById("animationId").classList.add("animationSlideOut");
+  document.getElementById("animationId").classList.remove("animationSlideIn");
+  setTimeout(timeOut, 1050);
 }
 
 function timeOut() {
-    document.getElementById("cont_popup_id").classList.add(`d-none`);
+  document.getElementById("cont_popup_id").classList.add(`d-none`);
 }
 
 function stopClosing(event) {
-    event.stopPropagation();
+  event.stopPropagation();
 }
 
 // Load
 
 function loadOverlay() {
-    let element = document.getElementById("cont_popup_id");
-    element.classList.remove(`d-none`);
-    element.innerHTML = "";
-    element.innerHTML = addContactHTML();
+  let element = document.getElementById("cont_popup_id");
+  element.classList.remove(`d-none`);
+  element.innerHTML = "";
+  element.innerHTML = addContactHTML();
 }
 
 // Template HTML
 
 function addContactHTML() {
-    return /*html*/ `
+  return /*html*/ `
     <div id="contAddBg" class= "contAddBg" onclick="closePopup()">
         <div id="animationId" onclick= "stopClosing(event)" class="animationSlideIn">
             <div class="contAddContainer">
@@ -79,28 +78,28 @@ function addContactHTML() {
 // Fkt Add Contact - def array structure
 
 function addContact() {
-    let name = greatLetter(document.getElementById("inputName").value);
-    let surname = greatLetterSurname(
-        name.slice(name.indexOf(" ") + 1, name.length)
-    );
-    let mail = document.getElementById(`inputMail`);
-    let phone = document.getElementById(`inputPhone`);
-    let id = id;
+  let name = greatLetter(document.getElementById("inputName").value);
+  let surname = greatLetterSurname(
+    name.slice(name.indexOf(" ") + 1, name.length)
+  );
+  let mail = document.getElementById(`inputMail`);
+  let phone = document.getElementById(`inputPhone`);
+  let id = id;
 
-    let data = {
-        id: id,
-        name: name,
-        surname: surname,
-        email: mail,
-        phone: phone,
-    };
-    // push
-    contacts.push(data);
-    console.log(contacts);
-    // delay
-    document.getElementById("inputName").value = ``;
-    document.getElementById(`inputMail`).value = ``;
-    pdocument.getElementById(`inputPhone`).value = ``;
+  let data = {
+    id: id,
+    name: name,
+    surname: surname,
+    email: mail,
+    phone: phone,
+  };
+  // push
+  contacts.push(data);
+  console.log(contacts);
+  // delay
+  document.getElementById("inputName").value = ``;
+  document.getElementById(`inputMail`).value = ``;
+  pdocument.getElementById(`inputPhone`).value = ``;
 }
 /**
  *
@@ -109,56 +108,78 @@ function addContact() {
  */
 // Fkt first letter of name great
 function greatLetter(name) {
-    let surname = name.slice(name.indexOf(" ") + 1, name.length);
-    let greatName =
-        name.charAt(0).toUpperCase() +
-        name.slice(1, name.indexOf(" ")) +
-        " " +
-        surname.charAt(0).toUpperCase() +
-        surname.slice(1, surname.length);
-    return greatName;
+  let surname = name.slice(name.indexOf(" ") + 1, name.length);
+  let greatName =
+    name.charAt(0).toUpperCase() +
+    name.slice(1, name.indexOf(" ")) +
+    " " +
+    surname.charAt(0).toUpperCase() +
+    surname.slice(1, surname.length);
+  return greatName;
 }
 
 // FKT first letter of surname great
 function greatLetterSurname(surname) {
-    let greateSurname =
-        surname.charAt(0).toUpperCase() + surname.slice(1, surname.length);
-    return greateSurname;
+  let greateSurname =
+    surname.charAt(0).toUpperCase() + surname.slice(1, surname.length);
+  return greateSurname;
 }
 
-// Load Contacts list
+// Load Contacts list !!! HTML TEMPLATE  AUSLAGERN!!!
 
 function loadContactList() {
-    let contactList = document.getElementById(`contactsList`);
-    contactList.innerHTML = ``;
-    for (let index = 0; index < contacts.length; index++) {
-        const element = contacts[index];
-        contactList.innerHTML += /*html*/ `
+  let contactList = document.getElementById(`contactsList`);
+  contactList.innerHTML = ``;
 
-    <div class= "contactListContainer colmn" id="contactListContainer">
-      <div>
-        <h4>BUCHSTABE</h4>
-        <div class="sepLine"></div>
-      </div>
-      <div class="contactContainer" onclick="loadContactDetail(contacts)">
-      <div class="contactInitial profileColor-${element[`id`]}">GG</div>
-      <div class="contactNameMail">
-        <div class="contName">${element["surname"]} ${element["name"]}</div>
-        <div class="contMail">${element["email"]}</div>
-      </div>
-    </div>`;
+  for (let index = 0; index < contacts.length; index++) {
+    const element = contacts[index];
+    let contact = contacts[index];
+    let initials = fktSurname(contact) + fktName(contact);
+    let firstIni = initials.slice(1, initials.length);
+    contactList.innerHTML += /*html*/ `
+
+        <div class= "contactListContainer colmn" id="contactListContainer">
+            <div>
+                <h4>${firstIni}</h4>
+                <div class="sepLine">
+            </div>
+        </div>
+        <div class="contactContainer" onclick="loadContactDetail('${contact}', '${initials}')">
+            <div class="contactInitial profileColor-${
+              element[`id`]
+            }">${initials}</div>
+            <div class="contactNameMail">
+                <div class="contName">${element["surname"]} ${
+      element["name"]
+    }</div>
+                <div class="contMail">${element["email"]}</div>
+            </div>
+        </div>`;
   }
 }
 
+//Hilfsfunktion INITIALIEN NAME
+function fktName(contact) {
+  iniName = contact.name.toLowerCase().split(" ");
+  iniName = iniName.map((word) => word.charAt(0).toUpperCase());
+  iniName = iniName.join("");
+  return iniName;
+}
+function fktSurname(contact) {
+  iniSurname = contact.surname.toLowerCase().split(" ");
+  iniSurname = iniSurname.map((word) => word.charAt(0).toUpperCase());
+  iniSurname = iniSurname.join("");
+  return iniSurname;
+}
 /**
  *
  * @param {string} contacts -
  */
 // Fkt load detail
-function loadContactDetail(contacts) {
+function loadContactDetail(contact, initials) {
   let contactDetail = document.getElementById("contDisplay");
   contactDetail.innerHTML = "";
-  contactDetail.innerHTML += contactDetailHTML(contacts);
+  contactDetail.innerHTML += contactDetailHTML(contacts, initials);
 }
 
 // Template HTML
@@ -166,7 +187,7 @@ function loadContactDetail(contacts) {
 // \b- eine führende Wortgrenze
 //
 
-function contactDetailHTML(contacts) {
+function contactDetailHTML(contacts, initials) {
   let index = 0;
   let contact = contacts[index];
 
@@ -175,16 +196,25 @@ function contactDetailHTML(contacts) {
     <div class= "contDetailBg animationSlideIn">
 
       <div class="contDetailTop">
-        <div class="contDetailLetter profileColor-${contact[`id`]}"><p>DE</p></div>
-        <div class="contName"><h2>${contact["surname"]}&nbsp${contact["name"]}</h2><br><a href ="add_task.html">+ Add Task</a></div>
+        <div class="contDetailLetter profileColor-${
+          contact[`id`]
+        }"><p>${initials}</p></div>
+        <div class="contName"><h2>${contact["surname"]}&nbsp${
+    contact["name"]
+  }</h2><br><a href ="add_task.html">+ Add Task</a></div>
       </div>
 
-    <div class="contDatailMid"> 
-      <div class="contDatailMidLeft"><p>Contact&nbspInformation</p></div>
-      <div class="contDatailMidRight"><img src="/img/contacts_icon_pen.svg"><p>Edit&nbspContact</p></div>
+    <div class="contDetailMid"> 
+      <div class="contDetailMidLeft"><p>Contact&nbspInformation</p></div>
+      <div class="contDetailMidRight"><img src="/img/contacts_icon_pen.svg"><p>Edit&nbspContact</p></div>
     </div>
 
-    <div class= "contDetailBottom"><br><b>Email </b><span class="contMail">${contact["email"]}</span><br><b> Phone </b><span></span> ${contact["phone"]}</span></div>
+    <div class= "contDetailBottom">
+        
+        <div><p><b>Email &nbsp</b></p><p class="contMail">&nbsp${
+          contact["email"]
+        }</p></div>
+        <div><p><b>Phone &nbsp</b></p><p>&nbsp${contact["phone"]}</p>
     </div>
   `;
 }
