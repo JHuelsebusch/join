@@ -310,10 +310,13 @@ function showTaskEditContacts(taskId) {
     for (let c = 0; c < contacts.length; c++) {
         let contact = contacts[c];
         let name = generateFullName(contact);
-        let assigned = checkAssigned(taskId, name);
-        document.getElementById('taskContactsDropdown').innerHTML += createTaskContactsDropdown(name, assigned);
+        document.getElementById('taskContactsDropdown').innerHTML += createTaskContactsDropdown(name, c);
     }
-    
+    for (let c = 0; c < contacts.length; c++) {
+        let contact = contacts[c];
+        let name = generateFullName(contact);
+        document.getElementById(`inputCheckbox${c}`).checked = checkAssigned(taskId, name);
+    }
 }
 
 function generateFullName(contact) {
@@ -323,15 +326,18 @@ function generateFullName(contact) {
     name = name.join(' ');
     return name;
 }
+
 function checkAssigned(taskId, name){
     let assignedTo = tasks[taskId]['assignedTo'];
     for (let index = 0; index < assignedTo.length; index++) {
         const assignedContact = assignedTo[index]['name'];
         if(assignedContact.includes(name) == true) {
-            return 'checked';
+            return true;
         }
     }
+    return false;
 }
+
 function stopCloseContacts(event){
     event.stopPropagation();
 }

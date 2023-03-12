@@ -244,10 +244,10 @@ function createTaskEditAssignedTo(initials, colorId) {
     return `<div class="profileColor-${colorId}">${initials}</div>`
 }
 
-function createTaskContactsDropdown(name, assigned) {
+function createTaskContactsDropdown(name, n) {
     return `
         <label>
             ${name}
-            <input type="checkbox" ${assigned}>
+            <input type="checkbox" id="inputCheckbox${n}">
         </label>`
 }
