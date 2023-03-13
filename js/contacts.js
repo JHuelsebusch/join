@@ -79,23 +79,23 @@ function addContactHTML() {
 
 async function addContact() {
   let name = greatLetter(document.getElementById("inputName").value);
-  let surname = greatLetterSurname(name.slice(name.indexOf(" ") + 1, name.length));
+  let surname = greatLetterSurname(
+    name.slice(name.indexOf(" ") + 1, name.length)
+  );
   let mail = document.getElementById("inputMail").value;
   let phone = document.getElementById("inputPhone").value;
   let id = contacts.length;
-  
-  
 
   let data = {
-    "id": id,
-    "name": name,
-    "surname": surname,
-    "email": mail,
-    "phone": phone,
+    id: id,
+    name: name,
+    surname: surname,
+    email: mail,
+    phone: phone,
   };
 
   // push
-
+  contacts.push(data);
   saveContact(data);
   loadContactList();
   console.log(contacts);
@@ -191,7 +191,6 @@ function loadContactDetail(index, initials) {
 //
 
 function contactDetailHTML(index, initials) {
-
   let contact = contacts[index];
 
   return /*html*/ `
@@ -215,15 +214,17 @@ function contactDetailHTML(index, initials) {
     <div class= "contDetailBottom">
         
         <div ><p><b>Email &nbsp</b></p><a class="contMail" href="mailto:${
-          contact[`email`]}">${
-          contact[`email`]}</a>
+          contact[`email`]
+        }">${contact[`email`]}</a>
         </p></div>
-        <div><p><b>Phone</b></p><a class="contPhone" href= "tel:+49${contact[`phone`]}">${contact[`phone`]}</a>
+        <div><p><b>Phone</b></p><a class="contPhone" href= "tel:+49${
+          contact[`phone`]
+        }">${contact[`phone`]}</a>
         </div>
       </div>
   `;
 }
-async function saveContact(data) {
-  await backend.setItem('contacts', JSON.stringify(data));
+async function saveContact() {
+  await backend.setItem("contacts", JSON.stringify(contacts));
   console.log("Contacts:");
 }
