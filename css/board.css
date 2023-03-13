@@ -772,3 +772,87 @@
         .addTaskPrioActive {
             color: var(--text-white) !important;
         }
+        
+        .addTaskSubtask {
+            position: relative;
+        }
+        
+        .addIcon {
+            position: absolute;
+            right: 17px;
+            top: 17px;
+            height: 19px;
+            background-color: unset;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .addTaskSubmitButtons {
+            position: absolute;
+            bottom: 30px;
+            right: 41px;
+            display: flex;
+            gap: 25px;
+        }
+        
+        .addTaskSubmit {
+            color: var(--text-white);
+            font-weight: 700;
+            font-size: 21px;
+            line-height: 120%;
+            background-color: var(--bg-blue);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 18px 10px;
+            gap: 10px;
+            cursor: pointer;
+            border: unset;
+            border-radius: 10px;
+            width: 177px;
+            height: 61px;
+            transition: all ease-in-out 125ms;
+        }
+        
+        .addTaskSubmit:hover {
+            background-color: var(--bg-highlight-light-blue);
+            box-shadow: var(--btn-shadow);
+            transition: all ease-in-out 125ms;
+        }
+        
+        .addTaskClear {
+            color: var(--text-blue);
+            background-color: #F6F7F8;
+            font-weight: 400;
+            font-size: 21px;
+            line-height: 120%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 18px 10px;
+            gap: 10px;
+            cursor: pointer;
+            border: 1px solid var(--bg-blue);
+            border-radius: 10px;
+            width: 136px;
+            height: 61px;
+            transition: all ease-in-out 125ms;
+        }
+        
+        .addTaskClear img {
+            transition: all ease-in-out 125ms;
+        }
+        
+        .addTaskClear:hover {
+            color: var(--bg-highlight-light-blue);
+            border: 1px solid var(--bg-highlight-light-blue);
+            box-shadow: var(--btn-shadow);
+            transition: all ease-in-out 125ms;
+        }
+        
+        .addTaskClear:hover img {
+            filter: invert(54%) sepia(85%) saturate(1114%) hue-rotate(165deg) brightness(96%) contrast(85%);
+            transition: all ease-in-out 125ms;
+        }
