@@ -313,11 +313,11 @@ function showTaskEditContacts(taskId) {
         let name = generateFullName(contact);
         document.getElementById('taskContactsDropdown').innerHTML += createTaskContactsDropdown(name, c);
     }
-    for (let c = 0; c < contacts.length; c++) {
-        let contact = contacts[c];
-        let name = generateFullName(contact);
-        document.getElementById(`inputCheckbox${c}`).checked = checkAssigned(taskId, name);
-    }
+    // for (let c = 0; c < contacts.length; c++) {
+    //     let contact = contacts[c];
+    //     let name = generateFullName(contact);
+    //     document.getElementById(`inputCheckbox${c}`).checked = checkAssigned(taskId, name);
+    // }
 }
 
 function generateFullName(contact) {

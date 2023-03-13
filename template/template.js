@@ -244,10 +244,21 @@ function createTaskEditAssignedTo(initials, colorId) {
     return `<div class="profileColor-${colorId}">${initials}</div>`
 }
 
+// function createTaskContactsDropdown(name, n) {
+//     return `
+//         <label>
+//             ${name}
+//             <input type="checkbox" id="inputCheckbox${n}">
+//         </label>`
+// }
 function createTaskContactsDropdown(name, n) {
-    return `
-        <label>
+    return `<label>
             ${name}
-            <input type="checkbox" id="inputCheckbox${n}">
+            <input ${isChecked(name) ? 'checked' : ''} type="checkbox" id="inputCheckbox${n}">
         </label>`
+
+}
+
+function isChecked(name) {
+    return (contacts.find(c => name.includes(c.firstName) || name.includes(c.lastName)) !== -1);
 }
