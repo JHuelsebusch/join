@@ -1,3 +1,4 @@
+setURL('https://gruppe-06i.developerakademie.net/smallest_backend_ever');
 let currentDraggedElement;
 let tasks = [];
 let contacts = [];

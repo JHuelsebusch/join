@@ -7,8 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Task</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/board.css">
+    <script src="./js/mini_backend.js"></script>
     <script src="script.js"></script>
     <script src="./template/template.js"></script>
+    <script src="./js/board.js"></script>
+
     <link rel="shortcut icon" href="img/logo-white.svg" type="image/x-icon">
 </head>
 
@@ -17,6 +21,68 @@
     <nav id="navbar">
 
     </nav>
+    <section class="addTask">
+        <div class="addTaskHead">
+            <span class="sectionHeadline">Add Task</span>
+        </div>
+        <div class="addTaskBody">
+            <form onsubmit="return false">
+                <div class="addTaskBodyLeft">
+                    <label for="">
+                        <span>Title</span>
+                        <input type="text" id="addTaskTitle" placeholder="Enter a title" required>
+                    </label>
+                    <label>
+                        <span>Description</span>
+                        <textarea id="addTaskDescription" placeholder="Enter a Description"></textarea>
+                    </label>
+                    <label>
+                        <span>Category</span>
+                        <div class="addTaskDropdown" id="addTaskCategory" onclick="">
+                            <span>Select task category</span>
+                            <img src="./img/icon-arrow-down.svg">
+                            <div class="addTaskDropdownMenu dNone" id="addTaskCategoryMenu" onclick=""></div>
+                        </div>
+                    </label>
+                    <label>
+                        <span>Assigned to</span>
+                        <div class="addTaskDropdown" id="addTaskContacts" onclick=""> 
+                            <span>Select contacts to assign</span>
+                            <img src="./img/icon-arrow-down.svg">
+                            <div class="addTaskDropdownMenu dNone" id="addTaskContactsMenu" onclick=""></div>
+                        </div>
+                    </label>
+                </div>
+                <div class="addTaskBodyRight">
+                    <label>
+                        <span>Due date</span>
+                        <input type="date" required id="addTaskDate">
+                    </label>
+                    <label>
+                        <span>Prio</span>
+                        <div class="addTaskPrioSec">
+                            <div class="addTaskPrio" id="urgentEditPrio" onclick="changePrio('urgent')">
+                                <span>urgent</span>
+                                <img src="./img/prio-urgent.svg" id="urgentEditPrioImg">
+                            </div>
+                            <div class="addTaskPrio" id="mediumEditPrio"  onclick="changePrio('medium')">
+                                <span>medium</span>
+                                <img src="./img/prio-medium.svg" id="mediumEditPrioImg">
+                            </div>
+                            <div class="addTaskPrio" id="lowEditPrio" onclick="changePrio('low')">
+                                <span>low</span> 
+                                <img src="./img/prio-low.svg" id="lowEditPrioImg">
+                            </div>
+                        </div>
+                    </label>
+                    <label>
+                        <span>Subtasks</span>
+                        <input type="text" id="addTaskSubtasks" placeholder="Add new subtask">
+                    </label>
+                </div>
+            </form>
+        </div>
+    </section>
 </body>
 
 </html>
