@@ -282,3 +282,11 @@ function createAddTaskPrio() {
     </div>
     `
 }
+
+function createTaskCategoryDropdown(category, n) {
+    return `<label>
+            ${category}
+            <input type="checkbox" id="inputCheckbox${n}">
+        </label>`
+
+}
