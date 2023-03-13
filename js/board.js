@@ -313,11 +313,11 @@ function showTaskEditContacts(taskId) {
         let name = generateFullName(contact);
         document.getElementById('taskContactsDropdown').innerHTML += createTaskContactsDropdown(name, c);
     }
-    // for (let c = 0; c < contacts.length; c++) {
-    //     let contact = contacts[c];
-    //     let name = generateFullName(contact);
-    //     document.getElementById(`inputCheckbox${c}`).checked = checkAssigned(taskId, name);
-    // }
+    for (let c = 0; c < contacts.length; c++) {
+        let contact = contacts[c];
+        let name = generateFullName(contact);
+        document.getElementById(`inputCheckbox${c}`).checked = checkAssigned(taskId, name);
+    }
 }
 
 function generateFullName(contact) {
@@ -339,6 +339,68 @@ function checkAssigned(taskId, name){
     return false;
 }
 
-function stopCloseContacts(event){
-    event.stopPropagation();
+function stopCloseContacts(e){
+    e.stopPropagation();
+}
+
+
+// Add Task
+let newTask = [];
+async function initAddTask() {
+    await downloadFromServer();
+    tasks = JSON.parse(backend.getItem('tasks')) || [];
+    contacts = JSON.parse(backend.getItem('contacts')) || [];
+}
+
+function changeAddTaskPrio(newPrio){
+    newTask['priority']=newPrio;
+    generateAddTaskPrio(newPrio);
+}
+
+function generateAddTaskPrio(newPrio){
+    document.getElementById(`addTaskPrioSec`).innerHTML = createAddTaskPrio();
+    document.getElementById(`${newPrio}AddTaskPrio`).classList.add(`addTaskPrioActive`);
+    document.getElementById(`${newPrio}AddTaskPrio`).classList.add(`${newPrio}`);
+    document.getElementById(`${newPrio}AddTaskPrioImg`).src = `./img/prio-white-${newPrio}.svg`;
+}
+
+function openAddTaskContacts() {
+    let ATCClasslist = document.getElementById('addTaskContactsMenu').classList;
+    if (ATCClasslist.contains('dNone')) {
+        ATCClasslist.remove('dNone');
+        document.getElementById('addTaskContacts').classList.add('taskDropdown');
+        showAddTaskContacts();
+    } else {
+        ATCClasslist.add('dNone');
+        document.getElementById('addTaskContacts').classList.remove('taskDropdown');
+    }
+
+}
+function showAddTaskContacts() {
+    document.getElementById('addTaskContactsMenu').innerHTML =``;
+    for (let c = 0; c < contacts.length; c++) {
+        let contact = contacts[c];
+        let name = generateFullName(contact);
+        document.getElementById('addTaskContactsMenu').innerHTML += createTaskContactsDropdown(name, c);
+    }
+}
+
+function openAddTaskCategory() {
+    let ATCClasslist = document.getElementById('addTaskCategoryMenu').classList;
+    if (ATCClasslist.contains('dNone')) {
+        ATCClasslist.remove('dNone');
+        document.getElementById('addTaskCategory').classList.add('taskDropdown');
+        showAddTaskCategory();
+    } else {
+        ATCClasslist.add('dNone');
+        document.getElementById('addTaskCategory').classList.remove('taskDropdown');
+    }
+}
+
+function showAddTaskCategory() {
+    document.getElementById('addTaskCategoryMenu').innerHTML =``;
+    for (let c = 0; c < categories.length; c++) {
+        let category = categories[c];
+        document.getElementById('addTaskCategoryMenu').innerHTML += createTaskCategoryDropdown(category, c);
+    }
 }

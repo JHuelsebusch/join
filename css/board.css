@@ -510,8 +510,8 @@
         
         .taskContactsDropdown {
             position: absolute;
-            top: 51px;
-            left: -1px;
+            top: 82px;
+            left: 0px;
             width: 422px;
             height: 153px;
             overflow-y: scroll;
@@ -586,15 +586,15 @@
         /* Prio */
         
         .urgent {
-            background-color: #FF3D00;
+            background-color: #FF3D00 !important;
         }
         
         .medium {
-            background-color: #FFA800;
+            background-color: #FFA800 !important;
         }
         
         .low {
-            background-color: #7AE229;
+            background-color: #7AE229 !important;
         }
         /* Add Task */
         
@@ -685,6 +685,10 @@
             height: 25px;
         }
         
+        .dropdownRel {
+            position: relative;
+        }
+        
         .addTaskDropdown {
             width: 380px;
             height: 15px;
@@ -705,10 +709,10 @@
         
         .addTaskDropdownMenu {
             position: absolute;
-            top: 51px;
-            left: -1px;
+            top: 82px;
+            left: 0px;
             width: 422px;
-            height: 153px;
+            height: 130px;
             overflow-y: scroll;
             -ms-overflow-style: none;
             /* IE and Edge */
