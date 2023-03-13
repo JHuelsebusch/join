@@ -78,7 +78,6 @@ function addContactHTML() {
 // Fkt Add Contact - def array structure
 
 async function addContact() {
-<<<<<<< HEAD
     let name = greatLetter(document.getElementById("inputName").value);
     let surname = greatLetterSurname(name.slice(name.indexOf(" ") + 1, name.length));
     let mail = document.getElementById("inputMail").value;
@@ -104,33 +103,6 @@ async function addContact() {
     document.getElementById("inputName").value = ``;
     document.getElementById(`inputMail`).value = ``;
     pdocument.getElementById(`inputPhone`).value = ``;
-=======
-  let name = greatLetter(document.getElementById("inputName").value);
-  let surname = greatLetterSurname(
-    name.slice(name.indexOf(" ") + 1, name.length)
-  );
-  let mail = document.getElementById("inputMail").value;
-  let phone = document.getElementById("inputPhone").value;
-  let id = contacts.length;
-
-  let data = {
-    id: id,
-    name: name,
-    surname: surname,
-    email: mail,
-    phone: phone,
-  };
-
-  // push
-  contacts.push(data);
-  saveContact();
-  loadContactList();
-  console.log(contacts);
-  // delay
-  document.getElementById("inputName").value = ``;
-  document.getElementById(`inputMail`).value = ``;
-  pdocument.getElementById(`inputPhone`).value = ``;
->>>>>>> 27f10344a4505f1111885480f2b9c4243061699c
 }
 /**
  *
@@ -253,10 +225,6 @@ function contactDetailHTML(index, initials) {
   `;
 }
 async function saveContact() {
-<<<<<<< HEAD
   await backend.setItem('contacts', JSON.stringify(contacts));
-=======
-  await backend.setItem("contacts", JSON.stringify(contacts));
->>>>>>> 27f10344a4505f1111885480f2b9c4243061699c
   console.log("Contacts:");
 }
