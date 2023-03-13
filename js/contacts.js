@@ -1,48 +1,48 @@
 let contacts = [];
 
 async function initContacts() {
-  await downloadFromServer();
-  contacts = JSON.parse(backend.getItem("contacts")) || [];
-  tasks = JSON.parse(backend.getItem("tasks")) || [];
+    await downloadFromServer();
+    contacts = JSON.parse(backend.getItem("contacts")) || [];
+    tasks = JSON.parse(backend.getItem("tasks")) || [];
 
-  loadContactList();
+    loadContactList();
 }
 
 // Open Popup
 function open_popup() {
-  document.getElementById("cont_popup_id").innerHTML = "";
-  loadOverlay();
+    document.getElementById("cont_popup_id").innerHTML = "";
+    loadOverlay();
 }
 
 // Close Popup
 
 function closePopup() {
-  document.getElementById("animationId").classList.add("animationSlideOut");
-  document.getElementById("animationId").classList.remove("animationSlideIn");
-  setTimeout(timeOut, 1050);
+    document.getElementById("animationId").classList.add("animationSlideOut");
+    document.getElementById("animationId").classList.remove("animationSlideIn");
+    setTimeout(timeOut, 1050);
 }
 
 function timeOut() {
-  document.getElementById("cont_popup_id").classList.add(`d-none`);
+    document.getElementById("cont_popup_id").classList.add(`d-none`);
 }
 
 function stopClosing(event) {
-  event.stopPropagation();
+    event.stopPropagation();
 }
 
 // Load
 
 function loadOverlay() {
-  let element = document.getElementById("cont_popup_id");
-  element.classList.remove(`d-none`);
-  element.innerHTML = "";
-  element.innerHTML = addContactHTML();
+    let element = document.getElementById("cont_popup_id");
+    element.classList.remove(`d-none`);
+    element.innerHTML = "";
+    element.innerHTML = addContactHTML();
 }
 
 // Template HTML
 
 function addContactHTML() {
-  return /*html*/ `
+    return /*html*/ `
     <div id="contAddBg" class= "contAddBg" onclick="closePopup()">
         <div id="animationId" onclick= "stopClosing(event)" class="animationSlideIn">
             <div class="contAddContainer">
@@ -78,31 +78,31 @@ function addContactHTML() {
 // Fkt Add Contact - def array structure
 
 async function addContact() {
-  let name = greatLetter(document.getElementById("inputName").value);
-  let surname = greatLetterSurname(name.slice(name.indexOf(" ") + 1, name.length));
-  let mail = document.getElementById("inputMail").value;
-  let phone = document.getElementById("inputPhone").value;
-  let id = contacts.length;
-  
-  
+    let name = greatLetter(document.getElementById("inputName").value);
+    let surname = greatLetterSurname(name.slice(name.indexOf(" ") + 1, name.length));
+    let mail = document.getElementById("inputMail").value;
+    let phone = document.getElementById("inputPhone").value;
+    let id = contacts.length;
 
-  let data = {
-    "id": id,
-    "name": name,
-    "surname": surname,
-    "email": mail,
-    "phone": phone,
-  };
 
-  // push
 
-  saveContact(data);
-  loadContactList();
-  console.log(contacts);
-  // delay
-  document.getElementById("inputName").value = ``;
-  document.getElementById(`inputMail`).value = ``;
-  pdocument.getElementById(`inputPhone`).value = ``;
+    let data = {
+        "id": id,
+        "name": name,
+        "surname": surname,
+        "email": mail,
+        "phone": phone,
+    };
+
+    // push
+    contacts.push(data)
+    saveContact();
+    loadContactList();
+    console.log(contacts);
+    // delay
+    document.getElementById("inputName").value = ``;
+    document.getElementById(`inputMail`).value = ``;
+    pdocument.getElementById(`inputPhone`).value = ``;
 }
 /**
  *
@@ -111,35 +111,35 @@ async function addContact() {
  */
 // Fkt first letter of name great
 function greatLetter(name) {
-  let surname = name.slice(name.indexOf(" ") + 1, name.length);
-  let greatName =
-    name.charAt(0).toUpperCase() +
-    name.slice(1, name.indexOf(" ")) +
-    " " +
-    surname.charAt(0).toUpperCase() +
-    surname.slice(1, surname.length);
-  return greatName;
+    let surname = name.slice(name.indexOf(" ") + 1, name.length);
+    let greatName =
+        name.charAt(0).toUpperCase() +
+        name.slice(1, name.indexOf(" ")) +
+        " " +
+        surname.charAt(0).toUpperCase() +
+        surname.slice(1, surname.length);
+    return greatName;
 }
 
 // FKT first letter of surname great
 function greatLetterSurname(surname) {
-  let greateSurname =
-    surname.charAt(0).toUpperCase() + surname.slice(1, surname.length);
-  return greateSurname;
+    let greateSurname =
+        surname.charAt(0).toUpperCase() + surname.slice(1, surname.length);
+    return greateSurname;
 }
 
 // Load Contacts list !!! HTML TEMPLATE  AUSLAGERN!!!
 
 function loadContactList() {
-  let contactList = document.getElementById(`contactsList`);
-  contactList.innerHTML = ``;
+    let contactList = document.getElementById(`contactsList`);
+    contactList.innerHTML = ``;
 
-  for (let index = 0; index < contacts.length; index++) {
-    const element = contacts[index];
-    let contact = contacts[index];
-    let initials = fktSurname(contact) + fktName(contact);
-    let firstIni = initials.slice(1, initials.length);
-    contactList.innerHTML += /*html*/ `
+    for (let index = 0; index < contacts.length; index++) {
+        const element = contacts[index];
+        let contact = contacts[index];
+        let initials = fktSurname(contact) + fktName(contact);
+        let firstIni = initials.slice(1, initials.length);
+        contactList.innerHTML += /*html*/ `
 
         <div class= "contactListContainer colmn" id="contactListContainer">
             <div>
@@ -223,7 +223,7 @@ function contactDetailHTML(index, initials) {
       </div>
   `;
 }
-async function saveContact(data) {
-  await backend.setItem('contacts', JSON.stringify(data));
+async function saveContact() {
+  await backend.setItem('contacts', JSON.stringify(contacts));
   console.log("Contacts:");
 }
