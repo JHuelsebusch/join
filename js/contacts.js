@@ -96,7 +96,7 @@ async function addContact() {
 
   // push
   contacts.push(data);
-  saveContact(data);
+  saveContact();
   loadContactList();
   console.log(contacts);
   // delay
