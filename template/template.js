@@ -196,15 +196,17 @@ function createTaskEdit(task) {
             <div class="taskEditPriority" id="taskEditPriority">
             </div>
         </label>
-        <label>
-            Assigned To
-            <div class="taskEditContacts" id="taskEditContacts" onclick="openTaskContacts(${task['id']})"> 
-                <span>Select contacts to assign</span>
-                <img src="./img/icon-arrow-down.svg">
-                <div class="taskContactsDropdown dNone" id="taskContactsDropdown" onclick="stopCloseContacts(event)"></div>
-            </div>
+        <div class="dropdownRel">
+            <label>
+                Assigned To
+                <div class="taskEditContacts" id="taskEditContacts" onclick="openTaskContacts(${task['id']})"> 
+                    <span>Select contacts to assign</span>
+                    <img src="./img/icon-arrow-down.svg">
+                    </div>
+                    </label>
+            <div class="taskContactsDropdown dNone" id="taskContactsDropdown" onclick="stopCloseContacts(event)"></div>
             <div class="taskEditInitials" id="taskEditInitials"></div>
-        </label>
+        </div>
     </form>
 `
 }
@@ -244,10 +246,47 @@ function createTaskEditAssignedTo(initials, colorId) {
     return `<div class="profileColor-${colorId}">${initials}</div>`
 }
 
+// function createTaskContactsDropdown(name, n) {
+//     return `
+//         <label>
+//             ${name}
+//             <input type="checkbox" id="inputCheckbox${n}">
+//         </label>`
+// }
 function createTaskContactsDropdown(name, n) {
-    return `
-        <label>
+    return `<label>
             ${name}
             <input type="checkbox" id="inputCheckbox${n}">
         </label>`
+
+} {
+    /* <input ${isChecked(name) ? 'checked' : ''} type="checkbox" id="inputCheckbox${n}"></input>
+    function isChecked(name) {
+        return (contacts.find(c => name.includes(c.firstName) || name.includes(c.lastName)) !== -1);
+    } */
+}
+
+function createAddTaskPrio() {
+    return `
+    <div class="addTaskPrio" id="urgentAddTaskPrio" onclick="changeAddTaskPrio('urgent')">
+        <span>urgent</span>
+        <img src="./img/prio-urgent.svg" id="urgentAddTaskPrioImg">
+    </div>
+    <div class="addTaskPrio" id="mediumAddTaskPrio"  onclick="changeAddTaskPrio('medium')">
+        <span>medium</span>
+        <img src="./img/prio-medium.svg" id="mediumAddTaskPrioImg">
+    </div>
+    <div class="addTaskPrio" id="lowAddTaskPrio" onclick="changeAddTaskPrio('low')">
+        <span>low</span> 
+        <img src="./img/prio-low.svg" id="lowAddTaskPrioImg">
+    </div>
+    `
+}
+
+function createTaskCategoryDropdown(category, n) {
+    return `<label>
+            ${category}
+            <input type="checkbox" id="inputCheckbox${n}">
+        </label>`
+
 }
