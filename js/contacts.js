@@ -77,21 +77,23 @@ function addContactHTML() {
 
 // Fkt Add Contact - def array structure
 
-function addContact() {
+async function addContact() {
   let name = greatLetter(document.getElementById("inputName").value);
   let surname = greatLetterSurname(
     name.slice(name.indexOf(" ") + 1, name.length)
   );
-  let mail = document.getElementById(`inputMail`);
-  let phone = document.getElementById(`inputPhone`);
-  let id = id;
+  let mail = document.getElementById("inputMail").value;
+  let phone = document.getElementById("inputPhone").value;
+  let id = contacts.length;
+  
+  
 
   let data = {
-    id: id,
-    name: name,
-    surname: surname,
-    email: mail,
-    phone: phone,
+    "id": id,
+    "name": name,
+    "surname": surname,
+    "email": mail,
+    "phone": phone,
   };
   // push
   contacts.push(data);
@@ -144,7 +146,7 @@ function loadContactList() {
                 <div class="sepLine">
             </div>
         </div>
-        <div class="contactContainer" onclick="loadContactDetail('${contact}', '${initials}')">
+        <div class="contactContainer" onclick="loadContactDetail('${index}','${initials}')">
             <div class="contactInitial profileColor-${
               element[`id`]
             }">${initials}</div>
@@ -176,10 +178,10 @@ function fktSurname(contact) {
  * @param {string} contacts -
  */
 // Fkt load detail
-function loadContactDetail(contact, initials) {
+function loadContactDetail(index, initials) {
   let contactDetail = document.getElementById("contDisplay");
   contactDetail.innerHTML = "";
-  contactDetail.innerHTML += contactDetailHTML(contacts, initials);
+  contactDetail.innerHTML += contactDetailHTML(index, initials);
 }
 
 // Template HTML
@@ -187,8 +189,8 @@ function loadContactDetail(contact, initials) {
 // \b- eine führende Wortgrenze
 //
 
-function contactDetailHTML(contacts, initials) {
-  let index = 0;
+function contactDetailHTML(index, initials) {
+
   let contact = contacts[index];
 
   return /*html*/ `
@@ -199,7 +201,7 @@ function contactDetailHTML(contacts, initials) {
         <div class="contDetailLetter profileColor-${
           contact[`id`]
         }"><p>${initials}</p></div>
-        <div class="contName"><h2>${contact["surname"]}&nbsp${
+        <div class="contName"><h2>${contact.surname}&nbsp${
     contact["name"]
   }</h2><br><a href ="add_task.html">+ Add Task</a></div>
       </div>
@@ -211,10 +213,12 @@ function contactDetailHTML(contacts, initials) {
 
     <div class= "contDetailBottom">
         
-        <div><p><b>Email &nbsp</b></p><p class="contMail">&nbsp${
-          contact["email"]
-        }</p></div>
-        <div><p><b>Phone &nbsp</b></p><p>&nbsp${contact["phone"]}</p>
-    </div>
+        <div ><p><b>Email &nbsp</b></p><a class="contMail" href="mailto:${
+          contact[`email`]}">${
+          contact[`email`]}</a>
+        </p></div>
+        <div><p><b>Phone</b></p><a class="contPhone" href= "tel:+49${contact[`phone`]}">${contact[`phone`]}</a>
+        </div>
+      </div>
   `;
 }
