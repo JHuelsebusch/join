@@ -79,9 +79,7 @@ function addContactHTML() {
 
 async function addContact() {
   let name = greatLetter(document.getElementById("inputName").value);
-  let surname = greatLetterSurname(
-    name.slice(name.indexOf(" ") + 1, name.length)
-  );
+  let surname = greatLetterSurname(name.slice(name.indexOf(" ") + 1, name.length));
   let mail = document.getElementById("inputMail").value;
   let phone = document.getElementById("inputPhone").value;
   let id = contacts.length;
@@ -95,8 +93,11 @@ async function addContact() {
     "email": mail,
     "phone": phone,
   };
+
   // push
-  contacts.push(data);
+
+  saveContact(data);
+  loadContactList();
   console.log(contacts);
   // delay
   document.getElementById("inputName").value = ``;
@@ -221,4 +222,8 @@ function contactDetailHTML(index, initials) {
         </div>
       </div>
   `;
+}
+async function saveContact(data) {
+  await backend.setItem('contacts', JSON.stringify(data));
+  console.log("Contacts:");
 }
