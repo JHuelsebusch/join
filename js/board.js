@@ -345,7 +345,7 @@ function stopCloseContacts(e){
 
 
 // Add Task
-let categories = ['Design','Media', 'Backoffice','Sales','Marketing']
+let categories = ['design','media', 'backoffice','sales','marketing']
 let newTask = [];
 async function initAddTask() {
     await downloadFromServer();

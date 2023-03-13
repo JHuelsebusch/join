@@ -526,7 +526,6 @@
             border-radius: 0 0 10px 10px;
             display: flex;
             flex-direction: column;
-            /* gap: 26px; */
         }
         
         .taskContactsDropdown::-webkit-scrollbar {
@@ -739,10 +738,21 @@
             flex-direction: row !important;
             align-items: center;
             justify-content: space-between;
+            cursor: pointer;
         }
         
         .addTaskDropdownMenu label input {
             width: unset !important;
+        }
+        
+        .addTaskDropdownMenu label span::first-letter {
+            text-transform: uppercase;
+        }
+        
+        .categoryColor {
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
         }
         
         .addTaskPrioSec {

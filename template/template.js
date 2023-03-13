@@ -285,8 +285,9 @@ function createAddTaskPrio() {
 
 function createTaskCategoryDropdown(category, n) {
     return `<label>
-            ${category}
-            <input class="dNone" type="checkbox" id="inputCheckbox${n}">
+            <span>${category}</span>
+            <div class="categoryColor ${category}"></div>
+            <input class="dNone" type="checkbox" id="inputCheckbox${n}" onclick="addCategory(${n})">
         </label>`
 
 }
