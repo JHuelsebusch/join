@@ -405,6 +405,14 @@ function checkAssigned(taskId, name){
 //     e.stopPropagation();
 // }
 
+function showAddTaskOnBoard() {
+    document.getElementById('AddTaskBg').classList.remove('dNone');
+    document.getElementById('addTask').innerHTML = createAddTask();
+    document.getElementById('cancelIcon').classList.remove('dNone');
+}
+function closeAddTaskOnBoard(){
+    document.getElementById('AddTaskBg').classList.add('dNone');
+}
 
 // Add Task
 let categories = ['design','media', 'backoffice','sales','marketing'];
@@ -413,6 +421,7 @@ async function initAddTask() {
     await downloadFromServer();
     tasks = JSON.parse(backend.getItem('tasks')) || [];
     contacts = JSON.parse(backend.getItem('contacts')) || [];
+    document.getElementById('addTask').innerHTML = createAddTask();
 }
 function openAddTaskCategory() {
     let ATCClasslist = document.getElementById('addTaskCategoryMenu').classList;
@@ -583,6 +592,7 @@ function addSubtask(){
     }
     newTask['subtasks'].push(data);
     generateSubtasks();
+    addSubtaskCancel();
 }
 function generateSubtasks(){
     document.getElementById('addedSubtasks').innerHTML = ``;
