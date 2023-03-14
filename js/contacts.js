@@ -58,7 +58,7 @@ function addContactHTML() {
                     <div class="contAddEdit">
                         <div class="contAddEditIcon"> <img src="/img/Vector.svg" alt=""></div>
 
-                        <form onsubmit="addContact(); return false" class="contAddForm">
+                        <form  onsubmit="addContact(); return false" class="contAddForm">
                             <div><input pattern="^(&#92w&#92w+)&#92s(&#92w+)$" required id = "inputName" type= "text" placeholder="Name Surname" class="contInputEdit"><img class="contFormImg" src="./img/contact_icon_min.svg"></div>
                             <div><input required id = "inputMail" type= "email" placeholder="EMail"class="contInputEdit"><img class="contFormImg" src="./img/contact_input_mail_mini.svg"></div>
                             <div><input required id = "inputPhone" type= "tel" placeholder="Phone"class="contInputEdit"><img class="contFormImg" src="./img/contact_inputIcon_phone.svg"></div>
@@ -79,30 +79,30 @@ function addContactHTML() {
 
 async function addContact() {
     let name = greatLetter(document.getElementById("inputName").value);
-    let surname = greatLetterSurname(name.slice(name.indexOf(" ") + 1, name.length));
+    let surname = greatLetterSurname(
+        name.slice(name.indexOf(" ") + 1, name.length)
+    );
     let mail = document.getElementById("inputMail").value;
     let phone = document.getElementById("inputPhone").value;
     let id = contacts.length;
 
-
-
     let data = {
-        "id": id,
-        "name": name,
-        "surname": surname,
-        "email": mail,
-        "phone": phone,
+        id: id,
+        name: name,
+        surname: surname,
+        email: mail,
+        phone: phone,
     };
 
     // push
-    contacts.push(data)
+    contacts.push(data);
     saveContact();
     loadContactList();
     console.log(contacts);
     // delay
     document.getElementById("inputName").value = ``;
     document.getElementById(`inputMail`).value = ``;
-    pdocument.getElementById(`inputPhone`).value = ``;
+    document.getElementById(`inputPhone`).value = ``;
 }
 /**
  *
@@ -225,6 +225,6 @@ function contactDetailHTML(index, initials) {
   `;
 }
 async function saveContact() {
-  await backend.setItem('contacts', JSON.stringify(contacts));
+  await backend.setItem("contacts", JSON.stringify(contacts));
   console.log("Contacts:");
 }
