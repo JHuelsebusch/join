@@ -90,7 +90,8 @@ async function addContact() {
     );
     let mail = document.getElementById("inputMail").value;
     let phone = document.getElementById("inputPhone").value;
-    let id = contacts.length;
+    let seachId= contacts.length;
+    let id = checkId(seachId);
 
     let data = {
         id: id,
@@ -279,3 +280,17 @@ async function deleteContInArray(index) {
 	}
 
 }
+
+function checkId(searchId) {
+  
+  let filteredObject = contacts.map(obj=> {
+    if (obj.id === searchId){
+      searchId = searchId+1
+      checkId(searchId);
+      
+    }
+    else {
+      return searchId;
+    }
+  }
+)};
