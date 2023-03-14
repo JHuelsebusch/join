@@ -102,7 +102,7 @@ async function addContact() {
   // delay
   document.getElementById("inputName").value = ``;
   document.getElementById(`inputMail`).value = ``;
-  pdocument.getElementById(`inputPhone`).value = ``;
+  document.getElementById(`inputPhone`).value = ``;
 }
 /**
  *
