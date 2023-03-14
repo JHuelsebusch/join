@@ -100,15 +100,7 @@ async function addContact() {
         phone: phone,
     };
 
-    // push
-    contacts.push(data);
-    saveContact();
-    loadContactList();
-    console.log(contacts);
-    // delay
-    document.getElementById("inputName").value = ``;
-    document.getElementById(`inputMail`).value = ``;
-    document.getElementById(`inputPhone`).value = ``;
+  
   // push
   contacts.push(data);
   saveContact();
@@ -282,7 +274,7 @@ async function deleteContInArray(index) {
 	} //Löscht gesamten Array
 
 	else {
-		contacts.splice(index, 1); //Data is an integer!
+		contacts.splice(index, 1,); //Data is an integer!
 		await backend.setItem("contacts", JSON.stringify(contacts)); //users-array is saved into backend
 	}
 
