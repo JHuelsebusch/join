@@ -741,11 +741,11 @@ justify-content: center;
        
     }
     .cont_main_container_right_titel h1{
-        font-size: 40px;
+        font-size: 50px;
         
     }
     .cont_main_container_right_titel h3{
-        font-size: 23px;
+        font-size: 24px;
         
     }
     .contDetailTop{
@@ -756,7 +756,7 @@ justify-content: center;
     display: flex;
     }
     .contDetailTop h2{
-        font-size: 23px;
+        font-size: 24px;
     }
     .contDetailLetter{
         width: 80px;
@@ -764,7 +764,7 @@ justify-content: center;
         margin-right: -20px !important;
     }
     .contDetailLetter p {
-        font-size: 23px;
+        font-size: 24px;
     }
     .contName a {
         font-size: 14px;
@@ -779,6 +779,11 @@ justify-content: center;
     .contDetailMidLeft{
         margin-right: -10px;
     }
+    .contMainContainerLeft{
+        padding-left: 0px;
+        padding-right: 0px;
+        width: 260px;
+        }
 }
 
 @media(max-width:1570px) {
@@ -792,7 +797,7 @@ justify-content: center;
     .cont_main_container_right {
         z-index: 0;
         margin-left: 800px;
-        box-shadow: 6px 0px 6px hsla(300, 15%, 50%, 0.1) inset;
+    
     }
 
     .cont_main_container_right_titel {
@@ -804,10 +809,16 @@ justify-content: center;
         
     }
     .cont_main_container_right_titel h3{
-        font-size: 23px;
+        font-size: 24px;
         
     }
+    .contMainContainerLeft{
+    padding-left: 1px;
+    padding-right: 1px;
+    width: 370px;
+    }
 }
-@media(max-width:1400px) {
+
+@media(max-width:1250px) {
 
 }
