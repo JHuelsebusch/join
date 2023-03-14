@@ -291,3 +291,10 @@ function createTaskCategoryDropdown(category, n) {
         </label>`
 
 }
+
+function createSelectedCategory(category) {
+    return `<span>${category}</span>
+            <div class="categoryColor ${category}"></div>
+            `
+
+}

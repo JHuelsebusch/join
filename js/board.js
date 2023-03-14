@@ -352,6 +352,34 @@ async function initAddTask() {
     tasks = JSON.parse(backend.getItem('tasks')) || [];
     contacts = JSON.parse(backend.getItem('contacts')) || [];
 }
+function openAddTaskCategory() {
+    let ATCClasslist = document.getElementById('addTaskCategoryMenu').classList;
+    if (ATCClasslist.contains('dNone')) {
+        ATCClasslist.remove('dNone');
+        document.getElementById('addTaskCategory').classList.add('taskDropdown');
+        showAddTaskCategory();
+    } else {
+        ATCClasslist.add('dNone');
+        document.getElementById('addTaskCategory').classList.remove('taskDropdown');
+    }
+}
+
+function showAddTaskCategory() {
+    document.getElementById('addTaskCategoryMenu').innerHTML =``;
+    for (let c = 0; c < categories.length; c++) {
+        let category = categories[c];
+        document.getElementById('addTaskCategoryMenu').innerHTML += createTaskCategoryDropdown(category, c);
+    }
+}
+function addCategory(catId){
+    category=categories[catId];
+    newTask['category']=category;
+    generateSelectedCategory(category);
+    openAddTaskCategory();
+}
+function generateSelectedCategory(category){
+    document.getElementById('addTaskCategory').innerHTML = createSelectedCategory(category);
+}
 
 function changeAddTaskPrio(newPrio){
     newTask['priority']=newPrio;
@@ -383,25 +411,5 @@ function showAddTaskContacts() {
         let contact = contacts[c];
         let name = generateFullName(contact);
         document.getElementById('addTaskContactsMenu').innerHTML += createTaskContactsDropdown(name, c);
-    }
-}
-
-function openAddTaskCategory() {
-    let ATCClasslist = document.getElementById('addTaskCategoryMenu').classList;
-    if (ATCClasslist.contains('dNone')) {
-        ATCClasslist.remove('dNone');
-        document.getElementById('addTaskCategory').classList.add('taskDropdown');
-        showAddTaskCategory();
-    } else {
-        ATCClasslist.add('dNone');
-        document.getElementById('addTaskCategory').classList.remove('taskDropdown');
-    }
-}
-
-function showAddTaskCategory() {
-    document.getElementById('addTaskCategoryMenu').innerHTML =``;
-    for (let c = 0; c < categories.length; c++) {
-        let category = categories[c];
-        document.getElementById('addTaskCategoryMenu').innerHTML += createTaskCategoryDropdown(category, c);
     }
 }
