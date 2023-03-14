@@ -31,9 +31,12 @@ function renderBoard() {
         let task = tasks[i];
         document.getElementById(`${task[`taskStatus`]}`).innerHTML += createTaskOnBoard(task);
 
-        if(task['subtasks'].length>0){
+        if(task['subtasks']){
+            if(task['subtasks'].length>0){
             generateProgressBar(task);
         }
+        }
+        
         generateAssignedTo(task);
     }
     generateOnDragTask(); // empty task layout for dragging
@@ -373,7 +376,7 @@ function showAddTaskCategory() {
 }
 function addCategory(catId){
     category=categories[catId];
-    newTask['category']=category;
+    newTask['department']=category;
     generateSelectedCategory(category);
     openAddTaskCategory();
 }
@@ -405,6 +408,7 @@ function openAddTaskContacts() {
     }
 
 }
+
 function showAddTaskContacts() {
     document.getElementById('addTaskContactsMenu').innerHTML =``;
     for (let c = 0; c < contacts.length; c++) {
@@ -412,4 +416,50 @@ function showAddTaskContacts() {
         let name = generateFullName(contact);
         document.getElementById('addTaskContactsMenu').innerHTML += createTaskContactsDropdown(name, c);
     }
+}
+function changeAddTaskContacts(){
+    let newTaskContacts = [];
+    for (let c = 0; c < contacts.length; c++) {
+        let contact = contacts[c];
+        let contactId = contacts[c]['id'];
+        let contactName = generateFullName(contact)
+        let assignedTo = document.getElementById(`inputContacts${c}`)
+        if(assignedTo.checked == true) {
+            let data = {
+                "id": contactId,
+                "name": contactName,
+            }
+            newTaskContacts.push(data);
+        }
+    }
+    newTask['assignedTo']=newTaskContacts;
+}
+
+function addTask() {
+    pushValuesToNewTask();
+    if(newTask['priority'] && newTask['department'] && newTask['assignedTo']){
+        let data = {
+            "assignedTo": newTask['assignedTo'],
+            "id": newTask['id'],
+            "title": newTask['title'],
+            "description": newTask['description'],
+            "date":newTask['date'],
+            "priority": newTask['priority'],
+            "department": newTask['department'],
+            "taskStatus": 'toDo',
+            'subtasks': newTask['subTasks'],
+        }
+        tasks.push(data);
+        saveTask();   
+    } else {
+        console.log('Nicht möglich');
+    }
+    
+}
+
+function pushValuesToNewTask(){
+    newTask['title'] = document.getElementById('addTaskTitle').value;
+    newTask['description'] = document.getElementById('addTaskDescription').value;
+    newTask['date'] = document.getElementById('addTaskDate').value;
+    newTask['id']=tasks.length.toString();
 }
