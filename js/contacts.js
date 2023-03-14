@@ -281,16 +281,14 @@ async function deleteContInArray(index) {
 
 }
 
-function checkId(searchId) {
-  
-  let filteredObject = contacts.map(obj=> {
-    if (obj.id === searchId){
-      searchId = searchId+1
-      checkId(searchId);
-      
-    }
-    else {
+function checkId(searchId){
+  if(contacts.find(elem => elem.id == searchId)){
+      searchId++;
+      newSearchId = checkId(searchId)
+      return newSearchId;
+
+  } else {
       return searchId;
-    }
   }
-)};
+      
+  }
