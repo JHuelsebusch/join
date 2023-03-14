@@ -256,7 +256,7 @@ function createTaskEditAssignedTo(initials, colorId) {
 function createTaskContactsDropdown(name, n) {
     return `<label>
             ${name}
-            <input type="checkbox" id="inputCheckbox${n}">
+            <input type="checkbox" id="inputContacts${n}" onclick="changeAddTaskContacts()">
         </label>`
 
 } {
@@ -287,7 +287,7 @@ function createTaskCategoryDropdown(category, n) {
     return `<label>
             <span>${category}</span>
             <div class="categoryColor ${category}"></div>
-            <input class="dNone" type="checkbox" id="inputCheckbox${n}" onclick="addCategory(${n})">
+            <input class="dNone" type="checkbox" id="inputCategory${n}" onclick="addCategory(${n})">
         </label>`
 
 }

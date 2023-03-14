@@ -58,7 +58,7 @@ function addContactHTML() {
                     <div class="contAddEdit">
                         <div class="contAddEditIcon"> <img src="/img/Vector.svg" alt=""></div>
 
-                        <form onsubmit="addContact()" class="contAddForm">
+                        <form onsubmit="addContact(); return false" class="contAddForm">
                             <div><input pattern="^(&#92w&#92w+)&#92s(&#92w+)$" required id = "inputName" type= "text" placeholder="Name Surname" class="contInputEdit"><img class="contFormImg" src="./img/contact_icon_min.svg"></div>
                             <div><input required id = "inputMail" type= "email" placeholder="EMail"class="contInputEdit"><img class="contFormImg" src="./img/contact_input_mail_mini.svg"></div>
                             <div><input required id = "inputPhone" type= "tel" placeholder="Phone"class="contInputEdit"><img class="contFormImg" src="./img/contact_inputIcon_phone.svg"></div>
