@@ -246,24 +246,21 @@ function createTaskEditAssignedTo(initials, colorId) {
     return `<div class="profileColor-${colorId}">${initials}</div>`
 }
 
-// function createTaskContactsDropdown(name, n) {
-//     return `
-//         <label>
-//             ${name}
-//             <input type="checkbox" id="inputCheckbox${n}">
-//         </label>`
-// }
+
+function createTaskEditContactsDropdown(name, n, taskId) {
+    return `<label>
+            ${name}
+            <input type="checkbox" id="inputContacts${n}" onclick="changeTaskEditContacts(${taskId})">
+        </label>`
+
+}
+
 function createTaskContactsDropdown(name, n) {
     return `<label>
             ${name}
             <input type="checkbox" id="inputContacts${n}" onclick="changeAddTaskContacts()">
         </label>`
 
-} {
-    /* <input ${isChecked(name) ? 'checked' : ''} type="checkbox" id="inputCheckbox${n}"></input>
-    function isChecked(name) {
-        return (contacts.find(c => name.includes(c.firstName) || name.includes(c.lastName)) !== -1);
-    } */
 }
 
 function createAddTaskPrio() {

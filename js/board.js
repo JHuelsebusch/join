@@ -231,7 +231,7 @@ function showTaskEdit(id){
     let task = tasks[id];
     document.getElementById('bigTask').innerHTML = createTaskEdit(task);
     generateTaskEditPrio(task, id);
-    generateTaskEditAssignedTo(task);
+    generateTaskEditAssignedTo(id);
 }
 
 
@@ -264,8 +264,9 @@ function changePrio(newPrio, taskId){
  * This function is used to show assigned contacts on task editor
  * @param {array} task - This is the task you want to edit
  */
-function generateTaskEditAssignedTo(task){
-    let assignedTo = task['assignedTo'];
+function generateTaskEditAssignedTo(id){
+    let assignedTo = tasks[id]['assignedTo'];
+    document.getElementById(`taskEditInitials`).innerHTML = ``;
     for (let n = 0; n < assignedTo.length; n++) {
         let name = assignedTo[n]['name'];
         let initials = generateInitials(name);
@@ -274,6 +275,24 @@ function generateTaskEditAssignedTo(task){
     }
 }
 
+function changeTaskEditContacts(taskId){
+    let newTaskContacts = [];
+    for (let c = 0; c < contacts.length; c++) {
+        let contact = contacts[c];
+        let contactId = contacts[c]['id'];
+        let contactName = generateFullName(contact)
+        let assignedTo = document.getElementById(`inputContacts${c}`)
+        if(assignedTo.checked == true) {
+            let data = {
+                "id": contactId,
+                "name": contactName,
+            }
+            newTaskContacts.push(data);
+        }
+    }
+    tasks[taskId]['assignedTo']=newTaskContacts;
+    generateTaskEditAssignedTo(taskId);
+}
 
 /**
  * This function is used to open dropdown menu on task editor
@@ -314,12 +333,12 @@ function showTaskEditContacts(taskId) {
     for (let c = 0; c < contacts.length; c++) {
         let contact = contacts[c];
         let name = generateFullName(contact);
-        document.getElementById('taskContactsDropdown').innerHTML += createTaskContactsDropdown(name, c);
+        document.getElementById('taskContactsDropdown').innerHTML += createTaskEditContactsDropdown(name, c, taskId);
     }
     for (let c = 0; c < contacts.length; c++) {
         let contact = contacts[c];
         let name = generateFullName(contact);
-        document.getElementById(`inputCheckbox${c}`).checked = checkAssigned(taskId, name);
+        document.getElementById(`inputContacts${c}`).checked = checkAssigned(taskId, name);
     }
 }
 
@@ -342,13 +361,13 @@ function checkAssigned(taskId, name){
     return false;
 }
 
-function stopCloseContacts(e){
-    e.stopPropagation();
-}
+// function stopCloseContacts(e){
+//     e.stopPropagation();
+// }
 
 
 // Add Task
-let categories = ['design','media', 'backoffice','sales','marketing']
+let categories = ['design','media', 'backoffice','sales','marketing'];
 let newTask = [];
 async function initAddTask() {
     await downloadFromServer();
@@ -435,7 +454,7 @@ function changeAddTaskContacts(){
     newTask['assignedTo']=newTaskContacts;
 }
 
-function addTask() {
+async function addTask() {
     pushValuesToNewTask();
     if(newTask['priority'] && newTask['department'] && newTask['assignedTo']){
         let data = {
@@ -450,11 +469,12 @@ function addTask() {
             'subtasks': newTask['subTasks'],
         }
         tasks.push(data);
-        saveTask();   
+        await saveTask();
+        // clearValues();
+        window.location.href = './board.html'
     } else {
         console.log('Nicht möglich');
     }
-    
 }
 
 function pushValuesToNewTask(){
@@ -463,3 +483,21 @@ function pushValuesToNewTask(){
     newTask['date'] = document.getElementById('addTaskDate').value;
     newTask['id']=tasks.length.toString();
 }
+
+function clearValues(){
+    document.getElementById('addTaskTitle').value =``;
+    document.getElementById('addTaskDescription').value=``;
+    document.getElementById('addTaskDate').value=``;
+}
+
+function checkId(searchId){
+    if(contacts.find(elem => elem.id == searchId)){
+        searchId++;
+        newSearchId = checkId(searchId)
+        return newSearchId;
+
+    } else {
+        return searchId;
+    }
+        
+    }
