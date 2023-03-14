@@ -466,7 +466,13 @@ async function addTask() {
             "priority": newTask['priority'],
             "department": newTask['department'],
             "taskStatus": 'toDo',
-            'subtasks': newTask['subTasks'],
+            'subtasks': [],
+        }
+        if(newTask['subtasks']){
+            for (let index = 0; index < newTask['subtasks'].length; index++) {
+                let subtask = newTask['subtasks'][index];
+                data['subtasks'].push(subtask);
+            }   
         }
         tasks.push(data);
         await saveTask();
@@ -495,9 +501,71 @@ function checkId(searchId){
         searchId++;
         newSearchId = checkId(searchId)
         return newSearchId;
-
     } else {
         return searchId;
     }
-        
+}
+
+function showAddSubtasksIcons() {
+    let subtaskInput = document.getElementById('addTaskSubtasks');
+    if(subtaskInput.value.length<1){
+        document.getElementById('addSubtasksIcons').innerHTML = createAddSubtasksIconsEmpty();
+    } else {
+        document.getElementById('addSubtasksIcons').innerHTML = createAddSubtasksIcons();
     }
+    
+
+}
+function createAddSubtasksIcons() {
+    return `
+        <div class="addIcon">
+            <img src="./img/icons-cancel.svg" onclick="addSubtaskCancel()">
+            <img src="./img/icon-separator.svg">
+            <img src="./img/icon-ok-dark.svg" onclick="addSubtask()">
+        </div>`
+}
+function createAddSubtasksIconsEmpty() {
+    return `
+    <div class="addIcon"><img src="./img/icon-add-plus-dark.svg"></div>`
+}
+function addSubtaskCancel() {
+    document.getElementById('addTaskSubtasks').value = ``;
+    showAddSubtasksIcons();
+}
+function addSubtask(){
+    let subtaskInput = document.getElementById('addTaskSubtasks');
+    if(!newTask['subtasks']){
+        newTask['subtasks']=[];
+    }
+    let data = {
+        "subtask": subtaskInput.value,
+        "subtaskDone": "unchecked",
+    }
+    newTask['subtasks'].push(data);
+    generateSubtasks();
+}
+function generateSubtasks(){
+    document.getElementById('addedSubtasks').innerHTML = ``;
+    for (let s = 0; s < newTask['subtasks'].length; s++) {
+        let subtask = newTask['subtasks'][s]['subtask'];
+        document.getElementById('addedSubtasks').innerHTML += createSubtasks(subtask,s);
+    }
+    
+
+}
+function createSubtasks(subtask,s){
+   return `
+    <div>
+        <input type="checkbox" id="inputSubtask${s}" onclick="changeSubtaskDone(${s})">
+        ${subtask}
+    </div>`
+}
+function changeSubtaskDone(n) {
+    let subtask = newTask['subtasks'][n];
+    let inputSubtask = document.getElementById(`inputSubtask${n}`)
+    if(inputSubtask.checked == true) {
+        subtask['subtaskDone'] = 'checked';
+    } else {
+        subtask['subtaskDone'] = 'unchecked';
+    }
+}

@@ -811,7 +811,24 @@
             height: 19px;
             background-color: unset;
             border: none;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        
+        .addIcon img {
             cursor: pointer;
+        }
+        
+        #addedSubtasks div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            padding: 5px 0px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 120%;
         }
         
         .addTaskSubmitButtons {

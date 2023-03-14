@@ -83,10 +83,14 @@
                     <label>
                         <span>Subtasks</span>
                         <div class="addTaskSubtask">
-                            <input type="text" id="addTaskSubtasks" placeholder="Add new subtask">
-                            <img class="addIcon" src="./img/icon-add-plus-dark.svg">
+                            <input type="text" id="addTaskSubtasks" placeholder="Add new subtask" onkeyup="showAddSubtasksIcons()">
+                            <div id="addSubtasksIcons"><div class="addIcon"><img  src="./img/icon-add-plus-dark.svg"></div>
+                            </div>
                         </div>
                     </label>
+                    <div id="addedSubtasks">
+
+                    </div>
                 </div>
                 <div class="addTaskSubmitButtons">
                     <button class="addTaskClear">
