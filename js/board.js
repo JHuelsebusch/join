@@ -178,6 +178,7 @@ function showBigTask(id){
     document.getElementById('bigTaskBg').classList.remove('dNone');
     document.getElementById('bigTask').innerHTML = createBigTask(task);
     generateBigTaskDate(task['date']);
+    generateBigTaskSubtasks(id);
     generateBigTaskAssignedTo(task);
 }
 
@@ -190,6 +191,45 @@ function generateBigTaskDate(date){
     germanDate = date.split('-').reverse().join('.');
     document.getElementById('bigTaskDate').innerHTML = createBigTaskDate(germanDate);
 }
+
+function generateBigTaskSubtasks(taskId){
+    let subtasks = tasks[taskId]['subtasks'];
+    if(subtasks.length >0){
+        document.getElementById('bigTaskSubtasks').classList.remove('dNone');
+        for (let s = 0; s < subtasks.length; s++) {
+            subtask = subtasks[s]['subtask'];
+            document.getElementById(`bigTaskSubtask`).innerHTML += createBigTaskSubtask(subtask, s, taskId);
+        }
+        for (let s = 0; s < subtasks.length; s++) {
+            done = subtasks[s]['subtaskDone'];
+            if(done == 'checked'){
+               document.getElementById(`inputSubtask${s}`).checked = true; 
+            }
+            
+        }
+    }
+}
+
+function createBigTaskSubtask(subtask, s, taskId){
+    return `
+     <label>
+         <input type="checkbox" id="inputSubtask${s}" onclick="changeBigTaskSubtaskDone(${s}, ${taskId})">
+         ${subtask}
+     </label>`
+ }
+
+function changeBigTaskSubtaskDone(s, taskId){
+    let subtask = tasks[taskId]['subtasks'][s];
+    let inputSubtask = document.getElementById(`inputSubtask${s}`)
+    if(inputSubtask.checked == true) {
+        subtask['subtaskDone'] = 'checked';
+    } else {
+        subtask['subtaskDone'] = 'unchecked';
+    }
+    saveTask();
+    renderBoard();
+}
+
 
 /**
  * This function is used to generate "assigned to"-section on big task 

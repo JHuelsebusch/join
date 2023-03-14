@@ -131,7 +131,10 @@ function createBigTask(task) {
             <img src="./img/prio-white-${task['priority']}.svg">
         </div>
     </div>
-    <div class="bigTaskSubtask dNone" id="bigTaskSubtask${task['id']}"></div>
+    <div class="bigTaskSubtask dNone" id="bigTaskSubtasks">
+        <div class="bigTaskSubtitle">Subtasks:</div>
+        <div id="bigTaskSubtask"></div>
+    </div>
     <div class="bigTaskBottom">
         <div class="bigTaskSubtitle">Assigned To:</div>
         <div class="bigTaskAssignedTo" id="bigTaskAssignedTo${task['id']}">
