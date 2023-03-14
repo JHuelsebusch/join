@@ -30,7 +30,9 @@ function stopClosing(event) {
   event.stopPropagation();
 }
 
-// Load
+/**
+ * This function is used to load the overlay
+ */
 
 function loadOverlay() {
   let element = document.getElementById("cont_popup_id");
@@ -39,7 +41,9 @@ function loadOverlay() {
   element.innerHTML = addContactHTML();
 }
 
-// Template HTML
+/**
+ * This function is used to generate a HTML-Template
+ */
 
 function addContactHTML() {
   return /*html*/ `
@@ -75,7 +79,9 @@ function addContactHTML() {
 `;
 }
 
-// Fkt Add Contact - def array structure
+/**
+ * This function is used to add a new contact
+ */
 
 async function addContact() {
   let name = greatLetter(document.getElementById("inputName").value);
@@ -100,7 +106,7 @@ async function addContact() {
   loadContactList();
   console.log(contacts);
   // delay
-  document.getElementById("inputName").value = ``;
+  document.getElementById(`inputName`).value = ``;
   document.getElementById(`inputMail`).value = ``;
   document.getElementById(`inputPhone`).value = ``;
 }
@@ -161,7 +167,10 @@ function loadContactList() {
   }
 }
 
-//Hilfsfunktion INITIALIEN NAME
+/**
+ * This function is used to generate the first letters
+ */
+
 function fktName(contact) {
   iniName = contact.name.toLowerCase().split(" ");
   iniName = iniName.map((word) => word.charAt(0).toUpperCase());
@@ -185,17 +194,16 @@ function loadContactDetail(index, initials) {
   contactDetail.innerHTML += contactDetailHTML(index, initials);
 }
 
-// Template HTML
-
-// \b- eine führende Wortgrenze
-//
+/**
+ * This function is used to load the HTML-Template
+ */
 
 function contactDetailHTML(index, initials) {
   let contact = contacts[index];
 
   return /*html*/ `
 
-    <div class= "contDetailBg animationSlideIn">
+    <div class= "contDetailBg animationSlideIn" id="contDetail">
 
       <div class="contDetailTop">
         <div class="contDetailLetter profileColor-${
@@ -221,10 +229,52 @@ function contactDetailHTML(index, initials) {
           contact[`phone`]
         }">${contact[`phone`]}</a>
         </div>
+        <div class="contBasket" onclick= "deleteContact('${contact[`email`]}')" ><img src="/img/contacts_icon_basket.png"></div>
       </div>
   `;
 }
+
+/**
+ * This function is used to save the new contact in the backend
+ */
 async function saveContact() {
   await backend.setItem("contacts", JSON.stringify(contacts));
-  console.log("Contacts:");
+  
+}
+
+ async function deleteContact(email) {
+  let display = document.getElementById(`contDisplay`);
+  let detail = document.getElementById(`contDetail`);
+  let index = getContactIndexForEmail(email);
+  await deleteContInArray(index);
+  display.innerHTML = "";
+	detail.innerHTML = "";
+	initContacts();
+}
+
+function getContactIndexForEmail(email) {
+	let contactIndex = -1;
+	for (i = 0; i < contacts.length; i++) {
+		if (contacts[i]["email"].toLowerCase() == email.toLowerCase()) {
+			contactIndex = i; 
+		}
+	}
+	return contactIndex;
+}
+async function deleteContInArray(index) {
+	if (index !== parseInt(index, 10)) {
+	} //Data is not an integer!
+
+	if (index >= contacts.length || index < 0) {
+	} //Zu hoch oder zu gering
+
+	else if (index == 0 && contacts.length == 1) {
+		deleteAllUsers();
+	} //Löscht gesamten Array
+
+	else {
+		contacts.splice(index, 1); //Data is an integer!
+		await backend.setItem("contacts", JSON.stringify(contacts)); //users-array is saved into backend
+	}
+
 }
