@@ -407,17 +407,28 @@ function stopCloseContacts(e){
 
 
 function showAddTaskOnBoard() {
-    document.getElementById("addTask").classList.remove("animationSlideOut");
-    document.getElementById("addTask").classList.add("animationSlideIn");
-    // document.getElementById("addTask").classList.add("animationFadeIn");
-    document.getElementById('AddTaskBg').classList.remove('dNone');
+    let popUpCL = document.getElementById("addTask").classList;
+    popUpCL.remove('animationSlideOut');
+    popUpCL.add(`animationSlideIn`);
+
+    let popUpBg = document.getElementById("addTaskBg").classList;
+    popUpBg.remove('dNone');
+    popUpBg.remove('animationFadeOut');
+    popUpBg.add(`animationFadeIn`);
+    
     document.getElementById('addTask').innerHTML = createAddTask();
     document.getElementById('cancelIcon').classList.remove('dNone');
 }
+
 function closeAddTaskOnBoard(){
-    document.getElementById("addTask").classList.remove("animationSlideIn");
-    document.getElementById("addTask").classList.add("animationSlideOut");
-    setTimeout(function() {document.getElementById('AddTaskBg').classList.add('dNone')}, 1150);
+    let popUpCL = document.getElementById("addTask").classList;
+    popUpCL.remove(`animationSlideIn`);
+    popUpCL.add('animationSlideOut');
+
+    let popUpBg = document.getElementById("addTaskBg").classList;
+    popUpBg.remove(`animationFadeIn`);
+    popUpBg.add('animationFadeOut');
+    setTimeout(function() {popUpBg.add('dNone')}, 2050);
 }
 
 // Add Task

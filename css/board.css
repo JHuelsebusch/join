@@ -959,19 +959,25 @@
                     animation: slide 1s ease-in-out 0s 1 normal forwards;
                 }
                 
+                .animationSlideOut {
+                    animation: slide 1s ease-in-out 0s 1 reverse forwards;
+                }
+                
                 .animationFadeIn {
                     animation: fade 1s ease-in-out 0s 1 normal forwards;
                 }
                 
-                .animationSlideOut {
-                    animation: slide 1s ease 0s 1 reverse forwards;
-                }
-                
                 .animationFadeOut {
-                    animation: fade 1s ease 0s 1 reverse forwards;
+                    animation: fade 1s ease-in-out 0s 1 reverse forwards;
                 }
                 
                 @keyframes slide {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
                     0% {
                         transform: translateX(100%);
                     }
@@ -981,10 +987,10 @@
                 }
                 
                 @keyframes fade {
-                    from {
+                    0% {
                         opacity: 0;
                     }
-                    to {
+                    100% {
                         opacity: 1;
                     }
                 }
