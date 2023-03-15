@@ -382,6 +382,6 @@ async function contactEdit(index) {
   contacts.splice(index,1, changedData)
   
   saveContact();
-  loadContactList();
-  initContacts();
+  await loadContactList();
+  await initContacts();
 }
