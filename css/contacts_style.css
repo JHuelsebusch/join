@@ -286,27 +286,28 @@ body {
 
 
 }
+
 /* Animation  */
 .animationSlideIn {
     animation: fadeIn 1s ease 0s 1 normal forwards;
 }
 
 @keyframes fadeIn {
-	from {
-		opacity: 0;
-	}
+    from {
+        opacity: 0;
+    }
 
-	to {
-		opacity: 1;
-	}
+    to {
+        opacity: 1;
+    }
 
-	0% {
-		transform: translateX(100%);
-	}
+    0% {
+        transform: translateX(100%);
+    }
 
-	100% {
-		transform: translateX(1);
-	}
+    100% {
+        transform: translateX(1);
+    }
 }
 
 .animationSlideOut {
@@ -314,21 +315,21 @@ body {
 }
 
 @keyframes fadeOut {
-	from {
-		opacity: 0;
-	}
+    from {
+        opacity: 0;
+    }
 
-	to {
-		opacity: 1;
-	}
+    to {
+        opacity: 1;
+    }
 
-	0% {
-		transform: translateX(100%);
-	}
+    0% {
+        transform: translateX(100%);
+    }
 
-	100% {
-		transform: translateX(0);
-	}
+    100% {
+        transform: translateX(0);
+    }
 }
 
 
@@ -344,13 +345,13 @@ body {
     align-items: flex-start;
     padding: 66px 46px;
     max-width: 463px;
-    
+
     isolation: isolate;
     background: #2a3647;
     color: white;
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    
+
 }
 
 .contAddContainerLeft h3 {
@@ -389,7 +390,8 @@ body {
     isolation: isolate;
     gap: 12px;
 }
-.contAddRightClose{
+
+.contAddRightClose {
     position: absolute;
     top: 25px;
     right: 25px;
@@ -397,35 +399,48 @@ body {
     transition: all ease-in-out 125ms;
 }
 
-    .contAddRightClose :hover{
-        cursor: pointer;
-        transform: rotate(180deg);
-        transition: all ease-in-out 125ms;
+.contAddRightClose :hover {
+    cursor: pointer;
+    transform: rotate(180deg);
+    transition: all ease-in-out 125ms;
 }
-.contAddEdit{
+
+.contAddEdit {
     display: flex;
 }
 
-.contAddEditIcon{
+.contAddEditIcon {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 120px;
     height: 120px;
     border-radius: 100%;
-    background: #d1d1d1;
     margin-right: 30px;
     border: 2px solid white;
 }
-.contAddEditIcon{
+
+.contAddEditIcon {
     width: 115px;
     vertical-align: middle;
 }
-.contAddForm{
+
+.contAddEditIcon p {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: 500;
+    font-size: 47px;
+    color: #ffffff;
+    transform: translateY(4%);
+}
+
+.contAddForm {
     display: flex;
     flex-direction: column;
 }
-.contInputEdit{
+
+.contInputEdit {
     cursor: pointer;
     padding: 13px 21px;
     width: 422px;
@@ -440,67 +455,73 @@ body {
     line-height: 120%;
     font-style: normal;
 }
-.contFormImg{
+
+.contFormImg {
     margin-left: -39px;
-    
+
 }
 
-.contCancelBtn{
+.contCancelBtn {
     display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	padding: 18px 10px;
-	gap: 10px;
-	height: 61px;
-	background: white;
-	border-radius: 10px;
-	color: #2a3647;
-	border: 1px solid #2a3647;
-	font-size: 21px;
-	color: #2a3647;
-	margin-right: 40px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 18px 10px;
+    gap: 10px;
+    height: 61px;
+    background: white;
+    border-radius: 10px;
+    color: #2a3647;
+    border: 1px solid #2a3647;
+    font-size: 21px;
+    color: #2a3647;
+    margin-right: 40px;
 }
-.contCancelBtn:hover{
+
+.contCancelBtn:hover {
     cursor: pointer;
     color: #29abe2;
-	background: #ffffff;
-	border-color: #29abe2;
-	-webkit-box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.2);
-	box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    border-color: #29abe2;
+    -webkit-box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, 0.2);
 }
-.contCreateBtn{
+
+.contCreateBtn {
     display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	color: white;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: white;
     padding: 18px 10px;
-	height: 61px;
-	background: #2a3647;
-	border-radius: 10px;
-	font-size: 21px;
+    height: 61px;
+    background: #2a3647;
+    border-radius: 10px;
+    font-size: 21px;
     font-weight: 700;
     gap: 10px;
     border: none;
 }
+
 .contCreateBtn:hover {
     cursor: pointer;
-	background: #29abe2;
+    background: #29abe2;
 }
 
 /*--- Letter List */
 
 
-.contactListContainer{
-display:  flex;
-align-items: center;
+.contactListContainer {
+    display: flex;
+    align-items: center;
 
 }
-.dflex{
+
+.dflex {
     display: flex;
 }
-.contactListContainer h4{
+
+.contactListContainer h4 {
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     line-height: 120%;
@@ -510,31 +531,36 @@ align-items: center;
     font-size: 21px;
     color: #000000;
 }
-.sepLine{
+
+.sepLine {
     width: 323px;
     height: 0px;
     border-radius: 3px;
     border-bottom: 1px solid #d1d1d1;
 }
 
-.colmn{
+.colmn {
     flex-direction: column;
 }
-.contactContainer{
+
+.contactContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-top: 20px;
     border-radius: 10px;
     padding: 10px;
-}
-.contactContainer:hover {
-	background: rgb(250, 250, 250);
-	background: linear-gradient(180deg, rgba(250, 250, 250, 1) 0%, rgba(241, 241, 241, 1) 100%);
-	cursor: pointer;
+    padding-right: 35px;
+
 }
 
-.contactInitial{
+.contactContainer:hover {
+    background: rgb(250, 250, 250);
+    background: linear-gradient(180deg, rgba(250, 250, 250, 1) 0%, rgba(241, 241, 241, 1) 100%);
+    cursor: pointer;
+}
+
+.contactInitial {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -547,13 +573,14 @@ align-items: center;
 
 }
 
-.contactNameMail{
+.contactNameMail {
     transform: translate(20%);
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.contName{
+
+.contName {
     font-family: 'Inter', sans-serif;
     font-size: 21px;
     font-weight: 400;
@@ -562,11 +589,13 @@ align-items: center;
     max-width: 200px;
     /*word-wrap: break-word;*/
 }
+
 .contName h2 {
     font-family: 'Inter', sans-serif;
-     color: black;
-     font-size: 47px;
+    color: black;
+    font-size: 47px;
 }
+
 .contName a {
     margin-top: -20px;
     color: #29abe2;
@@ -581,7 +610,8 @@ align-items: center;
 
 
 }
-.contMail{
+
+.contMail {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     max-width: 200px;
@@ -592,15 +622,17 @@ align-items: center;
     /*word-wrap: break-word;
      /*---ZEILENUMBRUCH */
 }
-.contDisplay{
+
+.contDisplay {
     position: absolute;
     margin-top: 380px;
     padding-left: 10px;
-    width:55%;
+    width: 55%;
 
 
 }
-.contDetailLetter{
+
+.contDetailLetter {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -613,7 +645,9 @@ align-items: center;
     box-shadow: 0px 0px 4px rgb(0 0 0 / 10%);
     border-radius: 70px;
 
-}.contDetailLetter p {
+}
+
+.contDetailLetter p {
     display: flex;
     align-items: center;
     text-align: center;
@@ -622,21 +656,24 @@ align-items: center;
     color: #ffffff;
     transform: translateY(4%);
 }
-.contDetailTop{
+
+.contDetailTop {
     display: flex;
     object-fit: cover;
 }
 
-.contDetailMid{
+.contDetailMid {
     display: flex;
     font-size: 21px;
     align-items: center;
-    color:black;
+    color: black;
 }
-.contDetailMidLeft{
+
+.contDetailMidLeft {
     margin-right: 50px;
 }
-.contDetailMidRight{
+
+.contDetailMidRight {
     display: flex;
     justify-content: space-between;
     margin: 10px;
@@ -644,9 +681,9 @@ align-items: center;
     padding: 14px;
 }
 
-.contDetailMidRight :hover{
+.contDetailMidRight :hover {
     background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(241, 241, 241, 1) 100%);
-	border-radius: 10px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
@@ -657,6 +694,7 @@ align-items: center;
 
 
 }
+
 .contDetailMidRight p {
     font-family: 'Inter', sans-serif;
     font-style: normal;
@@ -664,15 +702,17 @@ align-items: center;
     font-size: 19px;
     line-height: 120%;
     margin-top: 7px;
-    margin-bottom: 1rem
+    margin-bottom: 1rem;
     padding: 8px;
 }
+
 .contDetailBottom {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
 
 }
+
 .contDetailBottom div {
     display: flex;
     flex-direction: column;
@@ -680,7 +720,8 @@ align-items: center;
 
 
 }
-.contMail{
+
+.contMail {
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     max-width: 200px;
@@ -688,26 +729,27 @@ align-items: center;
     color: #007cee;
     font-weight: 400;
     text-decoration: none;
-    
+
     /*word-wrap: break-word;
      /*---ZEILENUMBRUCH */
 }
 
-.contPhone{
+.contPhone {
     text-decoration: none;
-	font-weight: 400;
-	font-size: 16px;
-	line-height: 120%;
-	display: flex;
-	align-items: center;
-	color: #000000;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    display: flex;
+    align-items: center;
+    color: #000000;
 
 }
+
 .contDetailBottom p {
     margin: 3px;
 }
 
-.contBasket{
+.contBasket {
     display: flex;
     justify-content: center;
     object-fit: contain;
@@ -722,37 +764,43 @@ align-items: center;
     right: 0.1px;
     align-items: center;
 }
-.contBasket img{
-width: 23px;
-height: 23px;
-object-fit: contain;
-display: flex;
-align-items: center;
-justify-content: center;
-cursor: pointer;
-}
-.contBasket:hover{
+
+.contBasket img {
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-	background: #29abe2;
+}
+
+.contBasket:hover {
+    cursor: pointer;
+    background: #29abe2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
 }
 
-.contEditBtn{
+.contEditBtn {
     display: flex;
-	justify-content: center;
-	align-items: center;
-	color: white;
+    justify-content: center;
+    align-items: center;
+    color: white;
     padding: 18px 10px;
-	height: 61px;
-	background: #2a3647;
-	border-radius: 10px;
-	font-size: 21px;
+    height: 61px;
+    background: #2a3647;
+    border-radius: 10px;
+    font-size: 21px;
     font-weight: 700;
     gap: 10px;
     border: none;
     position: relative;
     left: 145px;
-
+    cursor: pointer;
+}
+.contEditBtn :hover{
+    
+    background: #29abe2!important;
 }
 
 /*---RESPONSIVE */
@@ -761,57 +809,70 @@ cursor: pointer;
         margin-left: 29px;
         justify-content: center;
         align-items: center;
-       
+
     }
+
     .contDisplay div {
         margin-left: 80px;
-        
-       
+
+
     }
-    .cont_main_container_right_titel h1{
+
+    .cont_main_container_right_titel h1 {
         font-size: 50px;
-        
+
     }
-    .cont_main_container_right_titel h3{
+
+    .cont_main_container_right_titel h3 {
         font-size: 24px;
-        
+
     }
-    .contDetailTop{
+
+    .contDetailTop {
         object-fit: contain;
     }
-    .contDisplay{
-    justify-content: center;
-    display: flex;
+
+    .contDisplay {
+        justify-content: center;
+        display: flex;
     }
-    .contDetailTop h2{
+
+    .contDetailTop h2 {
         font-size: 24px;
     }
-    .contDetailLetter{
+
+    .contDetailLetter {
         width: 80px;
-		height: 80px;
+        height: 80px;
         margin-right: -20px !important;
     }
+
     .contDetailLetter p {
         font-size: 24px;
     }
+
     .contName a {
         font-size: 14px;
     }
+
     .contDetailMid p {
         font-size: 21px;
     }
+
     .contDetailMid img {
         height: 26px;
         margin-right: 10px;
     }
-    .contDetailMidLeft{
+
+    .contDetailMidLeft {
         margin-right: -10px;
     }
-    .contMainContainerLeft{
+
+    .contMainContainerLeft {
         padding-left: 0px;
         padding-right: 0px;
         width: 260px;
-        }
+    }
 }
 
 @media(max-width:1570px) {
@@ -819,37 +880,38 @@ cursor: pointer;
     .cont_main_container_left {
         z-index: 0;
         position: absolute;
-        left:232px;
-        min-width: 390px ;
+        left: 232px;
+        min-width: 390px;
 
     }
 
     .cont_main_container_right {
         z-index: 0;
         margin-left: 800px;
-    
+
     }
 
     .cont_main_container_right_titel {
         margin-left: 40px;
-        
-	}
-    .cont_main_container_right_titel h1{
+
+    }
+
+    .cont_main_container_right_titel h1 {
         font-size: 40px;
-        
+
     }
-    .cont_main_container_right_titel h3{
+
+    .cont_main_container_right_titel h3 {
         font-size: 24px;
-        
-    }
-    .contMainContainerLeft{
-    padding-left: 1px;
-    padding-right: 1px;
-    width: 370px;
-    }
-  
-}
 
-@media(max-width:1250px) {
+    }
+
+    .contMainContainerLeft {
+        padding-left: 1px;
+        padding-right: 1px;
+        width: 370px;
+    }
 
 }
+
+@media(max-width:1250px) {}
