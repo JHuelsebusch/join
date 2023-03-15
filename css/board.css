@@ -953,6 +953,71 @@
                     filter: invert(54%) sepia(85%) saturate(1114%) hue-rotate(165deg) brightness(96%) contrast(85%);
                     transition: all ease-in-out 125ms;
                 }
+                /* Animation  */
+                
+                .animationSlideIn {
+                    animation: slide 1s ease-in-out 0s 1 normal forwards;
+                }
+                
+                .animationFadeIn {
+                    animation: fade 1s ease-in-out 0s 1 normal forwards;
+                }
+                
+                .animationSlideOut {
+                    animation: slide 1s ease 0s 1 reverse forwards;
+                }
+                
+                .animationFadeOut {
+                    animation: fade 1s ease 0s 1 reverse forwards;
+                }
+                
+                @keyframes slide {
+                    0% {
+                        transform: translateX(100%);
+                    }
+                    100% {
+                        transform: translateX(0);
+                    }
+                }
+                
+                @keyframes fade {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }
+                /* @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                    0% {
+                        transform: translateX(100%);
+                    }
+                    100% {
+                        transform: translateX(0);
+                    }
+                }
+                
+                
+                @keyframes fadeOut {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                    0% {
+                        transform: translateX(100%);
+                    }
+                    100% {
+                        transform: translateX(0);
+                    }
+                } */
                 
                 @media (max-width: 1260px) {
                     .addTask {
