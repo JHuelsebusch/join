@@ -111,6 +111,7 @@ async function addContact() {
   document.getElementById(`inputName`).value = ``;
   document.getElementById(`inputMail`).value = ``;
   document.getElementById(`inputPhone`).value = ``;
+  closePopup()
 }
 /**
  *

@@ -791,6 +791,8 @@ justify-content: center;
     .cont_main_container_left {
         z-index: 0;
         position: absolute;
+        left:232px;
+        min-width: 390px ;
 
     }
 
@@ -816,6 +818,9 @@ justify-content: center;
     padding-left: 1px;
     padding-right: 1px;
     width: 370px;
+    }
+    .contDisplay{
+        
     }
 }
 
