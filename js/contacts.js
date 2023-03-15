@@ -63,7 +63,7 @@ function addContactHTML() {
                         <div class="contAddEditIcon"> <img src="/img/Vector.svg" alt=""></div>
 
                         <form  onsubmit="addContact(); return false" class="contAddForm">
-                            <div><input pattern="^(&#92w&#92w+)&#92s(&#92w+)$" required id = "inputName" type= "text" placeholder="Name Surname" class="contInputEdit"><img class="contFormImg" src="./img/contact_icon_min.svg"></div>
+                            <div><input required id = "inputName" type ="text" placeholder="Name Surname" class="contInputEdit"><img class="contFormImg" src="./img/contact_icon_min.svg"></div>
                             <div><input required id = "inputMail" type= "email" placeholder="EMail"class="contInputEdit"><img class="contFormImg" src="./img/contact_input_mail_mini.svg"></div>
                             <div><input required id = "inputPhone" type= "tel" placeholder="Phone"class="contInputEdit"><img class="contFormImg" src="./img/contact_inputIcon_phone.svg"></div>
                             <div style= display:flex;>
@@ -146,7 +146,7 @@ function loadContactList() {
   for (let index = 0; index < contacts.length; index++) {
     const element = contacts[index];
     let contact = contacts[index];
-    let initials = fktSurname(contact) + fktName(contact);
+    let initials = fktName(contact)+fktSurname(contact);
     let firstIni = initials.slice(1, initials.length);
     contactList.innerHTML += /*html*/ `
 
@@ -157,13 +157,9 @@ function loadContactList() {
             </div>
         </div>
         <div class="contactContainer" onclick="loadContactDetail('${index}','${initials}')">
-            <div class="contactInitial profileColor-${
-              element[`id`]
-            }">${initials}</div>
+            <div class="contactInitial profileColor-${element[`id`]}">${initials}</div>
             <div class="contactNameMail">
-                <div class="contName">${element["name"]} ${
-      element["surname"]
-    }</div>
+                <div class="contName">${element["name"]}&nbsp${element["surname"]}</div>
                 <div class="contMail">${element["email"]}</div>
             </div>
         </div>`;
@@ -212,14 +208,15 @@ function contactDetailHTML(index, initials) {
         <div class="contDetailLetter profileColor-${
           contact[`id`]
         }"><p>${initials}</p></div>
-        <div class="contName"><h2>${contact.surname}&nbsp${
-    contact.name
+        <div class="contName"><h2>${contact.name}&nbsp${
+    contact.surname
   }</h2><br><a href ="add_task.html">+ Add Task</a></div>
       </div>
 
     <div class="contDetailMid"> 
       <div class="contDetailMidLeft"><p>Contact&nbspInformation</p></div>
-      <div class="contDetailMidRight"><img src="/img/contacts_icon_pen.svg"><p>Edit&nbspContact</p></div>
+      <div class="contDetailMidRight" onclick="openEditDisplay('${initials}')">
+        <img src="/img/contacts_icon_pen.svg"><p>Edit&nbspContact</p></div>
     </div>
 
     <div class= "contDetailBottom">
@@ -265,9 +262,14 @@ function getContactIndexForEmail(email) {
   }
   return contactIndex;
 }
+/**
+ * This function is used to delete an object in the array
+ * 
+ * 
+ */
 async function deleteContInArray(index) {
   if (index !== parseInt(index, 10)) {
-  } //Data is not an integer!
+  } 
 
   if (index >= contacts.length || index < 0) {
   } //Zu hoch oder zu gering
@@ -275,11 +277,15 @@ async function deleteContInArray(index) {
     deleteAllUsers();
   } //Löscht gesamten Array
   else {
-    contacts.splice(index, 1); //Data is an integer!
-    await backend.setItem("contacts", JSON.stringify(contacts)); //users-array is saved into backend
+    contacts.splice(index, 1); 
+    await backend.setItem("contacts", JSON.stringify(contacts));
   }
 }
-
+/**
+ * This function checks the assigned ID in the array
+ * 
+ * 
+ */
 function checkId(searchId) {
   if (contacts.find((elem) => elem.id == searchId)) {
     searchId++;
@@ -288,4 +294,47 @@ function checkId(searchId) {
   } else {
     return searchId;
   }
+}
+/**
+ * This function is used to open the diplay for editing
+ * 
+ */
+
+function openEditDisplay(initials) {
+  let element = document.getElementById("cont_popup_id");
+  element.classList.remove("d-none");
+  element.innerHTML = "";
+  element.innerHTML = editContactHTML(initials);
+ 
+}
+
+function editContactHTML(initials) {
+  return /*html*/ `
+    <div id="contAddBg" class= "contAddBg" onclick="closePopup()">
+        <div id="animationId" onclick= "stopClosing(event)" class="animationSlideIn">
+        <div class="contAddContainer">
+                <div class="contAddContainerLeft">
+                    <img src="/img/contacts_Logo.svg" alt="">
+                    <h3>Edit contact</h3>
+                    <div class="contAddUnderline"></div>
+                </div>
+                <div class="contAddRight">
+                    <div onclick="closePopup()" class= "contAddRightClose"> <img src="/img/contact_close.svg" alt="close"></div>
+                    <div class="contAddEdit">
+                        <div class="contAddEditIcon"><p>${initials}</p></div>
+
+                        <form  onsubmit="addContact(); return false" class="contAddForm">
+                            <div><input required id = "inputName" type= "text" placeholder="Name Surname" class="contInputEdit"><img class="contFormImg" src="./img/contact_icon_min.svg"></div>
+                            <div><input required id = "inputMail" type= "email" placeholder="EMail"class="contInputEdit"><img class="contFormImg" src="./img/contact_input_mail_mini.svg"></div>
+                            <div><input required id = "inputPhone" type= "tel" placeholder="Phone"class="contInputEdit"><img class="contFormImg" src="./img/contact_inputIcon_phone.svg"></div>
+                            <div style= display:flex;>
+                              <button class="contEditBtn">Save <img src="./img/contacts_submitIcon_mini.svg"></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+`;
 }
