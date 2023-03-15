@@ -367,8 +367,10 @@ async function contactEdit(index) {
   );
   let mail = document.getElementById("editMail").value;
   let phone = document.getElementById("editPhone").value;
+    let id = contacts[index][`id`];
 
-  let data = {
+  let changedData = {
+    id: id,
     name: firstname,
     surname: surname,
     email: mail,
@@ -376,8 +378,9 @@ async function contactEdit(index) {
   };
 
   document.getElementById("cont_popup_id").innerHTML = "";
-  contacts.splice(index,1, data)
-  contacts.push(data);
+  document.getElementById("contDisplay").innerHTML = "";
+  contacts.splice(index,1, changedData)
+  
   saveContact();
   loadContactList();
   initContacts();
