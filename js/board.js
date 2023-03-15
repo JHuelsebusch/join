@@ -384,8 +384,8 @@ function showTaskEditContacts(taskId) {
 
 function generateFullName(contact) {
     let name = [];
-    name.push(contact['surname']);
     name.push(contact['name']);
+    name.push(contact['surname']);
     name = name.join(' ');
     return name;
 }
@@ -659,4 +659,24 @@ function changeSubtaskDone(n) {
     } else {
         subtask['subtaskDone'] = 'unchecked';
     }
+}
+function searchTask() {
+    let search = document.getElementById('searchTask').value;
+    search = search.toLowerCase();
+    generateEmptyBoard();
+    for (let t = 0; t < tasks.length; t++) {
+        let task = tasks[t];
+        if(task['title'].includes(search) || task['description'].includes(search)) {
+            document.getElementById(`${task[`taskStatus`]}`).innerHTML += createTaskOnBoard(task);
+
+            if(task['subtasks']){
+                if(task['subtasks'].length>0){
+                generateProgressBar(task);
+            }
+            }
+            
+            generateAssignedTo(task);
+        }
+    }
+    generateOnDragTask();
 }
