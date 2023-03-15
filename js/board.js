@@ -266,7 +266,7 @@ function doNotCloseBigTask(event){
 /**
  * This function is used to show task editor
  * @param {string} id - This is the id of task you want to edit
- */
+*/
 function showTaskEdit(id){
     let task = tasks[id];
     document.getElementById('bigTask').innerHTML = createTaskEdit(task);
@@ -407,12 +407,17 @@ function stopCloseContacts(e){
 
 
 function showAddTaskOnBoard() {
+    document.getElementById("addTask").classList.remove("animationSlideOut");
+    document.getElementById("addTask").classList.add("animationSlideIn");
+    // document.getElementById("addTask").classList.add("animationFadeIn");
     document.getElementById('AddTaskBg').classList.remove('dNone');
     document.getElementById('addTask').innerHTML = createAddTask();
     document.getElementById('cancelIcon').classList.remove('dNone');
 }
 function closeAddTaskOnBoard(){
-    document.getElementById('AddTaskBg').classList.add('dNone');
+    document.getElementById("addTask").classList.remove("animationSlideIn");
+    document.getElementById("addTask").classList.add("animationSlideOut");
+    setTimeout(function() {document.getElementById('AddTaskBg').classList.add('dNone')}, 1150);
 }
 
 // Add Task
@@ -612,10 +617,10 @@ function createAddSubtasksIcons() {
             <img src="./img/icons-cancel.svg" onclick="addSubtaskCancel()">
             <img src="./img/icon-separator.svg">
             <img src="./img/icon-ok-dark.svg" onclick="addSubtask()">
-        </div>`
-}
-function createAddSubtasksIconsEmpty() {
-    return `
+            </div>`
+        }
+        function createAddSubtasksIconsEmpty() {
+            return `
     <div class="addIcon"><img src="./img/icon-add-plus-dark.svg"></div>`
 }
 function addSubtaskCancel() {
@@ -635,6 +640,7 @@ function addSubtask(){
     generateSubtasks();
     addSubtaskCancel();
 }
+
 function generateSubtasks(){
     document.getElementById('addedSubtasks').innerHTML = ``;
     for (let s = 0; s < newTask['subtasks'].length; s++) {
@@ -644,13 +650,16 @@ function generateSubtasks(){
     
 
 }
+
+
 function createSubtasks(subtask,s){
    return `
-    <div>
-        <input type="checkbox" id="inputSubtask${s}" onclick="changeSubtaskDone(${s})">
-        ${subtask}
+   <div>
+   <input type="checkbox" id="inputSubtask${s}" onclick="changeSubtaskDone(${s})">
+   ${subtask}
     </div>`
 }
+
 function changeSubtaskDone(n) {
     let subtask = newTask['subtasks'][n];
     let inputSubtask = document.getElementById(`inputSubtask${n}`)
@@ -660,21 +669,21 @@ function changeSubtaskDone(n) {
         subtask['subtaskDone'] = 'unchecked';
     }
 }
-function searchTask() {
+
+function search() {
     let search = document.getElementById('searchTask').value;
     search = search.toLowerCase();
     generateEmptyBoard();
     for (let t = 0; t < tasks.length; t++) {
         let task = tasks[t];
-        if(task['title'].includes(search) || task['description'].includes(search)) {
+        if(task['title'].toLowerCase().includes(search) || task['description'].toLowerCase().includes(search)) {
             document.getElementById(`${task[`taskStatus`]}`).innerHTML += createTaskOnBoard(task);
-
+            
             if(task['subtasks']){
                 if(task['subtasks'].length>0){
                 generateProgressBar(task);
             }
             }
-            
             generateAssignedTo(task);
         }
     }
