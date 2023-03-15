@@ -320,8 +320,8 @@ function changeTaskEditContacts(taskId){
     for (let c = 0; c < contacts.length; c++) {
         let contact = contacts[c];
         let contactId = contacts[c]['id'];
-        let contactName = generateFullName(contact)
-        let assignedTo = document.getElementById(`inputContacts${c}`)
+        let contactName = generateFullName(contact);
+        let assignedTo = document.getElementById(`inputContacts${c}`);
         if(assignedTo.checked == true) {
             let data = {
                 "id": contactId,
@@ -393,7 +393,7 @@ function generateFullName(contact) {
 function checkAssigned(taskId, name){
     let assignedTo = tasks[taskId]['assignedTo'];
     for (let index = 0; index < assignedTo.length; index++) {
-        const assignedContact = assignedTo[index]['name'];
+        let assignedContact = assignedTo[index]['name'];
         if(assignedContact.includes(name) == true) {
             return true;
         }
@@ -401,9 +401,10 @@ function checkAssigned(taskId, name){
     return false;
 }
 
-// function stopCloseContacts(e){
-//     e.stopPropagation();
-// }
+function stopCloseContacts(e){
+    e.stopPropagation();
+}
+
 
 function showAddTaskOnBoard() {
     document.getElementById('AddTaskBg').classList.remove('dNone');
@@ -451,7 +452,9 @@ function addCategory(catId){
 function generateSelectedCategory(category){
     document.getElementById('addTaskCategory').innerHTML = createSelectedCategory(category);
 }
-
+function generateEmptyCategory() {
+    document.getElementById('addTaskCategory').innerHTML = createEmptyCategory();
+}
 function changeAddTaskPrio(newPrio){
     newTask['priority']=newPrio;
     generateAddTaskPrio(newPrio);
@@ -462,6 +465,10 @@ function generateAddTaskPrio(newPrio){
     document.getElementById(`${newPrio}AddTaskPrio`).classList.add(`addTaskPrioActive`);
     document.getElementById(`${newPrio}AddTaskPrio`).classList.add(`${newPrio}`);
     document.getElementById(`${newPrio}AddTaskPrioImg`).src = `./img/prio-white-${newPrio}.svg`;
+}
+
+function generateEmptyPrio(){
+    document.getElementById(`addTaskPrioSec`).innerHTML = createAddTaskPrio();
 }
 
 function openAddTaskContacts() {
@@ -476,6 +483,16 @@ function openAddTaskContacts() {
     }
 
 }
+function generateEmptyAssignedTo() {
+    let ATCClasslist = document.getElementById('addTaskContactsMenu').classList;
+    if (ATCClasslist.contains('dNone')) {}else{
+        ATCClasslist.add('dNone');
+        document.getElementById('addTaskContacts').classList.remove('taskDropdown');
+    }
+    if (newTask['assignedTo']){
+        delete newTask['assignedTo'];
+    }
+}
 
 function showAddTaskContacts() {
     document.getElementById('addTaskContactsMenu').innerHTML =``;
@@ -484,7 +501,26 @@ function showAddTaskContacts() {
         let name = generateFullName(contact);
         document.getElementById('addTaskContactsMenu').innerHTML += createTaskContactsDropdown(name, c);
     }
+    if(newTask['assignedTo']){
+    for (let c = 0; c < newTask['assignedTo'].length; c++) {
+        let contact = newTask['assignedTo'][c];
+        let name = generateFullName(contact);
+        name = name.trim();
+        document.getElementById(`inputContacts${c}`).checked = checkAssignedNewTask(name);
+    }}
 }
+
+function checkAssignedNewTask(name){
+    let assignedTo = newTask['assignedTo'];
+    for (let index = 0; index < assignedTo.length; index++) {
+        let assignedContact = assignedTo[index]['name'];
+        if(assignedContact.includes(name) == true) {
+            return true;
+        }
+    }
+    return false;
+}
+
 function changeAddTaskContacts(){
     let newTaskContacts = [];
     for (let c = 0; c < contacts.length; c++) {
@@ -525,7 +561,6 @@ async function addTask() {
         }
         tasks.push(data);
         await saveTask();
-        // clearValues();
         window.location.href = './board.html'
     } else {
         console.log('Nicht möglich');
@@ -536,19 +571,25 @@ function pushValuesToNewTask(){
     newTask['title'] = document.getElementById('addTaskTitle').value;
     newTask['description'] = document.getElementById('addTaskDescription').value;
     newTask['date'] = document.getElementById('addTaskDate').value;
-    newTask['id']=tasks.length.toString();
+    newTask['id']=checkTaskId(tasks.length).toString();
 }
 
 function clearValues(){
+    // newTask = [];
     document.getElementById('addTaskTitle').value =``;
     document.getElementById('addTaskDescription').value=``;
     document.getElementById('addTaskDate').value=``;
+    generateEmptyCategory();
+    generateEmptyPrio();
+    generateEmptyAssignedTo();
+    addSubtaskCancel();
+    document.getElementById('addedSubtasks').innerHTML = ``;
 }
 
-function checkId(searchId){
-    if(contacts.find(elem => elem.id == searchId)){
+function checkTaskId(searchId){
+    if(tasks.find(elem => elem.id == searchId)){
         searchId++;
-        newSearchId = checkId(searchId)
+        newSearchId = checkTaskId(searchId)
         return newSearchId;
     } else {
         return searchId;
