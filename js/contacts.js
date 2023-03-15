@@ -382,6 +382,7 @@ async function contactEdit(index) {
   contacts.splice(index,1, changedData)
   
   saveContact();
+  init();
   await loadContactList();
   await initContacts();
 }
