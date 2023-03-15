@@ -296,7 +296,12 @@ function createSelectedCategory(category) {
     return `<span>${category}</span>
             <div class="categoryColor ${category}"></div>
             `
+}
 
+function createEmptyCategory() {
+    return `<span>Select task category</span>
+            <img src="./img/icon-arrow-down.svg"></img>
+            `
 }
 
 function createAddTask() {
@@ -373,10 +378,10 @@ function createAddTask() {
                     </div>
                 </div>
                 <div class="addTaskSubmitButtons">
-                    <button class="addTaskClear">
+                    <div class="addTaskClear" id="addTaskClear" onclick="clearValues()">
                         <span>Clear</span>
                         <img src="./img/icons-cancel.svg">
-                    </button>
+                    </div>
                     <button class="addTaskSubmit">
                         <span>Create Task</span>
                         <img src="./img/icon-edit-ok.svg">
