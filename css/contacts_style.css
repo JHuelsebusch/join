@@ -391,9 +391,16 @@ body {
 }
 .contAddRightClose{
     position: absolute;
-    cursor: pointer;
     top: 25px;
     right: 25px;
+    transform: rotate(180deg);
+    transition: all ease-in-out 125ms;
+}
+
+    .contAddRightClose :hover{
+        cursor: pointer;
+        transform: rotate(180deg);
+        transition: all ease-in-out 125ms;
 }
 .contAddEdit{
     display: flex;
@@ -640,6 +647,7 @@ align-items: center;
 .contDetailMidRight :hover{
     background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(241, 241, 241, 1) 100%);
 	border-radius: 10px;
+    cursor: pointer;
 }
 
 .contDetailMidRight img {
@@ -657,6 +665,7 @@ align-items: center;
     line-height: 120%;
     margin-top: 7px;
     margin-bottom: 1rem
+    padding: 8px;
 }
 .contDetailBottom {
     margin-top: 10px;
@@ -720,6 +729,7 @@ object-fit: contain;
 display: flex;
 align-items: center;
 justify-content: center;
+cursor: pointer;
 }
 .contBasket:hover{
     cursor: pointer;
