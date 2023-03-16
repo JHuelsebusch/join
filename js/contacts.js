@@ -33,7 +33,6 @@ function stopClosing(event) {
 /**
  * This function is used to load the overlay
  */
-
 function loadOverlay() {
   let element = document.getElementById("cont_popup_id");
   element.classList.remove(`d-none`);
@@ -42,47 +41,8 @@ function loadOverlay() {
 }
 
 /**
- * This function is used to generate a HTML-Template
- */
-
-function addContactHTML() {
-  return /*html*/ `
-    <div id="contAddBg" class= "contAddBg" onclick="closePopup()">
-        <div id="animationId" onclick= "stopClosing(event)" class="animationSlideIn">
-            <div class="contAddContainer">
-                <div class="contAddContainerLeft">
-                    <img src="/img/contacts_Logo.svg" alt="">
-                    <h3>Add contact</h3>
-                    <p>Task are better with a team</p>
-                    <div class="contAddUnderline"></div>
-                </div>
-
-                <div class="contAddRight">
-                    <div onclick="closePopup()" class= "contAddRightClose"> <img src="/img/contact_close.svg" alt=""></div>
-                    <div class="contAddEdit">
-                        <div class="contAddEditIcon"> <img src="/img/Vector.svg" alt=""></div>
-
-                        <form  onsubmit="addContact(); return false" class="contAddForm">
-                            <div><input required id = "inputName" type ="text" placeholder="Name Surname" class="contInputEdit"><img class="contFormImg" src="./img/contact_icon_min.svg"></div>
-                            <div><input required id = "inputMail" type= "email" placeholder="EMail"class="contInputEdit"><img class="contFormImg" src="./img/contact_input_mail_mini.svg"></div>
-                            <div><input required id = "inputPhone" type= "tel" placeholder="Phone"class="contInputEdit"><img class="contFormImg" src="./img/contact_inputIcon_phone.svg"></div>
-                            <div style= display:flex;>
-                              <button onclick="closePopup()" onmouseover="changeColor()" class="contCancelBtn" type="reset">Cancel <img  id="clear-x" src="./img/contacts_closeIcon_mini.svg" alt=""></button>
-                              <button class="contCreateBtn">Create contact <img src="./img/contacts_submitIcon_mini.svg"></button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-`;
-}
-
-/**
  * This function is used to add a new contact
  */
-
 async function addContact() {
   let name = greatLetter(document.getElementById("inputName").value);
   let firstname = name.split(" ")[0];
@@ -113,11 +73,11 @@ async function addContact() {
   closePopup();
 }
 /**
- *
- * @param {string} name - This is
+ *This function ensures that the initial letter is always displayed in capital letters
+ * @param {string} name - this
  * @returns
  */
-// Fkt first letter of name great
+
 function greatLetter(name) {
   let surname = name.slice(name.indexOf(" ") + 1, name.length);
   let greatName =
@@ -129,14 +89,20 @@ function greatLetter(name) {
   return greatName;
 }
 
-// FKT first letter of surname great
+/**
+ * This function ensures that the initial letter is always displayed in capital letters
+ * @param {*} surname
+ * @returns
+ */
 function greatLetterSurname(surname) {
   let greateSurname =
     surname.charAt(0).toUpperCase() + surname.slice(1, surname.length);
   return greateSurname;
 }
-
-// Load Contacts list !!! HTML TEMPLATE  AUSLAGERN!!!
+/**
+ * This function lists the names of the contacts alphabetically
+ */
+// !!! HTML TEMPLATE  AUSLAGERN!!!
 
 function loadContactList() {
   let contactList = document.getElementById(`contactsList`);
@@ -162,31 +128,22 @@ function loadContactList() {
         </div>`;
       previousLetter = letter;
     }
-    contactList.innerHTML += /*html*/ `
-    <div class="contactContainer" onclick="loadContactDetail('${index}','${initials}')">
-            <div class="contactInitial profileColor-${
-              element[`id`]
-            }">${initials}</div>
-            <div class="contactNameMail">
-                <div class="contName">${element["name"]}&nbsp${
-      element["surname"]
-    }</div>
-                <div class="contMail">${element["email"]}</div>
-            </div>
-        </div>`;
+    contactList.innerHTML += loadContactListHTML(element, initials, index);
   }
 }
 
 /**
- * This function is used to generate the first letters
+ * This function is used to generate the first letter
  */
-
 function fktName(contact) {
   iniName = contact.name.toLowerCase().split(" ");
   iniName = iniName.map((word) => word.charAt(0).toUpperCase());
   iniName = iniName.join("");
   return iniName;
 }
+/**
+ * This function is used to generate the second letter
+ */
 function fktSurname(contact) {
   iniSurname = contact.surname.toLowerCase().split(" ");
   iniSurname = iniSurname.map((word) => word.charAt(0).toUpperCase());
@@ -194,57 +151,14 @@ function fktSurname(contact) {
   return iniSurname;
 }
 /**
+ * This function is used to load the Details of contacts
  *
- * @param {string} contacts -
  */
-// Fkt load detail
+
 function loadContactDetail(index, initials) {
   let contactDetail = document.getElementById("contDisplay");
   contactDetail.innerHTML = "";
   contactDetail.innerHTML += contactDetailHTML(index, initials);
-}
-
-/**
- * This function is used to load the HTML-Template
- */
-
-function contactDetailHTML(index, initials) {
-  let contact = contacts[index];
-
-  return /*html*/ `
-
-    <div class= "contDetailBg animationSlideIn" id="contDetail">
-
-      <div class="contDetailTop">
-        <div class="contDetailLetter profileColor-${
-          contact[`id`]
-        }"><p>${initials}</p></div>
-        <div class="contName"><h2>${contact.name}&nbsp${
-    contact.surname
-  }</h2><br><a href ="add_task.html">+ Add Task</a></div>
-      </div>
-
-    <div class="contDetailMid"> 
-      <div class="contDetailMidLeft"><p>Contact&nbspInformation</p></div>
-      <div class="contDetailMidRight" onclick="openEditDisplay('${initials}','${index}')">
-        <img src="/img/contacts_icon_pen.svg"><p>Edit&nbspContact</p></div>
-    </div>
-
-    <div class= "contDetailBottom">
-        
-        <div ><p><b>Email &nbsp</b></p><a class="contMail" href="mailto:${
-          contact[`email`]
-        }">${contact[`email`]}</a>
-        </p></div>
-        <div><p><b>Phone</b></p><a class="contPhone" href= "tel:+49${
-          contact[`phone`]
-        }">${contact[`phone`]}</a>
-        </div>
-        <div class="contBasket" onclick= "deleteContact('${
-          contact[`email`]
-        }')"><img src="/img/contacts_icon_basket.png"></div>
-      </div>
-  `;
 }
 
 /**
@@ -254,6 +168,9 @@ async function saveContact() {
   await backend.setItem("contacts", JSON.stringify(contacts));
 }
 
+/**
+ * This function is used to delete a contact
+ */
 async function deleteContact(email) {
   let display = document.getElementById(`contDisplay`);
   let detail = document.getElementById(`contDetail`);
@@ -264,19 +181,8 @@ async function deleteContact(email) {
   initContacts();
 }
 
-function getContactIndexForEmail(email) {
-  let contactIndex = -1;
-  for (i = 0; i < contacts.length; i++) {
-    if (contacts[i]["email"].toLowerCase() == email.toLowerCase()) {
-      contactIndex = i;
-    }
-  }
-  return contactIndex;
-}
 /**
  * This function is used to delete an object in the array
- *
- *
  */
 async function deleteContInArray(index) {
   if (index !== parseInt(index, 10)) {
@@ -295,7 +201,6 @@ async function deleteContInArray(index) {
 /**
  * This function checks the assigned ID in the array
  *
- *
  */
 function checkId(searchId) {
   if (contacts.find((elem) => elem.id == searchId)) {
@@ -306,76 +211,28 @@ function checkId(searchId) {
     return searchId;
   }
 }
+
 /**
  * This function is used to open the diplay for editing
  *
  */
-
 function openEditDisplay(initials, index) {
   let element = document.getElementById("cont_popup_id");
   element.classList.remove("d-none");
   element.innerHTML = "";
   element.innerHTML = editContactHTML(initials, index);
 }
-
-function editContactHTML(initials, index) {
-  let contact = contacts[index];
-  return /*html*/ `
-    <div id="contAddBg" class= "contAddBg" onclick="closePopup()">
-        <div id="animationId" onclick= "stopClosing(event)" class="animationSlideIn">
-        <div class="contAddContainer">
-                <div class="contAddContainerLeft">
-                    <img src="/img/contacts_Logo.svg" alt="">
-                    <h3>Edit contact</h3>
-                    <div class="contAddUnderline"></div>
-                </div>
-                <div class="contAddRight">
-                    <div onclick="closePopup()" class= "contAddRightClose"> <img src="/img/contact_close.svg" alt="close"></div>
-                    <div class="contAddEdit">
-                        <div class="contAddEditIcon profileColor-${
-                          contact[`id`]
-                        }"><p>${initials}</p></div>
-
-                        <form  onsubmit="contactEdit('${index}'); return false" class="contAddForm">
-                            <div><input required id = "editName" value ="${
-                              contact[`name`]
-                            } ${
-    contact[`surname`]
-  }" type= "text" placeholder="${
-    contact[`name`]
-  }" class="contInputEdit"><img class="contFormImg" src="./img/contact_icon_min.svg"></div>
-                            <div><input required id = "editMail" value = "${
-                              contact[`email`]
-                            }" type= "email" placeholder="${
-    contact[`email`]
-  }"class="contInputEdit"><img class="contFormImg" src="./img/contact_input_mail_mini.svg"></div>
-                            <div><input required id = "editPhone" value = ${
-                              contact[`phone`]
-                            }  type= "tel" placeholder="${
-    contact[`phone`]
-  }"class="contInputEdit"><img class="contFormImg" src="./img/contact_inputIcon_phone.svg"></div>
-                            <div style= display:flex;>
-                              <button class="contEditBtn">Save <img src="./img/contacts_submitIcon_mini.svg"></button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-`;
-}
-
+/**
+ * This function is used for editing the contact details
+ *
+ */
 async function contactEdit(index) {
   let name = greatLetter(document.getElementById("editName").value);
   let firstname = name.split(" ")[0];
-  let surname = greatLetterSurname(
-    name.slice(name.indexOf(" ") + 1, name.length)
-  );
+  let surname = greatLetterSurname(name.slice(name.indexOf(" ") + 1, name.length));
   let mail = document.getElementById("editMail").value;
   let phone = document.getElementById("editPhone").value;
   let id = contacts[index][`id`];
-
   let changedData = {
     id: id,
     name: firstname,
@@ -383,13 +240,11 @@ async function contactEdit(index) {
     email: mail,
     phone: phone,
   };
-
   document.getElementById("cont_popup_id").innerHTML = "";
   document.getElementById("contDisplay").innerHTML = "";
   contacts.splice(index, 1, changedData);
-
   saveContact();
   init();
-  await loadContactList();
+  loadContactList();
   await initContacts();
 }
