@@ -107,7 +107,6 @@ async function addContact() {
   saveContact();
   loadContactList();
   console.log(contacts);
-  // delay
   document.getElementById(`inputName`).value = ``;
   document.getElementById(`inputMail`).value = ``;
   document.getElementById(`inputPhone`).value = ``;
@@ -142,21 +141,29 @@ function greatLetterSurname(surname) {
 function loadContactList() {
   let contactList = document.getElementById(`contactsList`);
   contactList.innerHTML = ``;
+  // Sortierung alphabetisch
+  contacts.sort((a, b) => a.name.localeCompare(b.name));
+  // Überprüfung, ob Anfangsbuchstabe schon vorhanden
+  let previousLetter = "";
 
   for (let index = 0; index < contacts.length; index++) {
     const element = contacts[index];
     let contact = contacts[index];
     let initials = fktName(contact) + fktSurname(contact);
-    let firstIni = initials.slice(1, initials.length);
-    contactList.innerHTML += /*html*/ `
+    let letter = fktName(contact)[0];
 
+    if (letter != previousLetter) {
+      contactList.innerHTML += /*html*/ `
         <div class= "contactListContainer colmn" id="contactListContainer">
             <div>
-                <h4>${firstIni}</h4>
+                <h4>${letter}</h4>
                 <div class="sepLine">
             </div>
-        </div>
-        <div class="contactContainer" onclick="loadContactDetail('${index}','${initials}')">
+        </div>`;
+      previousLetter = letter;
+    }
+    contactList.innerHTML += /*html*/ `
+    <div class="contactContainer" onclick="loadContactDetail('${index}','${initials}')">
             <div class="contactInitial profileColor-${
               element[`id`]
             }">${initials}</div>
@@ -367,7 +374,7 @@ async function contactEdit(index) {
   );
   let mail = document.getElementById("editMail").value;
   let phone = document.getElementById("editPhone").value;
-    let id = contacts[index][`id`];
+  let id = contacts[index][`id`];
 
   let changedData = {
     id: id,
@@ -379,8 +386,8 @@ async function contactEdit(index) {
 
   document.getElementById("cont_popup_id").innerHTML = "";
   document.getElementById("contDisplay").innerHTML = "";
-  contacts.splice(index,1, changedData)
-  
+  contacts.splice(index, 1, changedData);
+
   saveContact();
   init();
   await loadContactList();

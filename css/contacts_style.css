@@ -809,7 +809,7 @@ body {
         margin-left: 29px;
         justify-content: center;
         align-items: center;
-
+        margin-top: 150px;
     }
 
     .contDisplay div {
@@ -892,15 +892,6 @@ body {
 
     }
 
-    .cont_main_container_right_titel {
-        margin-left: 40px;
-
-    }
-
-    .cont_main_container_right_titel h1 {
-        font-size: 40px;
-
-    }
 
     .cont_main_container_right_titel h3 {
         font-size: 24px;
