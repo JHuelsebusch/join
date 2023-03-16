@@ -1,8 +1,15 @@
-* {
+@font-face {
+    font-family: Inter;
+    src: url('./font/Inter-Regular.ttf');
+    font-family: Inter-Bold;
+    src: url('./font/Inter-Bold.ttf');
+  }
+
+*{
     margin: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', 'sans-serif';
     font-style: normal;
-}
+    }
 
 .dnone {
     display: none;
@@ -16,7 +23,8 @@
     align-items: center;
 }
 
-.headerLeft {
+.headerLeft{
+
     position: absolute;
     left: 5.35%;
     right: 87.71%;
@@ -25,11 +33,12 @@
 }
 
 .headerRight {
+
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    gap: 35px;
+    gap: 35px;   
     position: absolute;
     width: 287px;
     height: 51px;
@@ -37,15 +46,21 @@
     top: 67px;
 }
 
-.headerLeft p {
+.headerLeft p{
+
     font-weight: 400;
     font-size: 21px;
     line-height: 120%;
-    /* or 25px */
     color: #000000;
 }
 
+.separator  {
+
+    transform: rotate(-90deg);
+  }
+
 .signUpButton {
+
     padding: 4px 16px;
     gap: 10px;
     width: 91px;
@@ -57,36 +72,34 @@
     font-size: 16px;
     text-align: center;
     line-height: 120%;
-    /* or 19px */
     color: #FFFFFF;
     transition: 200ms;
 }
 
 .loginFrame {
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    /* padding: 35px 0px; */
+    align-items: center;  
     gap: 35px;
     position: absolute;
     width: 652px;
     height: 513px;
-    /* white */
     background: #FFFFFF;
-    /* shadoe backlog box */
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
 }
 
 .loginHeader {
+
     font-weight: 700;
     font-size: 61px;
-    line-height: 120%;
-    /* or 73px */
+    line-height: 120%;    
     text-align: center;
     color: #000000;
 }
+
 
 .loginHeader p {
     margin: 0;
@@ -98,6 +111,7 @@
     gap: 35px;
 }
 
+
 .loginInput {
     display: flex;
     flex-direction: column;
@@ -108,19 +122,17 @@
 }
 
 .input {
+
     box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    /* Auto layout */
     padding: 13px 21px;
     background: #FFFFFF;
-    /* Style */
     border: 1px solid #D1D1D1;
-    border-radius: 10px;
-    /* or 25px */
+    border-radius: 10px;  
+   
 }
 
 .input input {
+
     border: none;
     outline: none;
     font-weight: 400;
@@ -128,23 +140,27 @@
     line-height: 120%;
 }
 
+
 .rememberMe {
+
     display: flex;
     justify-content: center;
     gap: 30px;
+    
 }
 
-.rememberMe a {
+.rememberMe a{
     text-decoration: none;
 }
 
 .checkbox {
+
     display: flex;
     gap: 10px;
 }
 
 .checkbox input {
-    /* Boton gradient */
+
     background: linear-gradient(180deg, #F9F9F9 0%, #F0F0F0 100%);
     border: 1px solid #000000;
     border-radius: 3px;
@@ -153,29 +169,32 @@
 }
 
 .checkbox p {
+
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
-    /* or 19px */
     color: #000000;
 }
 
 .forgot {
+
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
-    /* or 19px */
-    /* Ligth blue */
     color: #29ABE2;
 }
 
+
+
 .btn {
+
     display: flex;
     justify-content: center;
     gap: 30px;
 }
 
 .loginButton {
+
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -190,25 +209,26 @@
     font-weight: 700;
     font-size: 21px;
     line-height: 120%;
-    /* or 25px */
     color: #FFFFFF;
     transition: 200ms;
 }
 
 .button:hover {
+
     cursor: pointer;
     background-color: #29ABE2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.button:active {
+.button:active{
+
     background: #FFFFFF;
-    /* stronger */
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     color: black;
 }
 
 .guestLoginButton {
+
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -223,12 +243,12 @@
     font-weight: 700;
     font-size: 21px;
     line-height: 120%;
-    /* or 25px */
     color: #2A3647;
-    transition: 200ms;
+    transition: 150ms;
 }
 
 .borderButton:hover {
+
     cursor: pointer;
     color: #29ABE2;
     border-color: #29ABE2;
@@ -236,79 +256,10 @@
 }
 
 .borderButton:active {
+    
     cursor: pointer;
     color: #091931;
     border-color: #091931;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-
-/* .msgBoxFrame{
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    width: 100%;
-    height: 100%;
-    top: 0;
-} */
-
-.msgBox {
-    position: fixed;
-    bottom: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 415px;
-    height: 74px;
-    /* Version 2/ main color */
-    background: #2A3647;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 20px;
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    font-size: 23px;
-    line-height: 120%;
-    /* identical to box height, or 28px */
-    color: #FFFFFF;
-}
-
-.shake {
-    border: 1px solid red;
-    position: relative;
-    animation: shake 0.2s;
-}
-
-@keyframes shake {
-    0%,
-    100% {
-        left: 0px;
-    }
-    20%,
-    80% {
-        left: -15px;
-    }
-    40%,
-    60% {
-        left: 15px;
-    }
-}
-
-.dnone {
-    display: none !important;
-}
-
-.fadeout {
-    animation: fade-out 600ms ease-in-out;
-}
-
-@keyframes fade-out {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}

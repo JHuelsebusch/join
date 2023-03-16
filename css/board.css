@@ -994,36 +994,6 @@
                         opacity: 1;
                     }
                 }
-                /* @keyframes fadeIn {
-                    from {
-                        opacity: 0;
-                    }
-                    to {
-                        opacity: 1;
-                    }
-                    0% {
-                        transform: translateX(100%);
-                    }
-                    100% {
-                        transform: translateX(0);
-                    }
-                }
-                
-                
-                @keyframes fadeOut {
-                    from {
-                        opacity: 0;
-                    }
-                    to {
-                        opacity: 1;
-                    }
-                    0% {
-                        transform: translateX(100%);
-                    }
-                    100% {
-                        transform: translateX(0);
-                    }
-                } */
                 
                 @media (max-width: 1260px) {
                     .addTask {
