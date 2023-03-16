@@ -799,7 +799,7 @@ body {
     cursor: pointer;
 }
 .contEditBtn :hover{
-    
+
     background: #29abe2!important;
 }
 
@@ -835,6 +835,7 @@ body {
     .contDisplay {
         justify-content: center;
         display: flex;
+        margin-top: 350px;
     }
 
     .contDetailTop h2 {
@@ -914,4 +915,6 @@ body {
 
 }
 
-@media(max-width:1250px) {}
+@media(max-width:1250px) {
+    
+}
