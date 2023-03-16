@@ -30,7 +30,7 @@ function setWelcomePhrase() {
     currentTime = currentTime.getHours();
     if (currentTime >= 0 && currentTime < 12) { welcomePhrase = 'Good morning' };
     if (currentTime >= 12 && currentTime < 18) { welcomePhrase = 'Good afternoon' };
-    if (currentTime >= 18 && currentTime < 0) { welcomePhrase = 'Good evening' };
+    if (currentTime >= 18) { welcomePhrase = 'Good evening' };
     return welcomePhrase;
 }
 

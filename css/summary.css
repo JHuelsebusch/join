@@ -213,6 +213,16 @@
     border-radius: 30px;
 }
 
+.taskToDoAndDoneIcon {
+    width: 69px;
+    height: 69px;
+    background-color: var(--bg-blue);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .taskToDoChild {
     display: flex;
     flex-direction: column;
@@ -228,56 +238,20 @@
     cursor: pointer;
 }
 
+.taskToDoAndDone:hover .taskToDoAndDoneIcon {
+    background-color: var(--bg-white);
+}
+
+.taskToDoAndDone:hover .taskToDoAndDoneIcon img {
+    filter: invert(1);
+}
+
 .taskToDoAndDone:active {
     background: var(--bg-white);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 30px;
     color: #000000;
 }
-
-.tasks-To-do .pencil {
-    filter: invert(1);
-}
-
-.tasks-To-do:hover .pencil {
-    filter: invert(0);
-}
-
-
-/* .tasks-To-do:active .pencil {
-    filter: invert(1);
-} */
-
-
-/* tasks-Done-content */
-
-
-/* .tasks-Done-content:hover {
-    background: #2A3647;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
-    color: #FFFFFF;
-    cursor: pointer;
-}
-
-.tasks-Done-content .pencil {
-    filter: invert(1);
-}
-
-.tasks-Done-content:hover .pencil {
-    filter: invert(0);
-}
-
-.tasks-Done-content:active {
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 30px;
-    color: #000000;
-}
-
-.tasks-Done-content:active .pencil {
-    filter: invert(1);
-} */
 
 .welcomeName {
     display: flex;
