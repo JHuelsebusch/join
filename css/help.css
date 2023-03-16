@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+}
+
+.helpContainer{
+    height: calc(100vh - 89px);
+    padding: 89px 60px 0px 292px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #f5f5f5;
+    width: calc(100vw - 232px);
+    margin-top: 80px;
+    margin-bottom: 80px;
+    margin-left: 232px;
+    padding-left: 5px;
+    padding-right: 75px;
+}
+.helpMobile{
+    display: none;
+}
+.helpBackBnt{
+    display: flex;
+    position: absolute;
+    right: calc(31px / 2 + 60px + 2 * 15px);
+    top: calc(80px + 50px);
+    height: 24px;
+    width: 24.66px;
+    cursor: pointer;
+}
+
+.helpContainer h1 {
+	font-weight: 700;
+	font-size: 61px;
+	margin: 50px;
+}

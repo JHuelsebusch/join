@@ -427,7 +427,7 @@ function addContactHTML() {
  */
 function loadContactListHTML(element, initials, index) {
   return `
-        <div id = "contactContainer-${index}"class="contactContainer" onclick="toggleActive('${index}');loadContactDetail('${index}','${initials}')">
+        <div id = "contactContainer-${index}"class="contactContainer" onclick="toggleActive();loadContactDetail('${index}','${initials}')">
             <div class="contactInitial profileColor-${
               element[`id`]
             }">${initials}</div>
@@ -440,20 +440,20 @@ function loadContactListHTML(element, initials, index) {
         </div>`;
 }
 
-function toggleActive(index) {
-    // Löschung der class active
-    var containers= document.getElementsByClassName("contactContainer");
-    for (let i = 0; i < containers.length; i++) {
-        containers[i].classList.remove("active");
-    }
+function toggleActive() {
+  // Löschung der class active
+  var containers = document.getElementsByClassName("contactContainer");
+  for (let i = 0; i < containers.length; i++) {
+    containers[i].classList.remove("active");
+  }
 }
 
 /**
  * This function is used to generate a HTML-Template
  */
 function contactDetailHTML(index, initials) {
-    let contact = contacts[index];
-    document.getElementById(`contactContainer-${index}`).classList.add("active")
+  let contact = contacts[index];
+  document.getElementById(`contactContainer-${index}`).classList.add("active");
 
   return `
   
