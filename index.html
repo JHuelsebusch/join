@@ -36,8 +36,11 @@
                             <img src="./img/email_input.svg" alt="">
                         </div>
                         <div class="input" id="passwordShake">
-                            <input required type="password" placeholder="Password" id="password" onblur="showLockIMG()" onfocus="showPasswordIMG()">
-                            <img id="image" src="./img/password_input.svg" alt="" onclick="showPassword()">
+                            <input required type="password" placeholder="Password" id="password" onkeyup="showPasswordIcon()">
+                            <span onclick="showPassword()">
+                                <img id="lockIMG" class="lock" src="./img/password_input.svg" alt="">
+                                <img id="eyeIMG" class="dnone" src="./img/closedeye.svg" alt="">
+                            </span>
                         </div>
                     </div>
                     <div class="rememberMe">
