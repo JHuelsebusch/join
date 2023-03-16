@@ -631,7 +631,8 @@ function createAddSubtasksIcons() {
             <img src="./img/icon-ok-dark.svg" onclick="addSubtask()">
             </div>`
         }
-        function createAddSubtasksIconsEmpty() {
+
+function createAddSubtasksIconsEmpty() {
             return `
     <div class="addIcon"><img src="./img/icon-add-plus-dark.svg"></div>`
 }

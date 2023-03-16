@@ -29,7 +29,7 @@ function getNavbarTemplate() {
             <div class="profileMenu dNone" id="profileMenu">
                 <div class="mobileProfileMenu">Help</div>
                 <div class="mobileProfileMenu">Legal notice</div>
-                <div>Log Out</div>
+                <div onclick="logout()">Log Out</div>
             </div>
         </div>`;
 }

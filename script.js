@@ -2,7 +2,7 @@
  * Startfunction
  */
 async function init() {
-    
+
     generateNavbar();
 }
 
@@ -27,6 +27,9 @@ function showProfileMenu() {
     }
 }
 
+function logout() {
+    window.location.href = `index.html?msg=loggedout`;
+}
 
 /**
  * This function generates last charakter.
