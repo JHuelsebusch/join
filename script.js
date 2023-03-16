@@ -28,7 +28,7 @@ function showProfileMenu() {
 }
 
 function logout() {
-    window.location.href = `index.html?msg=loggedout`;
+    window.location.href = `index.html?msg=Du hast dich erfolgreich ausgeloggt!`;
 }
 
 /**
