@@ -55,12 +55,12 @@ function shakeElement() {
 
 function showPasswordIMG() {
     let img = document.getElementById("image");
-    img.src = "assets/img/showPW.svg";
+    img.src = "./img/showPW.svg";
 }
 
 function showLockIMG() {
     let img = document.getElementById("image");
-    img.src = "assets/img/password_input.svg";
+    img.src = "./img/password_input.svg";
 }
 
 function showPassword() {
