@@ -408,13 +408,13 @@ function stopCloseContacts(e){
 
 function showAddTaskOnBoard() {
     let popUpCL = document.getElementById("addTask").classList;
-    popUpCL.remove('animationSlideOut');
     popUpCL.add(`animationSlideIn`);
+    setTimeout(function() {popUpCL.remove('animationSlideIn')}, 1050);
 
     let popUpBg = document.getElementById("addTaskBg").classList;
     popUpBg.remove('dNone');
-    popUpBg.remove('animationFadeOut');
     popUpBg.add(`animationFadeIn`);
+    setTimeout(function() {popUpBg.remove('animationFadeIn')}, 1050);
     
     document.getElementById('addTask').innerHTML = createAddTask();
     document.getElementById('cancelIcon').classList.remove('dNone');
@@ -422,13 +422,14 @@ function showAddTaskOnBoard() {
 
 function closeAddTaskOnBoard(){
     let popUpCL = document.getElementById("addTask").classList;
-    popUpCL.remove(`animationSlideIn`);
     popUpCL.add('animationSlideOut');
+    setTimeout(function() {popUpCL.remove('animationSlideOut')}, 1050);
 
     let popUpBg = document.getElementById("addTaskBg").classList;
-    popUpBg.remove(`animationFadeIn`);
     popUpBg.add('animationFadeOut');
-    setTimeout(function() {popUpBg.add('dNone')}, 2050);
+    setTimeout(function() {popUpBg.remove('animationFadeOut')}, 1050);
+
+    setTimeout(function() {popUpBg.add('dNone')}, 1050);
 }
 
 // Add Task
