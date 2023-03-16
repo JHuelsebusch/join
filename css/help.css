@@ -21,18 +21,19 @@
 .helpMobile{
     display: none;
 }
-.helpBackBnt{
-    display: flex;
-    position: absolute;
-    right: calc(31px / 2 + 60px + 2 * 15px);
-    top: calc(80px + 50px);
-    height: 24px;
-    width: 24.66px;
-    cursor: pointer;
-}
 
 .helpContainer h1 {
 	font-weight: 700;
 	font-size: 61px;
 	margin: 50px;
+}
+.helpBackBtn{
+    display: flex;
+    position: absolute;
+    right: calc(31px / 2 + 60px + 2 * 15px);
+    top: calc(80px + 50px);
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+
 }
