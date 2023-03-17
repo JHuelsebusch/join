@@ -108,9 +108,8 @@ body {
     line-height: 19px;
 }
 
-.legalImpressum{
+.legalImpressum {
     display: flex;
-    height: calc(100vh - 89px);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -128,9 +127,9 @@ body {
     margin: 50px;
     margin-left: 0px !important;
 }
+
 .legalImpressumEng {
     display: flex;
-    height: calc(100vh - 89px);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
