@@ -249,6 +249,7 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    overflow: hidden;
                 }
                 
                 .bigTask {
@@ -256,23 +257,26 @@
                     box-shadow: var(--box-shadow);
                     border-radius: 30px;
                     width: 523px;
-                    padding: 50px;
-                    display: flex;
-                    flex-direction: column;
-                    gap: 25px;
                     font-weight: 400;
                     font-size: 21px;
                     line-height: 120%;
                     position: relative;
-                    overflow-y: scroll;
+                }
+                
+                .bigTaskScroll {
                     max-height: calc(90vh - 100px);
+                    padding: 50px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 25px;
+                    overflow-y: scroll;
                     -ms-overflow-style: none;
                     /* IE and Edge */
                     scrollbar-width: none;
                     /* Firefox */
                 }
                 
-                .bigTask::-webkit-scrollbar {
+                .bigTaskScroll::-webkit-scrollbar {
                     display: none;
                     /* Chrome */
                 }
@@ -685,7 +689,7 @@
                     display: flex;
                     flex-direction: column;
                     gap: 34px;
-                    padding: 0px 34px 50px 0px;
+                    padding: 0px 34px 100px 0px;
                     border-right: 1px solid #D1D1D1;
                 }
                 

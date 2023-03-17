@@ -115,6 +115,7 @@ function createBigTask(task) {
     return `
     <div class="bigTaskCancel"><img src="./img/icons-cancel.svg" onclick="closeBigTask()"></div>
     <div class="bigTaskEdit" onclick="showTaskEdit(${task["id"]})"><img src="./img/pencil-white.svg"></div>
+    <div class="bigTaskScroll">
     <div>
         <div class="bigTaskDepartment ${task["department"]}">${task["department"]}</div>
     </div>
@@ -137,6 +138,7 @@ function createBigTask(task) {
         <div class="bigTaskSubtitle">Assigned To:</div>
         <div class="bigTaskAssignedTo" id="bigTaskAssignedTo${task["id"]}">
         </div>
+    </div>
     </div>
 `;
 }
@@ -173,12 +175,12 @@ function createBigTaskAssignedTo(name, initials, colorId) {
  */
 function createTaskEdit(task) {
     return `
-    <div class="bigTaskCancel"><img src="./img/icons-cancel.svg" onclick="closeBigTask()"></div>
     <form onsubmit="saveTaskEdit(${task["id"]}); return false;">
-        <button class="bigTaskEditSubmit">
-            <span>Ok</span>
-            <img src="./img/icon-edit-ok.svg">
-        </button>
+    <div class="bigTaskCancel"><img src="./img/icons-cancel.svg" onclick="closeBigTask()"></div>
+    <button class="bigTaskEditSubmit">
+        <span>Ok</span>
+        <img src="./img/icon-edit-ok.svg">
+    </button>
         <label>
             Title
             <input type="text" required id="taskTitleEdit" value="${task["title"]}">
