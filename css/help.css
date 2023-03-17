@@ -36,7 +36,7 @@ body {
 .helpBackBtn {
     display: flex;
     position: absolute;
-    right: calc(31px / 2 + 60px + 2 * 15px);
+    right: 30px;
     top: calc(80px + 50px);
     height: 24px;
     width: 24px;
