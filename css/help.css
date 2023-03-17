@@ -60,7 +60,7 @@ body {
     font-weight: 400;
     font-size: 16px;
     margin-top: 5px;
-    line-height: 23px;
+    line-height: 19px;
 }
 
 .helpMainBottom {
@@ -85,7 +85,7 @@ body {
 
 .helpMainBottomDescriptionList {
     display: flex;
-    margin-top: 5px;
+    margin-top: 8px;
 }
 
 .helpNumber {
@@ -95,7 +95,7 @@ body {
     font-style: normal;
     font-weight: 700;
     font-size: 27px;
-    line-height: 70%;
+    line-height: 50%;
     margin-right: 30px;
     margin-top: 5px;
 }
@@ -103,7 +103,7 @@ body {
 .helpNumber p {
     font-weight: 400;
     font-size: 16px;
-    line-height: 19.2;
+    line-height: 55%;
     padding: 4px;
     line-height: 19px;
 }
