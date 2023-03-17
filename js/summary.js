@@ -54,7 +54,7 @@ function searchAmount(taskStatus) {
     let amount = 0;
     for (let t = 0; t < tasks.length; t++) {
         let task = tasks[t];
-        if (task['taskStatus'].includes(taskStatus)) {
+        if (task['taskStatus'].includes(taskStatus) && !task['taskStatus'].includes('archive')) {
             amount++
         }
     }
@@ -69,7 +69,7 @@ function searchUrgentTask() {
 
     for (let t = 0; t < tasks.length; t++) {
         let task = tasks[t];
-        if (task['priority'].includes('urgent') && !task['taskStatus'].includes('done')) {
+        if (task['priority'].includes('urgent') && !task['taskStatus'].includes('done') && !task['taskStatus'].includes('archive')) {
             urgentTasks.push(task);
 
             if (task['date'] <= urgentDate && task['date'] >= currentDate) {

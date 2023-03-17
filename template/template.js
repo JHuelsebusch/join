@@ -181,6 +181,7 @@ function createTaskEdit(task) {
         <span>Ok</span>
         <img src="./img/icon-edit-ok.svg">
     </button>
+    <div class="taskEditScroll"> 
         <label>
             Title
             <input type="text" required id="taskTitleEdit" value="${task["title"]}">
@@ -209,6 +210,7 @@ function createTaskEdit(task) {
             <div class="taskContactsDropdown dNone" id="taskContactsDropdown" onclick="stopCloseContacts(event)"></div>
             <div class="taskEditInitials" id="taskEditInitials"></div>
         </div>
+    </div>
     </form>
 `;
 }
@@ -299,12 +301,13 @@ function createEmptyCategory() {
 
 function createAddTask() {
     return `
+    <form onsubmit="addTask(); return false">
     <div class="bigTaskCancel dNone" id="cancelIcon"><img src="./img/icons-cancel.svg" onclick="closeAddTaskOnBoard()"></div>
-    <div class="addTaskHead">
+    <div class="addTaskScroll">
+        <div class="addTaskHead">
             <span class="sectionHeadline">Add Task</span>
         </div>
         <div class="addTaskBody" >
-            <form onsubmit="addTask(); return false">
                 <div class="addTaskBodyLeft">
                     <label for="">
                         <span>Title</span>
@@ -370,6 +373,7 @@ function createAddTask() {
 
                     </div>
                 </div>
+            </div>
                 <div class="addTaskSubmitButtons">
                     <div class="addTaskClear" id="addTaskClear" onclick="clearValues()">
                         <span>Clear</span>
@@ -380,8 +384,8 @@ function createAddTask() {
                         <img src="./img/icon-edit-ok.svg">
                     </button>
                 </div>
-            </form>
-        </div>
+                </div>
+                </form>
     
     `;
 }

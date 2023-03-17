@@ -421,6 +421,22 @@
                     margin: 0px 50px;
                 }
                 
+                .taskEditScroll {
+                    overflow: scroll;
+                    max-height: calc(90vh - 100px);
+                    padding: 50px 5px 90px;
+                    width: 420px;
+                    -ms-overflow-style: none;
+                    /* IE and Edge */
+                    scrollbar-width: none;
+                    /* Firefox */
+                }
+                
+                .taskEditScroll::-webkit-scrollbar {
+                    display: none;
+                    /* Chrome */
+                }
+                
                 .bigTask form label {
                     display: flex;
                     flex-direction: column;
@@ -634,7 +650,7 @@
                     box-shadow: var(--box-shadow);
                     border-radius: 30px;
                     width: 1000px;
-                    padding: 50px;
+                    /* padding: 50px; */
                     display: flex;
                     flex-direction: column;
                     gap: 25px;
@@ -642,17 +658,6 @@
                     font-size: 21px;
                     line-height: 120%;
                     position: relative;
-                    overflow-y: scroll;
-                    max-height: calc(90vh - 100px);
-                    -ms-overflow-style: none;
-                    /* IE and Edge */
-                    scrollbar-width: none;
-                    /* Firefox */
-                }
-                
-                .addTaskOnBoard::-webkit-scrollbar {
-                    display: none;
-                    /* Chrome */
                 }
                 
                 .addTaskOnBoard .addTaskHead {
@@ -663,9 +668,26 @@
                 .addTask {
                     display: flex;
                     flex-direction: column;
-                    height: calc(100vh - 89px);
                     padding: 89px 60px 0px 292px;
                     background-color: #F6F7F8;
+                }
+                
+                .addTaskScroll {
+                    font-weight: 400;
+                    font-size: 21px;
+                    line-height: 120%;
+                    overflow: scroll;
+                    height: calc(90vh - 100px);
+                    padding: 50px;
+                    -ms-overflow-style: none;
+                    /* IE and Edge */
+                    scrollbar-width: none;
+                    /* Firefox */
+                }
+                
+                .addTaskScroll::-webkit-scrollbar {
+                    display: none;
+                    /* Chrome */
                 }
                 
                 .addTaskHead {
@@ -677,12 +699,9 @@
                     padding: 50px 0px;
                 }
                 
-                .addTaskBody form {
+                .addTaskBody {
                     display: flex;
                     flex-direction: row;
-                    font-weight: 400;
-                    font-size: 21px;
-                    line-height: 120%;
                 }
                 
                 .addTaskBodyLeft {
@@ -700,14 +719,14 @@
                     padding: 0px 0px 50px 34px;
                 }
                 
-                .addTaskBody form label {
+                .addTaskBody label {
                     display: flex;
                     flex-direction: column;
                     gap: 5px;
                 }
                 
-                .addTaskBody form label input,
-                .addTaskBody form label textarea {
+                .addTaskBody label input,
+                .addTaskBody label textarea {
                     font-family: 'Inter', sans-serif;
                     font-weight: 400;
                     font-size: 21px;
