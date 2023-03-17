@@ -16,7 +16,7 @@ function getNavbarTemplate() {
             </div>
             <div class="legal">
                 <a href="impressum.html"><img src="./img/icon-legal.svg" alt="">Legal notice</a>
-                <a href="datenschutz.html"><img src="./img/icon-legal.svg" alt="">Privacy statement</a>
+                <a href="datenschutz.html" class="dNone"><img src="./img/icon-legal.svg" alt="">Privacy statement</a>
             </div>
         </div>
         <div class="header">
@@ -29,7 +29,7 @@ function getNavbarTemplate() {
             <div class="profileMenu dNone" id="profileMenu">
                 <div class="mobileProfileMenu">Help</div>
                 <div class="mobileProfileMenu">Legal notice</div>
-                <div class="mobileProfileMenu">Privacy statement</div>
+                <div class="mobileProfileMenu dNone">Privacy statement</div>
                 <div onclick="logout()">Log Out</div>
             </div>
         </div>`;
