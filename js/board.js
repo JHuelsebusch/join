@@ -29,15 +29,16 @@ function renderBoard() {
     generateEmptyBoard();
     for (let i = 0; i < tasks.length; i++) {
         let task = tasks[i];
-        document.getElementById(`${task[`taskStatus`]}`).innerHTML += createTaskOnBoard(task);
-
-        if(task['subtasks']){
-            if(task['subtasks'].length>0){
-            generateProgressBar(task);
+        if (task['taskStatus'] != 'archive') {
+            document.getElementById(`${task[`taskStatus`]}`).innerHTML += createTaskOnBoard(task);
+            if(task['subtasks']){
+                if(task['subtasks'].length>0){
+                    generateProgressBar(task);
+                }
+            }
+            
+            generateAssignedTo(task);
         }
-        }
-        
-        generateAssignedTo(task);
     }
     generateOnDragTask(); // empty task layout for dragging
 }
