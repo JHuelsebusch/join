@@ -14,7 +14,7 @@ function loggedin() {
     const urlParams = new URLSearchParams(window.location.search);
     const msg = urlParams.get('msg');
 
-    if (msg === "loggedout") {
+    if (msg === "Du hast dich erfolgreich ausgeloggt!") {
         //nothing happenes
     } else {
         savedLogin();
@@ -94,13 +94,9 @@ function showPasswordIcon() {
     if (password.value.length > 0) {
         lockIMG.add('dnone');
         eye.remove('dnone');
-
-        // lockIMG.src = "./img/closedeye.svg";
-        // ./img/openeye.svg
     } else {
         lockIMG.remove('dnone');
         eye.add('dnone');
-        // lockIMG.src = "./img/password_input.svg";
     }
 }
 
@@ -111,12 +107,8 @@ function showPassword() {
     if (inputfield.type == "password") {
         inputfield.type = "text";
         eye.src = "./img/openeye.svg"
-            // eye.style.display = "block"
-            // lock.style.display = "none";
     } else {
         inputfield.type = "password";
         eye.src = "./img/closedeye.svg"
-            // eye.style.display = "none";
-            // lock.style.display = "block";
     }
 }

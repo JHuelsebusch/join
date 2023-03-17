@@ -20,6 +20,7 @@
     --font-sectionHeadline: 61px;
     --text-white: #ffffff;
     --text-blue: #2A3647;
+    --text-light-blue: #29ABE2;
 }
 
 
@@ -369,7 +370,7 @@ body {
 }
 
 .profileColor-5 {
-    background-color: #02CF2F;
+    background-color: #159030;
 }
 
 .profileColor-6 {
