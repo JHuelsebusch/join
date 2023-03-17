@@ -6,22 +6,24 @@ async function init() {
 }
 
 async function resetPassword() {
-    let newPassword = document.getElementById('newPassword');
-    let confirmPassword = document.getElementById('confirmPassword');
-    let email = getEmailURLParameter();
+    let newPassword = document.getElementById("newPassword");
+    let confirmPassword = document.getElementById("confirmPassword");
+    let email = getEmailUrLParameter();
 
-    let user = users.find(u => u.email === email);
+    let user = users.find((u) => u.email === email);
     if (user.email === email) {
         if (newPassword.value === confirmPassword.value) {
             user.password = newPassword.value;
-            await backend.setItem('users', JSON.stringify(users));
-            console.log('Password reset successful!');
+            await backend.setItem("users", JSON.stringify(users));
+            resetYourPassword();
             //BESTÄTIGUNGSANIMATION
-            setTimeout(function() { window.location.href = '/join/index.html' }, 3000);
+            setTimeout(function() {
+                window.location.href = "../../index.html";
+            }, 3000);
         } else {
-            console.log('Passwords do not match');
-            newPassword.value = '';
-            confirmPassword.value = '';
+            PasswordNotMatch();
+            newPassword.value = "";
+            confirmPassword.value = "";
         }
     }
 }
@@ -31,4 +33,35 @@ function getEmailURLParameter() {
     const urlParams = new URLSearchParams(queryString);
     const email = urlParams.get('email');
     return email;
+}
+
+
+function resetYourPassword() {
+    let showMsgs = document.getElementById("showMsg");
+    showMsgs.classList.add("btnEmailSend");
+    passwordReset();
+
+    setTimeout(function() {
+        showMsg.classList.remove("btnEmailSend");
+    }, 4000);
+}
+
+function passwordReset() {
+    let massage = document.getElementById("showMsg");
+    massage.innerHTML = `You reset your password`;
+}
+
+function PasswordNotMatch() {
+    let showMsg = document.getElementById("showMsg");
+    showMsg.classList.add("btnEmailSend");
+    passwordNo();
+
+    setTimeout(function() {
+        showMsg.classList.remove("btnEmailSend");
+    }, 3000);
+}
+
+function passwordNo() {
+    let massage = document.getElementById("sendMailMsg");
+    massage.innerHTML = `Your password not confirm`;
 }
