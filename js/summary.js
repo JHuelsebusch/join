@@ -3,7 +3,9 @@ setURL('https://gruppe-06i.developerakademie.net/smallest_backend_ever');
 async function initSummary() {
     await downloadFromServer();
     users = JSON.parse(backend.getItem('users')) || [];
+    tasks = JSON.parse(backend.getItem('tasks')) || [];
     getLoggedUser();
+    renderSummary();
 
 }
 
@@ -45,4 +47,70 @@ function renderWelcome(user, welcomePhrase) {
         <span class="phrase">${welcomePhrase},</span>
         <span class="welcomeUsername">${user}</span>
         `;
+}
+
+
+function searchAmount(taskStatus) {
+    let amount = 0;
+    for (let t = 0; t < tasks.length; t++) {
+        let task = tasks[t];
+        if (task['taskStatus'].includes(taskStatus)) {
+            amount++
+        }
+    }
+    return amount;
+}
+
+function searchUrgentTask() {
+    let urgentTasks = [];
+
+    let urgentDate = '3000-01-01';
+    let currentDate = getCurrentDate();
+
+    for (let t = 0; t < tasks.length; t++) {
+        let task = tasks[t];
+        if (task['priority'].includes('urgent') && !task['taskStatus'].includes('done')) {
+            urgentTasks.push(task);
+
+            if (task['date'] <= urgentDate && task['date'] >= currentDate) {
+                urgentDate = task['date'];
+            }
+        }
+    }
+    let amountUrgentTasks = urgentTasks.length;
+    document.getElementById('urgentTasksAmount').innerHTML = `${amountUrgentTasks}`;
+
+    let urgentDateArray = urgentDate.split('-');
+    let monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    let month = monthNames[parseFloat(urgentDateArray[1]) - 1];
+    document.getElementById('tasksDeadlineDate').innerHTML = `${month} ${urgentDateArray[2]}, ${urgentDateArray[0]}`
+}
+
+function getCurrentDate() {
+    const t = new Date();
+    const date = ('0' + t.getDate()).slice(-2);
+    const month = ('0' + (t.getMonth() + 1)).slice(-2);
+    const year = t.getFullYear();
+    return `${year}-${month}-${date}`;
+}
+
+function renderSummary() {
+    let amountTasks = searchAmount("");
+    let amountinProgress = searchAmount('inProgress');
+    let amountawaitingFeedback = searchAmount('awaitingFeedback');
+    let amounttoDo = searchAmount('toDo');
+    let amountdone = searchAmount('done');
+
+    document.getElementById('taskAmountBoard').innerHTML = `${amountTasks}`;
+    document.getElementById('taskAmountinProgress').innerHTML = `${amountinProgress}`;
+    document.getElementById('taskAmountawaitingFeedback').innerHTML = `${amountawaitingFeedback}`;
+    document.getElementById('taskAmounttoDo').innerHTML = `${amounttoDo}`;
+    document.getElementById('taskAmountdone').innerHTML = `${amountdone}`;
+    searchUrgentTask();
+}
+
+function goToBoard() {
+    window.location.href = './board.html'
 }
