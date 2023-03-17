@@ -146,3 +146,7 @@ body {
     margin: 50px;
     margin-left: 0px !important;
 }
+.scroll{
+    overflow: scroll;
+    height: 100vh;
+}
