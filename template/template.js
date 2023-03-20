@@ -432,12 +432,12 @@ function addContactHTML() {
 /**
  * This function is used to generate a HTML-Template
  */
-function loadContactListHTML(element, initials, index) {
+function loadContactListHTML(element, initials, index, colorId) {
     return `
         <div id = "contactContainer-${index}"class="contactContainer" onclick="toggleActive();loadContactDetail('${index}','${initials}')">
-            <div class="contactInitial profileColor-${
-              element[`id`]
-            }">${initials}</div>
+            <div class="contactInitial profileColor-${colorId}">
+                ${initials}
+            </div>
             <div class="contactNameMail">
                 <div class="contName">${element["name"]}&nbsp${
     element["surname"]
@@ -448,21 +448,21 @@ function loadContactListHTML(element, initials, index) {
 }
 
 function toggleActive() {
-  // Löschung der class active
-  var containers = document.getElementsByClassName("contactContainer");
-  for (let i = 0; i < containers.length; i++) {
-    containers[i].classList.remove("active");
-  }
+    // Löschung der class active
+    var containers = document.getElementsByClassName("contactContainer");
+    for (let i = 0; i < containers.length; i++) {
+        containers[i].classList.remove("active");
+    }
 }
 
 /**
  * This function is used to generate a HTML-Template
  */
 function contactDetailHTML(index, initials) {
-  let contact = contacts[index];
-  document.getElementById(`contactContainer-${index}`).classList.add("active");
+    let contact = contacts[index];
+    document.getElementById(`contactContainer-${index}`).classList.add("active");
 
-  return `
+    return `
   
       <div class= "contDetailBg animationSlideIn" id="contDetail">
   
