@@ -3,7 +3,7 @@
  * @returns HTML code of navbar and header
  */
 function getNavbarTemplate() {
-    return `
+  return `
         <div class="sideMenu">
             <div class="logo">
                 <img src="./img/logo-white.svg">
@@ -41,7 +41,7 @@ function getNavbarTemplate() {
  * @returns HTML code of one task
  */
 function createTaskOnBoard(task) {
-    return `
+  return `
     <div draggable="true" ondragstart="startDragging(${task["id"]})" onclick="showBigTask(${task["id"]})" class="task" id="task${task["id"]}">
         <div>
             <div class="taskDepartment ${task["department"]}">${task["department"]}</div>
@@ -67,11 +67,11 @@ function createTaskOnBoard(task) {
  * @returns HTML code of progress bar
  */
 function createProgressBarOnTask(
-    amountCheckedSubtasks,
-    amountSubtasks,
-    percentCheckedSubtasks
+  amountCheckedSubtasks,
+  amountSubtasks,
+  percentCheckedSubtasks
 ) {
-    return `<div class="subtaskProgressBar">
+  return `<div class="subtaskProgressBar">
                 <div class="innerProgressBar" style="width: ${percentCheckedSubtasks}%;"></div>
             </div>
             <span>${amountCheckedSubtasks}/${amountSubtasks} Done</span>
@@ -84,7 +84,7 @@ function createProgressBarOnTask(
  * @returns HTML code of empty task container
  */
 function createOnDragTask(id) {
-    return `<div class="onDrag dNone" id="onDragTask${id}"></div>`;
+  return `<div class="onDrag dNone" id="onDragTask${id}"></div>`;
 }
 
 /**
@@ -94,7 +94,7 @@ function createOnDragTask(id) {
  * @returns HTML code
  */
 function createAssignedTo(initials, colorId) {
-    return `<div class="profileColor-${colorId}">${initials}</div>`;
+  return `<div class="profileColor-${colorId}">${initials}</div>`;
 }
 
 /**
@@ -103,7 +103,7 @@ function createAssignedTo(initials, colorId) {
  * @returns HTML code
  */
 function createAssignedToMoreUsers(moreUsers) {
-    return `<div class="profileColorMoreUsers">+${moreUsers}</div>`;
+  return `<div class="profileColorMoreUsers">+${moreUsers}</div>`;
 }
 
 /**
@@ -112,7 +112,7 @@ function createAssignedToMoreUsers(moreUsers) {
  * @returns HTML code
  */
 function createBigTask(task) {
-    return `
+  return `
     <div class="bigTaskCancel"><img src="./img/icons-cancel.svg" onclick="closeBigTask()"></div>
     <div class="bigTaskEdit" onclick="showTaskEdit(${task["id"]})"><img src="./img/pencil-white.svg"></div>
     <div class="bigTaskScroll">
@@ -149,7 +149,7 @@ function createBigTask(task) {
  * @returns HTML code
  */
 function createBigTaskDate(date) {
-    return `<div class="bigTaskSubtitle">Due date:</div><div>${date}</div>`;
+  return `<div class="bigTaskSubtitle">Due date:</div><div>${date}</div>`;
 }
 
 /**
@@ -160,7 +160,7 @@ function createBigTaskDate(date) {
  * @returns HTML code
  */
 function createBigTaskAssignedTo(name, initials, colorId) {
-    return `
+  return `
     <div>
         <div class="bigTaskInitials profileColor-${colorId}">${initials}</div>
         <div>${name}</div>
@@ -174,7 +174,7 @@ function createBigTaskAssignedTo(name, initials, colorId) {
  * @returns HTML code
  */
 function createTaskEdit(task) {
-    return `
+  return `
     <form onsubmit="saveTaskEdit(${task["id"]}); return false;">
     <div class="bigTaskCancel"><img src="./img/icons-cancel.svg" onclick="closeBigTask()"></div>
     <button class="bigTaskEditSubmit">
@@ -221,7 +221,7 @@ function createTaskEdit(task) {
  * @returns HTML code
  */
 function createTaskEditPrio(taskId) {
-    return `
+  return `
         <div class="editPrio" id="urgentEditPrio" onclick="changePrio('urgent', ${taskId})">
             <span>urgent</span>
             <img src="./img/prio-urgent.svg" id="urgentEditPrioImg">
@@ -245,25 +245,25 @@ function createTaskEditPrio(taskId) {
  * @returns HTML code
  */
 function createTaskEditAssignedTo(initials, colorId) {
-    return `<div class="profileColor-${colorId}">${initials}</div>`;
+  return `<div class="profileColor-${colorId}">${initials}</div>`;
 }
 
 function createTaskEditContactsDropdown(name, n, taskId) {
-    return `<label>
+  return `<label>
             ${name}
             <input type="checkbox" id="inputContacts${n}" onclick="changeTaskEditContacts(${taskId})">
         </label>`;
 }
 
 function createTaskContactsDropdown(name, n) {
-    return `<label>
+  return `<label>
             ${name}
             <input type="checkbox" id="inputContacts${n}" onclick="changeAddTaskContacts()">
         </label>`;
 }
 
 function createAddTaskPrio() {
-    return `
+  return `
     <div class="addTaskPrio" id="urgentAddTaskPrio" onclick="changeAddTaskPrio('urgent')">
         <span>urgent</span>
         <img src="./img/prio-urgent.svg" id="urgentAddTaskPrioImg">
@@ -280,7 +280,7 @@ function createAddTaskPrio() {
 }
 
 function createTaskCategoryDropdown(category, n) {
-    return `<label>
+  return `<label>
             <span>${category}</span>
             <div class="categoryColor ${category}"></div>
             <input class="dNone" type="checkbox" id="inputCategory${n}" onclick="addCategory(${n})">
@@ -288,19 +288,19 @@ function createTaskCategoryDropdown(category, n) {
 }
 
 function createSelectedCategory(category) {
-    return `<span>${category}</span>
+  return `<span>${category}</span>
             <div class="categoryColor ${category}"></div>
             `;
 }
 
 function createEmptyCategory() {
-    return `<span>Select task category</span>
+  return `<span>Select task category</span>
             <img src="./img/icon-arrow-down.svg"></img>
             `;
 }
 
 function createAddTask() {
-    return `
+  return `
     <form onsubmit="addTask(); return false">
     <div class="bigTaskCancel dNone" id="cancelIcon"><img src="./img/icons-cancel.svg" onclick="closeAddTaskOnBoard()"></div>
     <div class="addTaskScroll">
@@ -396,7 +396,7 @@ function createAddTask() {
  * This function is used to generate a HTML-Template
  */
 function addContactHTML() {
-    return /*html*/ `
+  return /*html*/ `
       <div id="contAddBg" class= "contAddBg" onclick="closePopup()">
           <div id="animationId" onclick= "stopClosing(event)" class="animationSlideIn">
               <div class="contAddContainer">
@@ -408,7 +408,7 @@ function addContactHTML() {
                   </div>
   
                   <div class="contAddRight">
-                      <div onclick="closePopup()" class= "contAddRightClose"> <img src="/img/contact_close.svg" alt=""></div>
+                      <div onclick="closePopup()" class= "contAddRightClose"> <img src="./img/contact_close.svg" alt=""></div>
                       <div class="contAddEdit">
                           <div class="contAddEditIcon"> <img src="/img/Vector.svg" alt=""></div>
   
@@ -433,7 +433,7 @@ function addContactHTML() {
  * This function is used to generate a HTML-Template
  */
 function loadContactListHTML(element, initials, index) {
-    return `
+  return `
         <div id = "contactContainer-${index}"class="contactContainer" onclick="toggleActive();loadContactDetail('${index}','${initials}')">
             <div class="contactInitial profileColor-${
               element[`id`]
@@ -478,7 +478,7 @@ function contactDetailHTML(index, initials) {
       <div class="contDetailMid"> 
         <div class="contDetailMidLeft"><p>Contact&nbspInformation</p></div>
         <div class="contDetailMidRight" onclick="openEditDisplay('${initials}','${index}')">
-          <img src="/img/contacts_icon_pen.svg"><p>Edit&nbspContact</p></div>
+          <img src="./img/contacts_icon_pen.svg"><p>Edit&nbspContact</p></div>
       </div>
   
       <div class= "contDetailBottom">
@@ -493,7 +493,7 @@ function contactDetailHTML(index, initials) {
           </div>
           <div class="contBasket" onclick= "deleteContact('${
             contact[`email`]
-          }')"><img src="/img/contacts_icon_basket.png"></div>
+          }')"><img src="./img/contacts_icon_basket.png"></div>
         </div>
     `;
 }
@@ -518,12 +518,12 @@ function editContactHTML(initials, index) {
           <div id="animationId" onclick= "stopClosing(event)" class="animationSlideIn">
           <div class="contAddContainer">
                   <div class="contAddContainerLeft">
-                      <img src="/img/contacts_Logo.svg" alt="">
+                      <img src="./img/contacts_Logo.svg" alt="">
                       <h3>Edit contact</h3>
                       <div class="contAddUnderline"></div>
                   </div>
                   <div class="contAddRight">
-                      <div onclick="closePopup()" class= "contAddRightClose"> <img src="/img/contact_close.svg" alt="close"></div>
+                      <div onclick="closePopup()" class= "contAddRightClose"> <img src="./img/contact_close.svg" alt="close"></div>
                       <div class="contAddEdit">
                           <div class="contAddEditIcon profileColor-${
                             contact[`id`]
