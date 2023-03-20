@@ -408,7 +408,7 @@ function addContactHTML() {
                   </div>
   
                   <div class="contAddRight">
-                      <div onclick="closePopup()" class= "contAddRightClose"> <img src="/img/contact_close.svg" alt=""></div>
+                      <div onclick="closePopup()" class= "contAddRightClose"> <img src="./img/contact_close.svg" alt=""></div>
                       <div class="contAddEdit">
                           <div class="contAddEditIcon"> <img src="/img/Vector.svg" alt=""></div>
   
@@ -432,7 +432,7 @@ function addContactHTML() {
 /**
  * This function is used to generate a HTML-Template
  */
-function loadContactListHTML(element, initials, index, colorId) {
+function loadContactListHTML(element, initials, index) {
     return `
         <div id = "contactContainer-${index}"class="contactContainer" onclick="toggleActive();loadContactDetail('${index}','${initials}')">
             <div class="contactInitial profileColor-${colorId}">
@@ -478,7 +478,7 @@ function contactDetailHTML(index, initials) {
       <div class="contDetailMid"> 
         <div class="contDetailMidLeft"><p>Contact&nbspInformation</p></div>
         <div class="contDetailMidRight" onclick="openEditDisplay('${initials}','${index}')">
-          <img src="/img/contacts_icon_pen.svg"><p>Edit&nbspContact</p></div>
+          <img src="./img/contacts_icon_pen.svg"><p>Edit&nbspContact</p></div>
       </div>
   
       <div class= "contDetailBottom">
@@ -493,7 +493,7 @@ function contactDetailHTML(index, initials) {
           </div>
           <div class="contBasket" onclick= "deleteContact('${
             contact[`email`]
-          }')"><img src="/img/contacts_icon_basket.png"></div>
+          }')"><img src="./img/contacts_icon_basket.png"></div>
         </div>
     `;
 }
@@ -518,12 +518,12 @@ function editContactHTML(initials, index) {
           <div id="animationId" onclick= "stopClosing(event)" class="animationSlideIn">
           <div class="contAddContainer">
                   <div class="contAddContainerLeft">
-                      <img src="/img/contacts_Logo.svg" alt="">
+                      <img src="./img/contacts_Logo.svg" alt="">
                       <h3>Edit contact</h3>
                       <div class="contAddUnderline"></div>
                   </div>
                   <div class="contAddRight">
-                      <div onclick="closePopup()" class= "contAddRightClose"> <img src="/img/contact_close.svg" alt="close"></div>
+                      <div onclick="closePopup()" class= "contAddRightClose"> <img src="./img/contact_close.svg" alt="close"></div>
                       <div class="contAddEdit">
                           <div class="contAddEditIcon profileColor-${
                             contact[`id`]

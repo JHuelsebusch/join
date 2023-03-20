@@ -550,8 +550,8 @@ body {
     margin-top: 10px;
     border-radius: 10px;
     padding: 16px;
-    margin-left: 57px;  
-    margin-bottom: 20px; 
+    margin-left: 57px;
+    margin-bottom: 20px;
 
 }
 
@@ -560,7 +560,8 @@ body {
     background: linear-gradient(180deg, rgba(250, 250, 250, 1) 0%, rgba(241, 241, 241, 1) 100%);
     cursor: pointer;
 }
-.active{
+
+.active {
     background: #2A3647 !important;
     color: white !important;
 }
@@ -800,9 +801,10 @@ body {
     left: 145px;
     cursor: pointer;
 }
-.contEditBtn :hover{
 
-    background: #29abe2!important;
+.contEditBtn :hover {
+
+    background: #29abe2 !important;
 }
 
 /*---RESPONSIVE */
@@ -901,8 +903,121 @@ body {
         width: 370px;
     }
 
+    .contactListContainer h4 {
+        margin-left: 1px !important;
+    }
+
+    .contactContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 5px;
+        border-radius: 10px;
+        padding: 10px;
+        margin-left: 40px;
+        margin-bottom: 20px;
+    }
+
+    .contMainContainerLeft {
+        min-width: 380px
+    }
+
+    .contDisplay {
+        margin-top: 310px;
+    }
+
+    .cont_add_btn {
+        margin-left: 250px;
+    }
 }
 
-@media(max-width:1250px) {
-    
+@media(max-width:1250px) {}
+
+@media(max-width:930px) {
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .menu a {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sideMenu {
+        /* display: none; */
+        position: fixed;
+        bottom: 0px;
+        top: unset;
+        width: 100%;
+        height: 80px;
+        justify-content: space-evenly;
+    }
+
+    .header {
+        height: 39px;
+        padding: 20px 25px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .legal {
+        display: none;
+    }
+
+    .mobileLogo {
+        display: block;
+        height: 39px;
+    }
+
+    .mobileLogo img {
+        height: 39px;
+        object-fit: contain;
+    }
+
+    .subheadline {
+        display: none;
+    }
+
+    .headerProfile a {
+        display: none;
+    }
+
+    .headerProfile div {
+        height: 39px;
+        width: 39px;
+    }
+
+    .headerProfile div img {
+        height: 31px;
+        width: 31px;
+    }
+
+    .cont_main_container_right {
+        display: none;
+    }
+
+    .contMainContainerLeft {
+        width: 100vw;
+        left: 0;
+    }
+
+    .contMainContainerLeft {
+        position: absolute;
+        margin-bottom: 150px;
+    }
+
+    .contactListContainer {
+        display: flex;
+        align-items: center;
+        left: 40px;
+    }
+
+    .contactContainer {
+        justify-content: center !important;
+    }
 }
