@@ -1017,24 +1017,91 @@ body {
         display: flex;
         align-items: center;
         left: 40px;
-        
+
     }
 
     .contactContainer {
         justify-content: center !important;
-        min-width: 50%;
-        margin-right:15px ;
+        min-width: 65%;
+        margin-right: 15px;
+        padding: 5px;
+        margin-left: 30px;
+
     }
-    .cont_main_container_left{
+
+    .contMainContainerLeft {
         display: flex;
         align-items: center;
         margin-left: none;
+        overflow-y: none;
     }
-    .contactInitial{
-        position: absolute;
-        left:50px;
+
+    .contactInitial {
+        margin-left: 30px;
+
+
     }
-    .cont_section{
-        background-color:  #f5f5f5;;
+
+    .cont_section {
+        background-color: #f5f5f5;
+        ;
     }
+
+    .cont_add_btn {
+        display: none !important;
+    }
+
+    #mobileBtn {
+        position: absolute !important;
+        display: flex !important;
+        z-index: 10 !important;
+        top: 95px !important;
+        right: 15px;
+    }
+
+    #mobile_contAddContainer {
+        flex-direction: column !important;
+    }
+
+    #mobile_contAddContainerLeft {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 66px, 46px, 66px, 46px;
+        gap: 12px;
+        isolation: isolate;
+        width: 381px;
+        height: 351px;
+        border-top-right-radius: 20px;
+        border-bottom-left-radius: 0px !important;
+        margin-top: 350px;
+        
+    }
+    .contAddContainerLeft h3{
+        font-size:47px!important;
+    }
+    .contAddContainerLeft img{
+        display: none;
+    }
+    .contAddContainerLeft p{
+        font-size:21px!important;
+    }
+
+    #mobile_contAddRight {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px 0px 35px;
+        gap: 49px;
+        isolation: isolate;
+        position: relative;
+        width: 381px;
+        height: 761px;
+        background: #FFFFFF;
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 30px;
+    }
+
+
 }

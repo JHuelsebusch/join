@@ -390,7 +390,7 @@ function createAddTask() {
     `;
 }
 
-// --------------------------------------- CONTACTS  ------------------------------------
+// --------------------------------------- CONTACTS  --------------------------------------------------
 
 /**
  * This function is used to generate a HTML-Template
@@ -399,15 +399,15 @@ function addContactHTML() {
     return /*html*/ `
       <div id="contAddBg" class= "contAddBg" onclick="closePopup()">
           <div id="animationId" onclick= "stopClosing(event)" class="animationSlideIn">
-              <div class="contAddContainer">
-                  <div class="contAddContainerLeft">
+              <div id="mobile_contAddContainer" class="contAddContainer">
+                  <div id="mobile_contAddContainerLeft" class="contAddContainerLeft">
                       <img src="/img/contacts_Logo.svg" alt="">
                       <h3>Add contact</h3>
                       <p>Task are better with a team</p>
                       <div class="contAddUnderline"></div>
                   </div>
   
-                  <div class="contAddRight">
+                  <div id="mobile_contAddRight" class="contAddRight">
                       <div onclick="closePopup()" class= "contAddRightClose"> <img src="./img/contact_close.svg" alt=""></div>
                       <div class="contAddEdit">
                           <div class="contAddEditIcon"> <img src="/img/Vector.svg" alt=""></div>
