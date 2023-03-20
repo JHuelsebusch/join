@@ -26,10 +26,10 @@
             <span class="sectionHeadline">Board</span>
             <div>
                 <form class="searchForm" onsubmit=" ;return false">
-                    <input type="text" required class="input" placeholder="Find Task">
+                    <input type="text" required class="input" placeholder="Find Task" id="searchTask" onkeyup="search()">
                     <button class="searchIcon"><img src="./img/icon-search.svg" alt=""></button>
                 </form>
-                <div class="btn">
+                <div class="btn" onclick="showAddTaskOnBoard()">
                     <span>Add task</span>
                     <img src="./img/icon-add-plus-white.svg" alt="">
                 </div>
@@ -38,19 +38,19 @@
         <div class="boardTaskStatus">
             <div>
                 <span>To do</span>
-                <img src="./img/plus-button.svg" alt="">
+                <img src="./img/plus-button.svg" onclick="showAddTaskOnBoard()">
             </div>
             <div>
                 <span>In Progress</span>
-                <img src="./img/plus-button.svg" alt="">
+                <img src="./img/plus-button.svg" onclick="showAddTaskOnBoard()">
             </div>
             <div>
                 <span>Awaiting Feedback</span>
-                <img src="./img/plus-button.svg" alt="">
+                <img src="./img/plus-button.svg" onclick="showAddTaskOnBoard()">
             </div>
             <div>
                 <span>Done</span>
-                <img src="./img/plus-button.svg" alt="">
+                <img src="./img/plus-button.svg" onclick="showAddTaskOnBoard()">
             </div>
         </div>
         <div class="boardTask">
@@ -64,6 +64,12 @@
         <div class="bigTask" id="bigTask" onclick="doNotCloseBigTask(event)">
 
         </div>
+    </section>
+    <section class="bigTaskBg dNone" id="addTaskBg" onclick="closeBigTask()">
+        <div class="addTaskOnBoard" id="addTask" onclick="doNotCloseBigTask(event)">
+
+        </div>
+
     </section>
 
 </body>

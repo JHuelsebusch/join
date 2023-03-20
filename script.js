@@ -2,7 +2,7 @@
  * Startfunction
  */
 async function init() {
-    
+
     generateNavbar();
 }
 
@@ -27,12 +27,16 @@ function showProfileMenu() {
     }
 }
 
+function logout() {
+    window.location.href = `index.html?msg=Du hast dich erfolgreich ausgeloggt!`;
+}
 
 /**
  * This function generates last charakter.
  * @param {string} contactId - This is the Id of contact you want to show
  * @returns string of last character
  */
+
 function generateColorId(contactId) {
     let colorId = contactId.slice(-1);
     return colorId;

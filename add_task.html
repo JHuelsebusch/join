@@ -21,85 +21,8 @@
     <nav id="navbar">
 
     </nav>
-    <section class="addTask">
-        <div class="addTaskHead">
-            <span class="sectionHeadline">Add Task</span>
-        </div>
-        <div class="addTaskBody">
-            <form onsubmit="addTask(); return false">
-                <div class="addTaskBodyLeft">
-                    <label for="">
-                        <span>Title</span>
-                        <input type="text" id="addTaskTitle" placeholder="Enter a title" required>
-                    </label>
-                    <label>
-                        <span>Description</span>
-                        <textarea id="addTaskDescription" placeholder="Enter a Description" required></textarea>
-                    </label>
-                    <div class="dropdownRel">
-                        <label>
-                            <span>Category</span>
-                            <div class="addTaskDropdown" id="addTaskCategory" onclick="openAddTaskCategory()">
-                                <span>Select task category</span>
-                                <img src="./img/icon-arrow-down.svg">
-                            </div>
-                        </label>
-                        <div class="addTaskDropdownMenu dNone" id="addTaskCategoryMenu"></div>
-                    </div>
-                    <div class="dropdownRel">
-                        <label>
-                            <span>Assigned to</span>
-                            <div class="addTaskDropdown" id="addTaskContacts" onclick="openAddTaskContacts()"> 
-                                <span>Select contacts to assign</span>
-                                <img src="./img/icon-arrow-down.svg">
-                            </div>
-                        </label>
-                        <div class="addTaskDropdownMenu dNone" id="addTaskContactsMenu" onclick=""></div>
-                    </div>
+    <section class="addTask" id="addTask">
 
-                </div>
-                <div class="addTaskBodyRight">
-                    <label>
-                        <span>Due date</span>
-                        <input type="date" required id="addTaskDate" required>
-                    </label>
-                    <label>
-                        <span>Prio</span>
-                        <div class="addTaskPrioSec" id="addTaskPrioSec">
-                            <div class="addTaskPrio" id="urgentAddTaskPrio" onclick="changeAddTaskPrio('urgent')">
-                                <span>urgent</span>
-                                <img src="./img/prio-urgent.svg" id="urgentAddTaskPrioImg">
-                            </div>
-                            <div class="addTaskPrio" id="mediumAddTaskPrio"  onclick="changeAddTaskPrio('medium')">
-                                <span>medium</span>
-                                <img src="./img/prio-medium.svg" id="mediumAddTaskPrioImg">
-                            </div>
-                            <div class="addTaskPrio" id="lowAddTaskPrio" onclick="changeAddTaskPrio('low')">
-                                <span>low</span> 
-                                <img src="./img/prio-low.svg" id="lowAddTaskPrioImg">
-                            </div>
-                        </div>
-                    </label>
-                    <label>
-                        <span>Subtasks</span>
-                        <div class="addTaskSubtask">
-                            <input type="text" id="addTaskSubtasks" placeholder="Add new subtask">
-                            <img class="addIcon" src="./img/icon-add-plus-dark.svg">
-                        </div>
-                    </label>
-                </div>
-                <div class="addTaskSubmitButtons">
-                    <button class="addTaskClear">
-                        <span>Clear</span>
-                        <img src="./img/icons-cancel.svg">
-                    </button>
-                    <button class="addTaskSubmit">
-                        <span>Create Task</span>
-                        <img src="./img/icon-edit-ok.svg">
-                    </button>
-                </div>
-            </form>
-        </div>
     </section>
 </body>
 

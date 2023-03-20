@@ -20,6 +20,7 @@
     --font-sectionHeadline: 61px;
     --text-white: #ffffff;
     --text-blue: #2A3647;
+    --text-light-blue: #29ABE2;
 }
 
 
@@ -189,9 +190,10 @@ body {
 
 @media(max-width:850px) {
     .sideMenu {
-        display: none;
+        /* display: none; */
         position: fixed;
         bottom: 0px;
+        top: unset;
         width: 100%;
         height: 80px;
         justify-content: space-evenly;
@@ -368,7 +370,7 @@ body {
 }
 
 .profileColor-5 {
-    background-color: #02CF2F;
+    background-color: #159030;
 }
 
 .profileColor-6 {
@@ -380,7 +382,7 @@ body {
 }
 
 .profileColor-8 {
-    background-color: #4E963D;
+    background-color: #54b53e;
 }
 
 .profileColor-9 {
