@@ -242,7 +242,7 @@ async function contactEdit(index) {
     document.getElementById("cont_popup_id").innerHTML = "";
     document.getElementById("contDisplay").innerHTML = "";
     contacts.splice(index, 1, changedData);
-    saveContact();
+    await saveContact();
     init();
     loadContactList();
     await initContacts();
