@@ -432,7 +432,7 @@ function addContactHTML() {
 /**
  * This function is used to generate a HTML-Template
  */
-function loadContactListHTML(element, initials, index) {
+function loadContactListHTML(element, initials, index, colorId) {
     return `
         <div id = "contactContainer-${index}"class="contactContainer" onclick="toggleActive();loadContactDetail('${index}','${initials}')">
             <div class="contactInitial profileColor-${colorId}">
