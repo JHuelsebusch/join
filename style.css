@@ -188,9 +188,26 @@ body {
 
 /* Navbar & Header Responsive */
 
+@media(max-width:880px) {
+    .subheadline {
+        display: none;
+    }
+    .mobileLogo {
+        display: block;
+        height: 39px;
+    }
+    .mobileLogo img {
+        height: 39px;
+        object-fit: contain;
+    }
+    .header {
+        height: 49px;
+        padding: 20px 36px;
+    }
+}
+
 @media(max-width:850px) {
     .sideMenu {
-        /* display: none; */
         position: fixed;
         bottom: 0px;
         top: unset;
@@ -207,26 +224,22 @@ body {
     .menu {
         display: flex;
         flex-direction: row;
-        justify-content: space-evenly;
+        justify-content: center;
+        gap: 5px;
     }
     .menu a {
         display: flex;
         flex-direction: column;
+        min-width: 70px;
+        width: 20%;
+        height: 80px;
+        padding: 0;
+        align-items: center;
+        justify-content: center;
     }
     .header {
         height: 39px;
         padding: 20px 25px;
-    }
-    .mobileLogo {
-        display: block;
-        height: 39px;
-    }
-    .mobileLogo img {
-        height: 39px;
-        object-fit: contain;
-    }
-    .subheadline {
-        display: none;
     }
     .headerProfile a {
         display: none;

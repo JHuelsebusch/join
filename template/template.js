@@ -262,26 +262,10 @@ function createTaskContactsDropdown(name, n) {
         </label>`;
 }
 
-function createAddTaskPrio() {
-    return `
-    <div class="addTaskPrio" id="urgentAddTaskPrio" onclick="changeAddTaskPrio('urgent')">
-        <span>urgent</span>
-        <img src="./img/prio-urgent.svg" id="urgentAddTaskPrioImg">
-    </div>
-    <div class="addTaskPrio" id="mediumAddTaskPrio"  onclick="changeAddTaskPrio('medium')">
-        <span>medium</span>
-        <img src="./img/prio-medium.svg" id="mediumAddTaskPrioImg">
-    </div>
-    <div class="addTaskPrio" id="lowAddTaskPrio" onclick="changeAddTaskPrio('low')">
-        <span>low</span> 
-        <img src="./img/prio-low.svg" id="lowAddTaskPrioImg">
-    </div>
-    `;
-}
 
 function createTaskCategoryDropdown(category, n) {
     return `<label>
-            <span>${category}</span>
+    <span>${category}</span>
             <div class="categoryColor ${category}"></div>
             <input class="dNone" type="checkbox" id="inputCategory${n}" onclick="addCategory(${n})">
         </label>`;
@@ -387,6 +371,23 @@ function createAddTask() {
                 </div>
                 </form>
     
+    `;
+}
+
+function createAddTaskPrio() {
+    return `
+    <div class="addTaskPrio" id="urgentAddTaskPrio" onclick="changeAddTaskPrio('urgent')">
+        <span>urgent</span>
+        <img src="./img/prio-urgent.svg" id="urgentAddTaskPrioImg">
+    </div>
+    <div class="addTaskPrio" id="mediumAddTaskPrio"  onclick="changeAddTaskPrio('medium')">
+        <span>medium</span>
+        <img src="./img/prio-medium.svg" id="mediumAddTaskPrioImg">
+    </div>
+    <div class="addTaskPrio" id="lowAddTaskPrio" onclick="changeAddTaskPrio('low')">
+        <span>low</span> 
+        <img src="./img/prio-low.svg" id="lowAddTaskPrioImg">
+    </div>
     `;
 }
 
