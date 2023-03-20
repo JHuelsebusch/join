@@ -663,7 +663,9 @@
                 .addTaskOnBoard .addTaskHead {
                     padding: 20px 0px 20px 0px;
                 }
+                /*  */
                 /* Add Task */
+                /*  */
                 
                 .addTask {
                     display: flex;
@@ -1064,7 +1066,7 @@
                         align-items: center;
                     }
                     .addTaskHead {
-                        width: 422px;
+                        width: 300px;
                         display: flex;
                         flex-direction: column;
                         align-items: flex-start;
@@ -1075,5 +1077,26 @@
                         top: 14px;
                         right: 20px;
                         z-index: 15;
+                    }
+                    .addTaskBody label input,
+                    .addTaskBody label textarea {
+                        width: 256px;
+                    }
+                    .addTaskDropdown {
+                        width: 256px;
+                    }
+                    .addTaskDropdownMenu {
+                        width: 298px;
+                    }
+                    .addTaskPrioSec {
+                        width: 300px;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                    }
+                    .addTaskPrio {
+                        width: 124px;
+                    }
+                    .addTaskSubtask {
+                        width: 300px;
                     }
                 }
