@@ -677,7 +677,7 @@
                     font-size: 21px;
                     line-height: 120%;
                     overflow: scroll;
-                    height: calc(90vh - 100px);
+                    height: calc(100vh - 189px);
                     padding: 50px;
                     -ms-overflow-style: none;
                     /* IE and Edge */
@@ -1018,11 +1018,8 @@
                     }
                 }
                 
-                @media (max-width: 1260px) {
-                    .addTask {
-                        overflow-y: scroll;
-                    }
-                    .addTaskBody form {
+                @media (max-width: 1330px) {
+                    .addTaskBody {
                         flex-direction: column;
                     }
                     .addTaskBodyLeft,
@@ -1035,7 +1032,30 @@
                     }
                 }
                 
+                @media (max-width:1150px) {
+                    .addTaskSubmitButtons {
+                        flex-direction: column;
+                        align-items: flex-end;
+                    }
+                }
+                
+                @media (max-width: 1000px) {
+                    .addTaskClear {
+                        display: none;
+                    }
+                    .addTaskSubmit {
+                        position: fixed;
+                        top: 14px;
+                        right: 36px;
+                        z-index: 15;
+                    }
+                }
+                
                 @media (max-width: 850px) {
+                    .addTaskScroll {
+                        height: calc(100vh - 160px);
+                        padding: 0;
+                    }
                     .addTask {
                         height: calc(100vh - 160px);
                         padding: 80px 0px;
@@ -1048,5 +1068,12 @@
                         display: flex;
                         flex-direction: column;
                         align-items: flex-start;
+                    }
+                    .addTaskSubmit {
+                        position: fixed;
+                        height: 51px;
+                        top: 14px;
+                        right: 20px;
+                        z-index: 15;
                     }
                 }
