@@ -25,7 +25,7 @@
         <div class="boardHead">
             <span class="sectionHeadline">Board</span>
             <div>
-                <form class="searchForm" onsubmit=" ;return false">
+                <form class="searchForm" onsubmit="return false">
                     <input type="text" required class="input" placeholder="Find Task" id="searchTask" onkeyup="search()">
                     <button class="searchIcon"><img src="./img/icon-search.svg" alt=""></button>
                 </form>
@@ -35,29 +35,39 @@
                 </div>
             </div>
         </div>
-        <div class="boardTaskStatus">
-            <div>
-                <span>To do</span>
-                <img src="./img/plus-button.svg" onclick="showAddTaskOnBoard()">
-            </div>
-            <div>
-                <span>In Progress</span>
-                <img src="./img/plus-button.svg" onclick="showAddTaskOnBoard()">
-            </div>
-            <div>
-                <span>Awaiting Feedback</span>
-                <img src="./img/plus-button.svg" onclick="showAddTaskOnBoard()">
-            </div>
-            <div>
-                <span>Done</span>
-                <img src="./img/plus-button.svg" onclick="showAddTaskOnBoard()">
-            </div>
-        </div>
+        <form class="searchFormMobile" onsubmit="return false">
+            <input type="text" required class="input" placeholder="Find Task" id="searchTask" onkeyup="search()">
+            <button class="searchIcon"><img src="./img/icon-search.svg" alt=""></button>
+        </form>
         <div class="boardTask">
-            <div class="taskToDo" id="toDo" ondrop="moveTo('toDo')" ondragover="allowDrop(event); highlightDrop(0)" ondragleave="showDropCont()"></div>
-            <div class="taskInProgress" id="inProgress" ondrop="moveTo('inProgress')" ondragover="allowDrop(event); highlightDrop(1)" ondragleave="showDropCont()"></div>
-            <div class="taskAwaitingFeedback" id="awaitingFeedback" ondrop="moveTo('awaitingFeedback')" ondragover="allowDrop(event); highlightDrop(2)" ondragleave="showDropCont()"></div>
-            <div class="taskDone" id="done" ondrop="moveTo('done')" ondragover="allowDrop(event); highlightDrop(3)" ondragleave="showDropCont()"></div>
+            <div class="boardTaskStatus">
+                <div class="statusHeadline">
+                    <span>To do</span>
+                    <img src="./img/plus-button.svg" onclick="showAddTaskOnBoard()">
+                </div>
+                <div class="taskToDo" id="toDo" ondrop="moveTo('toDo')" ondragover="allowDrop(event); highlightDrop(0)" ondragleave="showDropCont()"></div>
+            </div>
+            <div class="boardTaskStatus">
+                <div class="statusHeadline">
+                    <span>In Progress</span>
+                    <img src="./img/plus-button.svg" onclick="showAddTaskOnBoard()">
+                </div>
+                <div class="taskInProgress" id="inProgress" ondrop="moveTo('inProgress')" ondragover="allowDrop(event); highlightDrop(1)" ondragleave="showDropCont()"></div>
+            </div>
+            <div class="boardTaskStatus">
+                <div class="statusHeadline">
+                    <span>Awaiting Feedback</span>
+                    <img src="./img/plus-button.svg" onclick="showAddTaskOnBoard()">
+                </div>
+                <div class="taskAwaitingFeedback" id="awaitingFeedback" ondrop="moveTo('awaitingFeedback')" ondragover="allowDrop(event); highlightDrop(2)" ondragleave="showDropCont()"></div>
+            </div>
+            <div class="boardTaskStatus">
+                <div class="statusHeadline">
+                    <span>Done</span>
+                    <img src="./img/plus-button.svg" onclick="showAddTaskOnBoard()">
+                </div>
+                <div class="taskDone" id="done" ondrop="moveTo('done')" ondragover="allowDrop(event); highlightDrop(3)" ondragleave="showDropCont()"></div>
+            </div>
         </div>
     </section>
     <section class="bigTaskBg dNone" id="bigTaskBg" onclick="closeBigTask()">
