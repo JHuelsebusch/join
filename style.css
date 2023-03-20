@@ -6,7 +6,7 @@
 }
 
 :root {
-    --bg-main: #f5f5f5;
+    --bg-main: #F6F7F8;
     --bg-white: #ffffff;
     --bg-blue: #2a3647;
     --bg-highlight: #091931;
@@ -62,7 +62,6 @@ body {
 .logo img {
     height: 122px;
     width: 100px;
-    /* margin-top: 66px; */
 }
 
 .menu {
