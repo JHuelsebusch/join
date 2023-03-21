@@ -411,7 +411,7 @@ function addContactHTML() {
                   <div id="mobile_contAddRight" class="contAddRight">
                       <div onclick="closePopup()" class= "contAddRightClose"> <img src="./img/contact_close.svg" alt=""></div>
                       <div class="contAddEdit">
-                          <div class="contAddEditIcon"> <img src="/img/Vector.svg" alt=""></div>
+                          <div id = "mobile_contAddEditIcon" class="contAddEditIcon"> <img src="/img/Vector.svg" alt=""></div>
   
                           <form  onsubmit="addContact(); return false" class="contAddForm">
                               <div><input required id = "inputName" type ="text" placeholder="Name Surname" class="contInputEdit"><img class="contFormImg" src="./img/contact_icon_min.svg"></div>
