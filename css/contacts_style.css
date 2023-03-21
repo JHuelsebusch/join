@@ -421,6 +421,10 @@ body {
     margin-top: 50px;
 }
 
+#mobile_contAddEditIcon .contAddEditIcon {
+    background-color: rgb(209,209,209);
+}
+
 .contAddEditIcon {
     width: 115px;
     vertical-align: middle;
@@ -828,6 +832,8 @@ body {
 
 /*---RESPONSIVE */
 @media(max-width:1660px) {
+
+   
     .cont_main_container_right_titel {
         margin-left: 29px;
         justify-content: center;
@@ -902,7 +908,7 @@ body {
     }
 
     .contDetailBottom div {
-        margin-top: 5px;
+        margin-top: 10px;
         margin-right: 5px;
     }
 
@@ -910,7 +916,7 @@ body {
         width: 18px;
         height: 18px;
         padding: 9px;
-        margin-left: 0px !important;
+        margin-left: 0px;
         margin-left: 5px;
     }
 }
@@ -1132,8 +1138,8 @@ body {
     }
 
     .contactContainer {
-        justify-content: center !important;
-        min-width: 65%;
+        justify-content: flex-start !important;
+        min-width: 60%;
         margin-right: 15px;
         padding: 5px;
         margin-left: 30px;
@@ -1242,20 +1248,13 @@ body {
         left: unset;
     }
 
-    #mobile_contAddEditIcon .contAddEditIcon {
-        position: absolute;
-        top: -100px;
-        background-color: rgb(209, 209, 209);
-        align-items: center;
-        justify-content: center;
-        margin-left: 25%;
-        margin-bottom: 5px;
-    }
+
 
     .contAddEditIcon {
         margin-right: 5px;
-        margin-top: -140px;
+        margin-top: -150px;
         margin-bottom: 10px;
+        background-color: grey;
     }
 
     .contAddEdit form {
@@ -1295,7 +1294,7 @@ body {
     }
 
     .contBasket {
-
+        margin-left: 5px;
         position: sticky;
     }
 

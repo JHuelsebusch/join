@@ -362,45 +362,45 @@ body {
 /* Profile Colors */
 
 .profileColor-0 {
-    background-color: #9327FF;
+    background-color: #9327FF!important;
 }
 
 .profileColor-1 {
-    background-color: #FFA800;
+    background-color: #FFA800!important;
 }
 
 .profileColor-2 {
-    background-color: #0223CF;
+    background-color: #0223CF!important;
 }
 
 .profileColor-3 {
-    background-color: #CB02CF;
+    background-color: #CB02CF!important;
 }
 
 .profileColor-4 {
-    background-color: #AF1616;
+    background-color: #AF1616!important;
 }
 
 .profileColor-5 {
-    background-color: #159030;
+    background-color: #159030!important;
 }
 
 .profileColor-6 {
-    background-color: #0190E0;
+    background-color: #0190E0!important;
 }
 
 .profileColor-7 {
-    background-color: #FF5C00;
+    background-color: #FF5C00!important;
 }
 
 .profileColor-8 {
-    background-color: #54b53e;
+    background-color: #54b53e!important;
 }
 
 .profileColor-9 {
-    background-color: #32DAFF;
+    background-color: #32DAFF!important;
 }
 
 .profileColorMoreUsers {
-    background-color: var(--bg-blue);
+    background-color: var(--bg-blue)!important;
 }
