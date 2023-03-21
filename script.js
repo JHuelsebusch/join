@@ -31,6 +31,14 @@ function logout() {
     window.location.href = `index.html?msg=Du hast dich erfolgreich ausgeloggt!`;
 }
 
+function goToLegalNotice() {
+    window.location.href = `impressum.html`;
+}
+
+function goToHelp() {
+    window.location.href = `help.html`;
+}
+
 /**
  * This function generates last charakter.
  * @param {string} contactId - This is the Id of contact you want to show

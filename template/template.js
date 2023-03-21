@@ -27,8 +27,8 @@ function getNavbarTemplate() {
                 <div onclick="showProfileMenu()"><img src="./img/christina-wocintechchat-com-0Zx1bDv5BNY-unsplash 1.png" alt=""></div>
             </div>
             <div class="profileMenu dNone" id="profileMenu">
-                <div class="mobileProfileMenu">Help</div>
-                <div class="mobileProfileMenu">Legal notice</div>
+                <div onclick="goToHelp()" class="mobileProfileMenu">Help</div>
+                <div onclick="goToLegalNotice()" class="mobileProfileMenu">Legal notice</div>
                 <div class="mobileProfileMenu dNone">Privacy statement</div>
                 <div onclick="logout()">Log Out</div>
             </div>
@@ -456,8 +456,8 @@ function loadContactListHTML(element, initials, index, colorId) {
  */
 
 function toggleActive() {
-   let contMainRight = document.getElementById("cont_main_container_right");
-   contMainRight.classList.add("d-flex");
+    let contMainRight = document.getElementById("cont_main_container_right");
+    contMainRight.classList.add("d-flex");
     var containers = document.getElementsByClassName("contactContainer");
     for (let i = 0; i < containers.length; i++) {
         containers[i].classList.remove("active");
