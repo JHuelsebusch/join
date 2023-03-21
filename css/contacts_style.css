@@ -1151,6 +1151,7 @@ body {
         align-items: center;
         margin-left: none;
         overflow-y: none;
+        position: fixed;
     }
 
     .contactInitial {
