@@ -156,10 +156,10 @@ function fktSurname(contact) {
  *
  */
 
-function loadContactDetail(index, initials) {
+function loadContactDetail(index, initials, colorId) {
     let contactDetail = document.getElementById("contDisplay");
     contactDetail.innerHTML = "";
-    contactDetail.innerHTML += contactDetailHTML(index, initials);
+    contactDetail.innerHTML += contactDetailHTML(index, initials, colorId);
 }
 
 /**
@@ -215,11 +215,11 @@ function checkId(searchId) {
  * This function is used to open the diplay for editing
  *
  */
-function openEditDisplay(initials, index) {
+function openEditDisplay(initials, index, colorId) {
     let element = document.getElementById("cont_popup_id");
     element.classList.remove("d-none");
     element.innerHTML = "";
-    element.innerHTML = editContactHTML(initials, index);
+    element.innerHTML = editContactHTML(initials, index, colorId);
 }
 /**
  * This function is used for editing the contact details

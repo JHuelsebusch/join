@@ -412,7 +412,7 @@ function addContactHTML() {
                   </div>
   
                   <div id="mobile_contAddRight" class="contAddRight">
-                      <div onclick="closePopup()" class= "contAddRightClose"> <img src="./img/contact_close.svg" alt=""></div>
+                      <div id="contAddRightClose" onclick="closePopup()" class= "contAddRightClose"> <img src="./img/contact_close.svg" alt=""></div>
                       <div class="contAddEdit">
                           <div id = "mobile_contAddEditIcon" class="contAddEditIcon"> <img src="/img/Vector.svg" alt=""></div>
   
@@ -438,7 +438,7 @@ function addContactHTML() {
  */
 function loadContactListHTML(element, initials, index, colorId) {
     return `
-        <div id = "contactContainer-${index}"class="contactContainer" onclick="toggleActive();loadContactDetail('${index}','${initials}')">
+        <div id = "contactContainer-${index}"class="contactContainer" onclick="toggleActive();loadContactDetail('${index}','${initials}','${colorId}')">
             <div class="contactInitial profileColor-${colorId}">
                 ${initials}
             </div>
@@ -467,11 +467,11 @@ function toggleActive() {
 /**
  * This function is used to generate a HTML-Template
  */
-function contactDetailHTML(index, initials) {
+function contactDetailHTML(index, initials, colorId) {
     let contact = contacts[index];
     document.getElementById(`contactContainer-${index}`).classList.add("active");
 
-    return `
+    return /*html*/`
   
       <div class= "contDetailBg animationSlideIn" id="contDetail">
   
@@ -486,8 +486,8 @@ function contactDetailHTML(index, initials) {
   
       <div class="contDetailMid"> 
         <div class="contDetailMidLeft"><p>Contact&nbspInformation</p></div>
-        <div class="contDetailMidRight" onclick="openEditDisplay('${initials}','${index}')">
-          <img src="./img/contacts_icon_pen.svg"><p>Edit&nbspContact</p></div>
+        <div class="contDetailMidRight" onclick="openEditDisplay('${initials}','${index}', '${colorId}')">
+          <img src = "/img/contacts_icon_pen.svg"> <p>Edit&nbspContact</p></div>
       </div>
   
       <div class= "contDetailBottom">
@@ -520,7 +520,7 @@ function getContactIndexForEmail(email) {
   return contactIndex;
 }
 
-function editContactHTML(initials, index) {
+function editContactHTML(initials, index, colorId) {
   let contact = contacts[index];
   return `
       <div id="contAddBg" class= "contAddBg" onclick="closePopup()">
@@ -534,9 +534,7 @@ function editContactHTML(initials, index) {
                   <div class="contAddRight">
                       <div onclick="closePopup()" class= "contAddRightClose"> <img src="./img/contact_close.svg" alt="close"></div>
                       <div class="contAddEdit">
-                          <div class="contAddEditIcon profileColor-${
-                            contact[`id`]
-                          }"><p>${initials}</p></div>
+                          <div class="contAddEditIcon profileColor-${colorId}"><p>${initials}</p></div>
   
                           <form  onsubmit="contactEdit('${index}'); return false" class="contAddForm">
                               <div><input required id = "editName" value ="${
