@@ -26,10 +26,9 @@
     align-items: center;
     padding: 35px 0px;
     position: absolute;
-    width: 652px;
-    /* white */
+    width: 90%;
+    max-width: 652px;
     background: #FFFFFF;
-    /* shadoe backlog box */
     box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
     border-radius: 30px;
 }
@@ -51,11 +50,9 @@
 .signUpHeader {
     width: 315px;
     height: 73px;
-    /* Version 2/t1 */
     font-weight: 700;
     font-size: 61px;
     line-height: 120%;
-    /* or 73px */
     text-align: center;
     color: #000000;
 }
@@ -71,13 +68,10 @@
 
 .input {
     box-sizing: border-box;
-    /* Auto layout */
     padding: 13px 21px;
     background: #FFFFFF;
-    /* Style */
     border: 1px solid #D1D1D1;
     border-radius: 10px;
-    /* or 25px */
 }
 
 .input input {
@@ -107,7 +101,6 @@
     font-weight: 700;
     font-size: 21px;
     line-height: 120%;
-    /* or 25px */
     color: #FFFFFF;
     transition: 200ms;
 }
@@ -120,7 +113,24 @@
 
 .button:active {
     background: #FFFFFF;
-    /* stronger */
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     color: black;
+}
+
+@media(max-width:400px) {
+    .headerLeft {
+        top: 20px;
+    }
+    .input input {
+        width: 220px;
+    }
+    .arrow {
+        top: 10px;
+        left: 10px;
+    }
+    .btn {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
 }
