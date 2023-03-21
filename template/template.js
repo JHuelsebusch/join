@@ -113,7 +113,10 @@ function createAssignedToMoreUsers(moreUsers) {
  */
 function createBigTask(task) {
     return `
-    <div class="bigTaskCancel"><img src="./img/icons-cancel.svg" onclick="closeBigTask()"></div>
+    <div class="bigTaskCancel">
+        <img class="cancelDesktop" src="./img/icons-cancel.svg" onclick="closeBigTask()">
+        <img class="cancelMobile" src="./img/arrow-left-black.svg" onclick="closeBigTask()">
+    </div>
     <div class="bigTaskEdit" onclick="showTaskEdit(${task["id"]})"><img src="./img/pencil-white.svg"></div>
     <div class="bigTaskScroll">
     <div>
