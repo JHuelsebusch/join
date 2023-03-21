@@ -451,8 +451,13 @@ function loadContactListHTML(element, initials, index, colorId) {
         </div>`;
 }
 
+/**
+ * This function marks the clicked names in the list
+ */
+
 function toggleActive() {
-    // Löschung der class active
+   let contMainRight = document.getElementById("cont_main_container_right");
+   contMainRight.classList.add("d-flex");
     var containers = document.getElementsByClassName("contactContainer");
     for (let i = 0; i < containers.length; i++) {
         containers[i].classList.remove("active");

@@ -418,7 +418,7 @@ body {
     border-radius: 100%;
     margin-right: 30px;
     border: 2px solid white;
-    background-color: rgb(209,209,209);
+    background-color: rgb(209, 209, 209);
     margin-top: 50px;
 }
 
@@ -808,6 +808,22 @@ body {
 
     background: #29abe2 !important;
 }
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #a2a2a2;
+    border-radius: 5px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #929191;
+  }
 
 /*---RESPONSIVE */
 @media(max-width:1660px) {
@@ -878,6 +894,20 @@ body {
         padding-right: 0px;
         width: 260px;
     }
+    .contBasket img {
+        width: 18px;
+        height: 18px;
+    }
+    .contDetailBottom div {
+        margin-top: 3px;
+    }
+    .contBasket{
+        width: 18px;
+        height: 18px;
+        padding: 9px;
+        margin-left: 0px !important;
+        left:550px;
+    }
 }
 
 @media(max-width:1570px) {
@@ -933,7 +963,76 @@ body {
     }
 }
 
-@media(max-width:1250px) {}
+@media(max-width:1135px) {
+    .menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .menu a {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sideMenu {
+        /* display: none; */
+        position: fixed;
+        bottom: 0px;
+        top: unset;
+        width: 100%;
+        height: 80px;
+        justify-content: space-evenly;
+    }
+    .header {
+        height: 39px;
+        padding: 20px 25px;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .legal {
+        display: none;
+    }
+
+    .mobileLogo {
+        display: block;
+        height: 39px;
+    }
+
+    .mobileLogo img {
+        height: 39px;
+        object-fit: contain;
+    }
+
+    .subheadline {
+        display: none;
+    }
+
+    .headerProfile a {
+        display: none;
+    }
+
+    .headerProfile div {
+        height: 39px;
+        width: 39px;
+    }
+
+    .headerProfile div img {
+        height: 31px;
+        width: 31px;
+    }
+    .contMainContainerLeft{
+        min-width: 360px;
+        left: 0px;
+        top: 82px;
+    }
+    .cont_add_btn{
+    margin-bottom: 100px
+    }
+}
 
 @media(max-width:930px) {
 
@@ -1001,6 +1100,8 @@ body {
 
     .cont_main_container_right {
         display: none;
+        width: 100vw;
+
     }
 
     .contMainContainerLeft {
@@ -1057,7 +1158,7 @@ body {
         position: absolute !important;
         display: flex !important;
         z-index: 10 !important;
-        top: 95px !important;
+        top: 89px !important;
         right: 15px;
     }
 
@@ -1077,23 +1178,28 @@ body {
         border-bottom-left-radius: 0px !important;
         margin-top: 115px;
     }
+
     #mobile_contAddContainerLeft div {
         align-items: flex-start !important;
         display: flex !important;
     }
-    .contAddContainerLeft h3{
-        font-size:47px!important;
-        
+
+    .contAddContainerLeft h3 {
+        font-size: 47px !important;
+
     }
-    .contAddContainerLeft img{
+
+    .contAddContainerLeft img {
         display: none;
     }
-    .contAddContainerLeft p{
-        font-size:21px!important;
+
+    .contAddContainerLeft p {
+        font-size: 21px !important;
     }
-    .contAddRightClose img{
+
+    .contAddRightClose img {
         filter: invert(100%);
-        top:390px;
+        top: 390px;
         position: relative;
     }
 
@@ -1112,14 +1218,16 @@ body {
         border-bottom-left-radius: 20px !important;
         border-top-right-radius: 0px !important;
     }
+
     #mobile_contAddEditIcon {
         position: absolute;
         top: -100px;
-        background-color: rgb(209,209,209);
+        background-color: rgb(209, 209, 209);
         align-items: center;
         justify-content: center;
         margin-left: 25%;
     }
+
     .contAddEdit form {
         align-items: center;
     }
@@ -1129,11 +1237,19 @@ body {
         width: 0px;
         padding: 10px 15px;
     }
-    .contCancelBtn{
+
+    .contCancelBtn {
         display: none !important;
     }
+
     .menu a {
         padding: 0px;
-        
     }
+
+    .d-flex {
+        display: flex;
+        position: absolute;
+        z-index: 9;
+    }
+
 }
