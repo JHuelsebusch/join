@@ -8,13 +8,17 @@ async function initContacts() {
     loadContactList();
 }
 
-// Open Popup
+/**
+ * This function is used to open the Popup
+ */
 function open_popup() {
     document.getElementById("cont_popup_id").innerHTML = "";
     loadOverlay();
 }
 
-// Close Popup
+/**
+ * This function is used to close the Popup
+ */
 
 function closePopup() {
     document.getElementById("animationId").classList.add("animationSlideOut");
@@ -62,7 +66,7 @@ async function addContact() {
         phone: phone,
     };
 
-    // push
+    
     contacts.push(data);
     saveContact();
     loadContactList();
@@ -74,8 +78,7 @@ async function addContact() {
 }
 /**
  *This function ensures that the initial letter is always displayed in capital letters
- * @param {string} name - this
- * @returns
+ * 
  */
 
 function greatLetter(name) {
@@ -91,8 +94,7 @@ function greatLetter(name) {
 
 /**
  * This function ensures that the initial letter is always displayed in capital letters
- * @param {*} surname
- * @returns
+ * 
  */
 function greatLetterSurname(surname) {
     let greateSurname =
@@ -102,7 +104,7 @@ function greatLetterSurname(surname) {
 /**
  * This function lists the names of the contacts alphabetically
  */
-// !!! HTML TEMPLATE  AUSLAGERN!!!
+
 
 function loadContactList() {
     let contactList = document.getElementById(`contactsList`);
@@ -248,6 +250,10 @@ async function contactEdit(index) {
     loadContactList();
     await initContacts();
 }
+/**
+ * This function is used to turning back
+ *
+ */
 function backTo(){
     window.location.href = "contacts.html";
 }
