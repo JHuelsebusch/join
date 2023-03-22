@@ -14,8 +14,7 @@
                     font-size: 21px;
                     line-height: 120%;
                     overflow: scroll;
-                    height: calc(100vh - 189px);
-                    padding: 50px;
+                    height: calc(100vh - 89px);
                     -ms-overflow-style: none;
                     /* IE and Edge */
                     scrollbar-width: none;

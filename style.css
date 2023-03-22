@@ -184,6 +184,12 @@ body {
     display: none;
 }
 
+.sectionHeadline {
+    font-size: var(--font-sectionHeadline);
+    font-weight: 700;
+    line-height: 120%;
+}
+
 
 /* Navbar & Header Responsive */
 
