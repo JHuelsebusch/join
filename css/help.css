@@ -19,7 +19,6 @@ body {
     padding-right: 75px;
     overflow-x: hidden;
     padding: 89px 60px 0px 292px;
-
 }
 
 .helpMobile {
@@ -48,7 +47,6 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     margin-bottom: 25px;
-
 }
 
 .helpMainTop h2 {
@@ -80,7 +78,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
 }
 
 .helpMainBottomDescriptionList {
@@ -89,7 +86,6 @@ body {
 }
 
 .helpNumber {
-
     width: 21px;
     height: 40px;
     font-style: normal;
@@ -119,7 +115,6 @@ body {
     overflow-x: hidden;
     padding: 89px 60px 0px 292px;
 }
-
 
 .legalImpressum h1 {
     font-weight: 700;
@@ -170,13 +165,13 @@ body {
 }
 
 @media(max-width:850px) {
-    .legalImpressum, .legalImpressumEng {
-        padding: 77px 46px 0px 43px;
+    .legalImpressum,
+    .legalImpressumEng {
+        padding: 79px 53px 0px 20px;
         padding-bottom: 100px;
     }
-
     .helpContainer {
-        padding: 135px 53px 0px 22px;
-        padding-bottom: 100px;
+        padding: 79px 53px 0px 20px;
+        height: calc(100vh - 80px - 79px);
     }
 }

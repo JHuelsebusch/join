@@ -39,6 +39,9 @@ function goToHelp() {
     window.location.href = `help.html`;
 }
 
+function backTo() {
+    window.location.href = "summary.html";
+}
 /**
  * This function generates last charakter.
  * @param {string} contactId - This is the Id of contact you want to show
