@@ -152,9 +152,31 @@ body {
     height: 100vh;
 }
 
-@media(max-width:930px) {
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #a2a2a2;
+    border-radius: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #929191;
+}
+
+@media(max-width:850px) {
     .legalImpressum, .legalImpressumEng {
         padding: 77px 46px 0px 43px;
+        padding-bottom: 100px;
+    }
 
+    .helpContainer {
+        padding: 135px 53px 0px 22px;
+        padding-bottom: 100px;
     }
 }
