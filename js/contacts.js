@@ -167,6 +167,7 @@ function loadContactDetail(index, initials, colorId) {
  */
 async function saveContact() {
     await backend.setItem("contacts", JSON.stringify(contacts));
+    backTo();
 }
 
 /**
