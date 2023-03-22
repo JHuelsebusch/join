@@ -1279,7 +1279,7 @@ body {
     .d-flex {
         display: flex;
         position: absolute;
-        z-index: 9;
+        z-index: 8;
     }
 
     .contDisplay {
