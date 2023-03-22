@@ -422,7 +422,7 @@ body {
 }
 
 #mobile_contAddEditIcon .contAddEditIcon {
-    background-color: rgb(209,209,209);
+    background-color: rgb(209, 209, 209);
 }
 
 .contAddEditIcon {
@@ -689,10 +689,11 @@ body {
     justify-content: space-between;
     margin: 10px;
     cursor: pointer;
-    padding: 14px;
+    align-items: center;
+    padding: 3px;
 }
 
-.contDetailMidRight :hover {
+.contDetailMidRight:hover {
     background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(241, 241, 241, 1) 100%);
     border-radius: 10px;
     cursor: pointer;
@@ -712,7 +713,7 @@ body {
     font-size: 19px;
     line-height: 120%;
     margin-top: 7px;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
     padding: 8px;
 }
 
@@ -833,7 +834,7 @@ body {
 /*---RESPONSIVE */
 @media(max-width:1660px) {
 
-   
+
     .cont_main_container_right_titel {
         margin-left: 29px;
         justify-content: center;
@@ -927,7 +928,7 @@ body {
         z-index: 0;
         position: absolute;
         left: 232px;
-        min-width: 390px;
+
     }
 
     .cont_main_container_right {
@@ -947,7 +948,7 @@ body {
     }
 
     .contactListContainer h4 {
-        margin-left: 1px !important;
+        margin-left: 5px !important;
     }
 
     .contactContainer {
@@ -1038,7 +1039,8 @@ body {
     }
 
     .contMainContainerLeft {
-        min-width: 360px;
+
+
         left: 0px;
         top: 82px;
     }
@@ -1119,6 +1121,7 @@ body {
     }
 
     .contMainContainerLeft {
+        height: calc(100% - 230px);
         width: 100vw;
         left: 0;
     }
@@ -1132,23 +1135,18 @@ body {
 
     .contactListContainer {
         display: flex;
-        align-items: center;
-        left: 40px;
-
     }
 
     .contactContainer {
         justify-content: flex-start !important;
-        min-width: 60%;
-        margin-right: 15px;
+        margin-right: 10px;
         padding: 5px;
-        margin-left: 30px;
+        margin-left: 12px;
 
     }
 
     .contMainContainerLeft {
         display: flex;
-        align-items: center;
         margin-left: none;
         overflow-y: none;
         position: fixed;
@@ -1217,6 +1215,7 @@ body {
         top: 390px;
         position: relative;
     }
+
     #contAddRightClose img {
         filter: invert(100%);
         top: 450px;
@@ -1302,6 +1301,7 @@ body {
     .contDetailTop {
         justify-content: space-between;
     }
+
     .cont_main_container_right_titel img {
         display: flex !important;
         position: absolute;
@@ -1312,6 +1312,11 @@ body {
         height: 20px;
         cursor: pointer;
     }
-    
+
+    .sepLine {
+        width: 95vw;
+
+    }
+
 
 }
