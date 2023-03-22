@@ -688,18 +688,22 @@ function search() {
     let search = document.getElementById('searchTask').value;
     search = search.toLowerCase();
     generateEmptyBoard();
-    for (let t = 0; t < tasks.length; t++) {
-        let task = tasks[t];
-        if(task['title'].toLowerCase().includes(search) || task['description'].toLowerCase().includes(search)) {
-            document.getElementById(`${task[`taskStatus`]}`).innerHTML += createTaskOnBoard(task);
-            
-            if(task['subtasks']){
-                if(task['subtasks'].length>0){
-                generateProgressBar(task);
+    if(search.length == 0){
+        initBoard()
+    } else{
+        for (let t = 0; t < tasks.length; t++) {
+            let task = tasks[t];
+            if(task['title'].toLowerCase().includes(search) || task['description'].toLowerCase().includes(search)) {
+                document.getElementById(`${task[`taskStatus`]}`).innerHTML += createTaskOnBoard(task);
+                
+                if(task['subtasks']){
+                    if(task['subtasks'].length>0){
+                    generateProgressBar(task);
+                }
+                }
+                generateAssignedTo(task);
             }
-            }
-            generateAssignedTo(task);
         }
+        generateOnDragTask();
     }
-    generateOnDragTask();
 }
