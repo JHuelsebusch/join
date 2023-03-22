@@ -477,7 +477,7 @@ function contactDetailHTML(index, initials, colorId) {
   
         <div class="contDetailTop">
           <div class="contDetailLetter profileColor-${
-            contact[`id`]
+            colorId
           }"><p>${initials}</p></div>
           <div class="contName"><h2>${contact.name}&nbsp${
     contact.surname
