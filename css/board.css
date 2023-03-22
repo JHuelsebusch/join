@@ -626,6 +626,10 @@
                     width: unset !important;
                 }
                 
+                #addTaskCategoryMenu {
+                    z-index: 6;
+                }
+                
                 .taskEditInitials {
                     display: flex;
                     gap: 8px;
@@ -641,40 +645,6 @@
                     border-radius: 58px;
                     border: 1px solid #ffffff;
                     color: var(--text-white);
-                }
-                /* Departments */
-                
-                .sales {
-                    background-color: #FC71FF;
-                }
-                
-                .design {
-                    background-color: #FF7A00;
-                }
-                
-                .backoffice {
-                    background-color: #1FD7C1;
-                }
-                
-                .media {
-                    background-color: #FFC701;
-                }
-                
-                .marketing {
-                    background-color: #0038FF;
-                }
-                /* Prio */
-                
-                .urgent {
-                    background-color: #FF3D00 !important;
-                }
-                
-                .medium {
-                    background-color: #FFA800 !important;
-                }
-                
-                .low {
-                    background-color: #7AE229 !important;
                 }
                 /* Add Task on Board */
                 

@@ -173,6 +173,14 @@
                     text-transform: uppercase;
                 }
                 
+                .taskDropdown {
+                    border-radius: 10px 10px 0 0 !important;
+                }
+                
+                #addTaskCategoryMenu {
+                    z-index: 6;
+                }
+                
                 .categoryColor {
                     width: 20px;
                     height: 20px;
