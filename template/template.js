@@ -487,7 +487,7 @@ function contactDetailHTML(index, initials, colorId) {
       <div class="contDetailMid"> 
         <div class="contDetailMidLeft"><p>Contact&nbspInformation</p></div>
         <div class="contDetailMidRight" onclick="openEditDisplay('${initials}','${index}', '${colorId}')">
-          <img src = "/img/contacts_icon_pen.svg"> <p>Edit&nbspContact</p></div>
+          <img src = "./img/contacts_icon_pen.svg"> <p>Edit&nbspContact</p></div>
       </div>
   
       <div class= "contDetailBottom">
