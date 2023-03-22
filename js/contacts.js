@@ -247,3 +247,6 @@ async function contactEdit(index) {
     loadContactList();
     await initContacts();
 }
+function backTo(){
+    window.location.href = "contacts.html";
+}

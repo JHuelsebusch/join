@@ -21,15 +21,24 @@
     <nav id="navbar"></nav>
     <section class="cont_section">
       <!--  LEFT  -->
-      <div id="contactsList" class="contMainContainerLeft custom-scrollbar">
-      </div>
-      <button id="mobileBtn" onclick="open_popup()" class="cont_add_btn"> New contact&nbsp;<img src="img/contact_icon.svg" /></button>
+      <div
+        id="contactsList"
+        class="contMainContainerLeft custom-scrollbar"
+      ></div>
+      <button id="mobileBtn" onclick="open_popup()" class="cont_add_btn">
+        New contact&nbsp;<img src="img/contact_icon.svg" />
+      </button>
       <!--  RIGHT  -->
       <div id="cont_main_container_right" class="cont_main_container_right">
         <div class="cont_main_container_right_titel">
           <h1>Contacts</h1>
           <div class="cont_separator"></div>
           <h3>Better with a team</h3>
+          <img
+            onclick="backTo()"
+            class="helpBackBtn d-none"
+            src="img/help_arrow.svg"
+          />
         </div>
 
         <div class="contDisplay" id="contDisplay"></div>

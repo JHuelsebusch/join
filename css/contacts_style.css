@@ -1172,7 +1172,7 @@ body {
     #mobileBtn {
         position: absolute !important;
         display: flex !important;
-        z-index: 10 !important;
+        z-index: 8 !important;
         top: 89px !important;
         right: 15px;
     }
@@ -1301,6 +1301,16 @@ body {
 
     .contDetailTop {
         justify-content: space-between;
+    }
+    .cont_main_container_right_titel img {
+        display: flex !important;
+        position: absolute;
+        right: 15px;
+        top: 118px;
+        z-index: 10;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
     }
 
 }
