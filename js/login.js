@@ -3,7 +3,7 @@ let currentUserName = [];
 let users = [];
 
 async function init() {
-    loadUsers();
+    await loadUsers();
     messageBoxAnimation();
     loggedin();
 }

@@ -1,8 +1,15 @@
-setURL('https://gruppe-06i.developerakademie.net/smallest_backend_ever');
+let users = [];
 
 async function init() {
-    await downloadFromServer();
-    users = JSON.parse(backend.getItem('users')) || [];
+    await loadUsers();
+}
+
+async function loadUsers() {
+    try {
+        users = JSON.parse(await getItemFromStorage('users'));
+    } catch (e) {
+        console.error('Loading error:', e);
+    }
 }
 
 async function resetPassword() {
@@ -14,7 +21,7 @@ async function resetPassword() {
     if (user.email === email) {
         if (newPassword.value === confirmPassword.value) {
             user.password = newPassword.value;
-            await backend.setItem("users", JSON.stringify(users));
+            await setItemToStorage('users', JSON.stringify(users));
             resetYourPassword();
             //BESTÄTIGUNGSANIMATION
             setTimeout(function() {
