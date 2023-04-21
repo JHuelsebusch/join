@@ -1,13 +1,26 @@
 let contacts = [];
 
 async function initContacts() {
-    await downloadFromServer();
-    contacts = JSON.parse(backend.getItem("contacts")) || [];
-    tasks = JSON.parse(backend.getItem("tasks")) || [];
+    await loadTasks();
+    await loadContacts();
 
     loadContactList();
 }
 
+async function loadContacts() {
+    try {
+        contacts = JSON.parse(await getItemFromStorage('contacts'));
+    } catch (e) {
+        console.error('Loading error:', e);
+    }
+}
+async function loadTasks() {
+    try {
+        tasks = JSON.parse(await getItemFromStorage('tasks'));
+    } catch (e) {
+        console.error('Loading error:', e);
+    }
+}
 /**
  * This function is used to open the Popup
  */
@@ -66,7 +79,7 @@ async function addContact() {
         phone: phone,
     };
 
-    
+
     contacts.push(data);
     saveContact();
     loadContactList();
@@ -168,7 +181,7 @@ function loadContactDetail(index, initials, colorId) {
  * This function is used to save the new contact in the backend
  */
 async function saveContact() {
-    await backend.setItem("contacts", JSON.stringify(contacts));
+    await setItemToStorage('contacts', JSON.stringify(contacts));
     backTo();
 }
 
@@ -197,7 +210,7 @@ async function deleteContInArray(index) {
     } //Löscht gesamten Array
     else {
         contacts.splice(index, 1);
-        await backend.setItem("contacts", JSON.stringify(contacts));
+        await setItemToStorage('contacts', JSON.stringify(contacts));
     }
 }
 /**
@@ -254,6 +267,6 @@ async function contactEdit(index) {
  * This function is used to turning back
  *
  */
-function backTo(){
+function backTo() {
     window.location.href = "contacts.html";
 }

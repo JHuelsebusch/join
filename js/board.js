@@ -1,4 +1,4 @@
-setURL('https://gruppe-06i.developerakademie.net/smallest_backend_ever');
+// setURL('https://gruppe-06i.developerakademie.net/smallest_backend_ever');
 let currentDraggedElement;
 let tasks = [];
 let contacts = [];
@@ -7,19 +7,32 @@ let contacts = [];
  * Startfunction at board
  */
 async function initBoard() {
-    await downloadFromServer();
-    tasks = JSON.parse(backend.getItem('tasks')) || [];
-    contacts = JSON.parse(backend.getItem('contacts')) || [];
-
+    await loadTasks();
+    await loadContacts();
     renderBoard();
+}
+
+async function loadTasks() {
+    try {
+        tasks = JSON.parse(await getItemFromStorage('tasks'));
+    } catch (e) {
+        console.error('Loading error:', e);
+    }
+}
+
+async function loadContacts() {
+    try {
+        contacts = JSON.parse(await getItemFromStorage('contacts'));
+    } catch (e) {
+        console.error('Loading error:', e);
+    }
 }
 
 /**
  * This function is used to save tasks on backend
  */
 async function saveTask() {
-    await backend.setItem('tasks', JSON.stringify(tasks));
-    console.log("Task saved");
+    await setItemToStorage('tasks', JSON.stringify(tasks));
 }
 
 /**
@@ -437,9 +450,8 @@ function closeAddTaskOnBoard(){
 let categories = ['design','media', 'backoffice','sales','marketing'];
 let newTask = [];
 async function initAddTask() {
-    await downloadFromServer();
-    tasks = JSON.parse(backend.getItem('tasks')) || [];
-    contacts = JSON.parse(backend.getItem('contacts')) || [];
+    await loadTasks();
+    await loadContacts();
     document.getElementById('addTask').innerHTML = createAddTask();
 }
 function openAddTaskCategory() {

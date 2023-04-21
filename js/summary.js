@@ -1,12 +1,27 @@
 setURL('https://gruppe-06i.developerakademie.net/smallest_backend_ever');
 
 async function initSummary() {
-    await downloadFromServer();
-    users = JSON.parse(backend.getItem('users')) || [];
-    tasks = JSON.parse(backend.getItem('tasks')) || [];
+    await loadUsers();
+    await loadTasks();
     getLoggedUser();
     renderSummary();
 
+}
+
+async function loadUsers() {
+    try {
+        users = JSON.parse(await getItemFromStorage('users'));
+    } catch (e) {
+        console.error('Loading error:', e);
+    }
+}
+
+async function loadTasks() {
+    try {
+        tasks = JSON.parse(await getItemFromStorage('tasks'));
+    } catch (e) {
+        console.error('Loading error:', e);
+    }
 }
 
 function getCurrentUser() {

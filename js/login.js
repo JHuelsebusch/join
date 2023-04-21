@@ -1,13 +1,18 @@
 let currentUser = [];
 let currentUserName = [];
-
-setURL('https://gruppe-06i.developerakademie.net/smallest_backend_ever');
+let users = [];
 
 async function init() {
-    await downloadFromServer();
-    users = JSON.parse(backend.getItem('users')) || [];
+    loadUsers();
     messageBoxAnimation();
     loggedin();
+}
+async function loadUsers() {
+    try {
+        users = JSON.parse(await getItemFromStorage('users'));
+    } catch (e) {
+        console.error('Loading error:', e);
+    }
 }
 
 function loggedin() {
