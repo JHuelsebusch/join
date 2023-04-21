@@ -1,5 +1,3 @@
-setURL('https://gruppe-06i.developerakademie.net/smallest_backend_ever');
-
 async function initSummary() {
     await loadUsers();
     await loadTasks();
