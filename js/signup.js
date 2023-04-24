@@ -1,11 +1,17 @@
 let users = [];
-setURL('https://gruppe-06i.developerakademie.net/smallest_backend_ever');
 
 let newID = 0;
 
 async function init() {
-    await downloadFromServer();
-    users = JSON.parse(backend.getItem('users')) || [];
+    await loadUsers();
+}
+
+async function loadUsers() {
+    try {
+        users = JSON.parse(await getItemFromStorage('users'));
+    } catch (e) {
+        console.error('Loading error:', e);
+    }
 }
 
 async function addUser() {
