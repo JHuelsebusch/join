@@ -21,7 +21,7 @@ async function addUser() {
 
 
     users.push({ id: newID, name: name.value, email: email.value, password: password.value })
-    await backend.setItem('users', JSON.stringify(users));
+    await setItemToStorage('users', JSON.stringify(users));
     newID += newID + 1;
     console.log(newID);
     //weiterleitung zu Login-Seite
